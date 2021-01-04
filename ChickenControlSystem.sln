@@ -3,7 +3,19 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.30320.27
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ChickenControlSystem", "ChickenControlSystem\ChickenControlSystem.csproj", "{21CC7467-9A7D-4A4D-9208-A55F7F120DA6}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "HardwareAbstractionLayer", "HardwareAbstractionLayer", "{73764B87-25AB-46B6-B9BD-62BDB8DFF29C}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "HardwareCommunicationLayer", "HardwareCommunicationLayer", "{A67788A1-F279-4769-BA52-3A0B31CCD671}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ControlLine", "ControlLine\ControlLine.csproj", "{174A753F-0620-4237-BDFD-46E1D9475103}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DoorModule", "DoorModule\DoorModule.csproj", "{82CF0491-91DF-4D32-B8B7-C9A472398AAB}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LightModule", "LightModule\LightModule.csproj", "{9B6246A6-A58D-4FC6-A9FF-2EDD51B8B37E}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ControlSystem", "ControlSystem", "{AB571DB7-9CD8-4B28-B42A-0E266727EB4E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ChickenControlSystem", "ChickenControlSystem\ChickenControlSystem.csproj", "{AC2F7F62-D5C8-4BEE-BDD9-6C51E44C5682}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -11,13 +23,31 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{21CC7467-9A7D-4A4D-9208-A55F7F120DA6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{21CC7467-9A7D-4A4D-9208-A55F7F120DA6}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{21CC7467-9A7D-4A4D-9208-A55F7F120DA6}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{21CC7467-9A7D-4A4D-9208-A55F7F120DA6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{174A753F-0620-4237-BDFD-46E1D9475103}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{174A753F-0620-4237-BDFD-46E1D9475103}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{174A753F-0620-4237-BDFD-46E1D9475103}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{174A753F-0620-4237-BDFD-46E1D9475103}.Release|Any CPU.Build.0 = Release|Any CPU
+		{82CF0491-91DF-4D32-B8B7-C9A472398AAB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{82CF0491-91DF-4D32-B8B7-C9A472398AAB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{82CF0491-91DF-4D32-B8B7-C9A472398AAB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{82CF0491-91DF-4D32-B8B7-C9A472398AAB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9B6246A6-A58D-4FC6-A9FF-2EDD51B8B37E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9B6246A6-A58D-4FC6-A9FF-2EDD51B8B37E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9B6246A6-A58D-4FC6-A9FF-2EDD51B8B37E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9B6246A6-A58D-4FC6-A9FF-2EDD51B8B37E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AC2F7F62-D5C8-4BEE-BDD9-6C51E44C5682}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AC2F7F62-D5C8-4BEE-BDD9-6C51E44C5682}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AC2F7F62-D5C8-4BEE-BDD9-6C51E44C5682}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AC2F7F62-D5C8-4BEE-BDD9-6C51E44C5682}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{174A753F-0620-4237-BDFD-46E1D9475103} = {A67788A1-F279-4769-BA52-3A0B31CCD671}
+		{82CF0491-91DF-4D32-B8B7-C9A472398AAB} = {73764B87-25AB-46B6-B9BD-62BDB8DFF29C}
+		{9B6246A6-A58D-4FC6-A9FF-2EDD51B8B37E} = {73764B87-25AB-46B6-B9BD-62BDB8DFF29C}
+		{AC2F7F62-D5C8-4BEE-BDD9-6C51E44C5682} = {AB571DB7-9CD8-4B28-B42A-0E266727EB4E}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {EC6C8F85-99C9-4B88-ADD1-00937B62E4F2}
