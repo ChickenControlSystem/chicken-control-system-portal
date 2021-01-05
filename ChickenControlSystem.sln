@@ -17,6 +17,10 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ControlSystem", "ControlSys
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ChickenControlSystem", "ChickenControlSystem\ChickenControlSystem.csproj", "{AC2F7F62-D5C8-4BEE-BDD9-6C51E44C5682}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Utilities", "Utilities", "{DE2526E3-7B0F-4611-8190-A58A8F5ACACD}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ChickenUnit", "ChickenUnit\ChickenUnit.csproj", "{753CD737-3DD9-44CC-8ECC-49E0B322E7CB}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -39,6 +43,10 @@ Global
 		{AC2F7F62-D5C8-4BEE-BDD9-6C51E44C5682}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{AC2F7F62-D5C8-4BEE-BDD9-6C51E44C5682}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{AC2F7F62-D5C8-4BEE-BDD9-6C51E44C5682}.Release|Any CPU.Build.0 = Release|Any CPU
+		{753CD737-3DD9-44CC-8ECC-49E0B322E7CB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{753CD737-3DD9-44CC-8ECC-49E0B322E7CB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{753CD737-3DD9-44CC-8ECC-49E0B322E7CB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{753CD737-3DD9-44CC-8ECC-49E0B322E7CB}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -48,6 +56,7 @@ Global
 		{82CF0491-91DF-4D32-B8B7-C9A472398AAB} = {73764B87-25AB-46B6-B9BD-62BDB8DFF29C}
 		{9B6246A6-A58D-4FC6-A9FF-2EDD51B8B37E} = {73764B87-25AB-46B6-B9BD-62BDB8DFF29C}
 		{AC2F7F62-D5C8-4BEE-BDD9-6C51E44C5682} = {AB571DB7-9CD8-4B28-B42A-0E266727EB4E}
+		{753CD737-3DD9-44CC-8ECC-49E0B322E7CB} = {DE2526E3-7B0F-4611-8190-A58A8F5ACACD}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {EC6C8F85-99C9-4B88-ADD1-00937B62E4F2}
