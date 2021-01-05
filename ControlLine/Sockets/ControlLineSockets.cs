@@ -6,13 +6,7 @@ namespace ControlLine.Sockets
 {
     public class ControlLineSockets : IControlLine
     {
-        private UdpClient _udpClient;
         
-        private ControlLineSockets(UdpClient udpClient)
-        {
-            _udpClient = udpClient;
-        }
-
         public string Recieve()
         {
             throw new System.NotImplementedException();
