@@ -10,7 +10,7 @@ namespace ControlLine.Contract.Sockets
         /// <summary>
         /// connects to an ip and port
         /// </summary>
-        void Connect(EndPoint endPoint);
+        void Connect();
 
         /// <summary>
         /// sends a UTF-8 data in one go
