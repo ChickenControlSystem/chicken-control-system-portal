@@ -2,12 +2,13 @@
 using System.Net;
 using System.Net.Sockets;
 using ControlLine.Contract.Sockets;
+using ControlLine.Dto;
 using NSubstitute;
 using NSubstitute.ExceptionExtensions;
 using NSubstitute.ReceivedExtensions;
 using NUnit.Framework;
 
-namespace ControlLineUnitTests.ControlLineSocketsTests.Scenarios.Send.When
+namespace ControlLineUnitTests.ControlLineSocketsTests.Scenarios.SendOperation.When
 {
     /// <summary>
     /// covers situations
@@ -16,7 +17,7 @@ namespace ControlLineUnitTests.ControlLineSocketsTests.Scenarios.Send.When
     /// <para>* when socket doesnt exist</para>
     /// </summary>
     [TestFixture]
-    public class When_Sockets_Connection_Cannot_Be_Opened : Given_Send_Is_Called
+    public class When_Sockets_Connection_Cannot_Be_Opened : Given_Read_Is_Called
     {
         private readonly Exception _exception;
         private readonly SocketException _socketException = new SocketException(10048);
@@ -28,7 +29,7 @@ namespace ControlLineUnitTests.ControlLineSocketsTests.Scenarios.Send.When
                 .Do(x => throw _socketException );
             try
             {
-                Sut.Send("random data");
+                Sut.SendOperation(new OperationDto{Name = 0, Device = 0, Params = new Byte[]{0}});
             }
             catch (Exception e)
             {

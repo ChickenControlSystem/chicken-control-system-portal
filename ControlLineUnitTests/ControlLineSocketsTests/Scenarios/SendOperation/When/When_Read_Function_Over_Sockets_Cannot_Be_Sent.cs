@@ -1,9 +1,10 @@
 ﻿using System;
 using System.Net.Sockets;
+using ControlLine.Dto;
 using NSubstitute;
 using NUnit.Framework;
 
-namespace ControlLineUnitTests.ControlLineSocketsTests.Scenarios.Send.When
+namespace ControlLineUnitTests.ControlLineSocketsTests.Scenarios.SendOperation.When
 {
 
     /// <summary>
@@ -13,20 +14,20 @@ namespace ControlLineUnitTests.ControlLineSocketsTests.Scenarios.Send.When
     /// <para>* when socket was unexpectedly closed</para>
     /// </summary>
     [TestFixture]
-    public class When_Data_Over_Sockets_Cannot_Be_Sent : Given_Send_Is_Called
+    public class When_Read_Function_Over_Sockets_Cannot_Be_Sent : Given_Read_Is_Called
     {
         private readonly Exception _exception;
         private readonly SocketException _socketException = new SocketException(10048);
-        private const string Payload = "random string";
+        private const string Payload = "read";
         
-        public When_Data_Over_Sockets_Cannot_Be_Sent()
+        public When_Read_Function_Over_Sockets_Cannot_Be_Sent()
         {
             MockSocketClient
-                .When(x => x.Send(Payload))
+                .When(x => x.Send("read"))
                 .Do(x =>  throw _socketException );
             try
             {
-                Sut.Send("random data");
+                Sut.SendOperation(new OperationDto{Name = 0, Device = 0, Params = new Byte[]{0}});
             }
             catch (Exception e)
             {

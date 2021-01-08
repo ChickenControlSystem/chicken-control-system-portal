@@ -2,6 +2,7 @@
 using System.Net.Sockets;
 using ControlLine.Contract;
 using ControlLine.Contract.Sockets;
+using ControlLine.Dto;
 
 namespace ControlLine.Sockets
 {
@@ -15,12 +16,7 @@ namespace ControlLine.Sockets
             _socketClient = socketClient;
         }
 
-        public string Recieve()
-        {
-            throw new System.NotImplementedException();
-        }
-
-        public void Send(string data)
+        public string SendOperation(OperationDto operationDto)
         {
             throw new System.NotImplementedException();
         }

@@ -1,18 +1,15 @@
-﻿namespace ControlLine.Contract
+﻿using ControlLine.Dto;
+
+namespace ControlLine.Contract
 {
     /// <summary>
-    /// performs all the actions to send/recieve data on the control line
+    /// performs the actions to send data over the control line
     /// </summary>
     public interface IControlLine
     {
         /// <summary>
-        /// waits on the control line until data is received
+        /// sends an operation dto over to the control
         /// </summary>
-        string Recieve();
-        
-        /// <summary>
-        /// sends data over the control line
-        /// </summary>
-        void Send(string data);
+        string SendOperation(OperationDto operationDto);
     }
 }
