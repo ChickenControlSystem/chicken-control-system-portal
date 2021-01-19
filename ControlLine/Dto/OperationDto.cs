@@ -4,10 +4,10 @@ namespace ControlLine.Dto
 {
     public class OperationDto
     {
-        public byte Name { get; set; }
+        public byte Operation { get; set; }
         
         public byte Device { get; set; }
         
-        public byte[] Params { get; set; }
+        public int[] Params { get; set; }
     }
 }

@@ -10,6 +10,6 @@ namespace ControlLine.Contract
         /// <summary>
         /// sends an operation dto over to the control
         /// </summary>
-        string SendOperation(OperationDto operationDto);
+        OperationResponseDto SendOperation(OperationDto operationDto);
     }
 }

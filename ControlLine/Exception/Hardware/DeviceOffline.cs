@@ -3,7 +3,7 @@
     /// <summary>
     /// when a device fails to acknowledge the request
     /// </summary>
-    public class DeviceOffline : System.Exception
+    public class DeviceOffline : DeviceFailiure
     {
         
     }

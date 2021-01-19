@@ -15,12 +15,12 @@ namespace ControlLine.Contract.Sockets
         /// <summary>
         /// sends a UTF-8 data in one go
         /// </summary>
-        void Send(string payload);
+        void Send(byte[] payload);
 
         /// <summary>
         /// blocking call to receive from socket
         /// </summary>
-        string Recieve();
+        byte[] Recieve();
 
         /// <summary>
         /// closes client socket

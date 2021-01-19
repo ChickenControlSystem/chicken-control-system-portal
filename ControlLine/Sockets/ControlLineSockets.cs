@@ -10,13 +10,15 @@ namespace ControlLine.Sockets
     {
 
         private IRawSocketClient _socketClient;
+        private IControlLineStatusValidator _statusValidator;
 
-        public ControlLineSockets(IRawSocketClient socketClient)
+        public ControlLineSockets(IRawSocketClient socketClient, IControlLineStatusValidator statusValidator)
         {
             _socketClient = socketClient;
+            _statusValidator = statusValidator;
         }
-
-        public string SendOperation(OperationDto operationDto)
+        
+        public OperationResponseDto SendOperation(OperationDto operationDto)
         {
             throw new System.NotImplementedException();
         }
