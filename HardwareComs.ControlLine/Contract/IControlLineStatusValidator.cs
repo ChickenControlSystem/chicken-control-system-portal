@@ -11,7 +11,7 @@ namespace ControlLine.Contract
         /// returns error based on status code
         /// </summary>
         public DeviceFailiure ValidateError(byte status);
-        
+
         /// <summary>
         /// returns true if the status is an error
         /// returns false if the status is success

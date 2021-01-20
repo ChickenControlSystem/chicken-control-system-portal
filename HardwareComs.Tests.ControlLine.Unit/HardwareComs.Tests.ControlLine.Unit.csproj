@@ -4,6 +4,8 @@
         <TargetFramework>netcoreapp3.1</TargetFramework>
 
         <IsPackable>false</IsPackable>
+
+        <RootNamespace>ControlLineUnitTests</RootNamespace>
     </PropertyGroup>
 
     <ItemGroup>
@@ -14,7 +16,7 @@
     </ItemGroup>
 
     <ItemGroup>
-      <ProjectReference Include="..\ControlLine\ControlLine.csproj" />
+        <ProjectReference Include="..\HardwareComs.ControlLine\HardwareComs.ControlLine.csproj"/>
     </ItemGroup>
 
 </Project>

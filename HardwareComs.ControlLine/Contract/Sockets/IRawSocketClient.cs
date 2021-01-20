@@ -1,6 +1,4 @@
-﻿using System.Net;
-
-namespace ControlLine.Contract.Sockets
+﻿namespace ControlLine.Contract.Sockets
 {
     /// <summary>
     /// a module that receives and sends to a raw ip socket server
