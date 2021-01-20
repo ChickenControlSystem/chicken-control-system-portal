@@ -1,4 +1,5 @@
-﻿using System.Linq;
+﻿using System;
+using System.Linq;
 using ControlLine.Dto;
 using ControlLine.Exception.Hardware;
 using ControlLine.Exception.Hardware.Axis;
@@ -15,7 +16,12 @@ namespace ControlLineUnitTests.ControlLineSocketsTests.Scenarios.SendOperation.W
         private readonly byte _status = 115;
 
         private readonly OperationDto _operation = new OperationDto()
-            {Operation = 115, Device = 121, Params = new[] {65535}};
+        {
+            Operation = 115,
+            Device = 121,
+            Params = new[] {65535},
+            Timeout = Timeout
+        };
 
         private readonly DeviceFailiure _deviceFailiure = new AxisObstruction();
 
@@ -31,8 +37,8 @@ namespace ControlLineUnitTests.ControlLineSocketsTests.Scenarios.SendOperation.W
             MockStatusValidator
                 .ValidateError(Arg.Any<byte>())
                 .Returns(_deviceFailiure);
-            MockSocketClient
-                .Recieve()
+            MockThreadOperations
+                .WaitUntilTimeout(Arg.Any<Func<byte[]>>(), Arg.Any<int>())
                 .Returns(new[] {_status});
         }
 
@@ -40,7 +46,7 @@ namespace ControlLineUnitTests.ControlLineSocketsTests.Scenarios.SendOperation.W
         {
             try
             {
-                Sut.SendOperation(_operation, TimeOut);
+                Sut.SendOperation(_operation);
             }
             catch (DeviceFailiure)
             {
@@ -49,7 +55,7 @@ namespace ControlLineUnitTests.ControlLineSocketsTests.Scenarios.SendOperation.W
 
         private void WhenWithErrors()
         {
-            Sut.SendOperation(_operation, TimeOut);
+            Sut.SendOperation(_operation);
         }
 
         [Test]
@@ -90,9 +96,15 @@ namespace ControlLineUnitTests.ControlLineSocketsTests.Scenarios.SendOperation.W
             When();
 
             //assert
-            MockSocketClient
+            MockThreadOperations
                 .Received(1)
-                .Recieve();
+                .WaitUntilTimeout(Arg.Any<Func<byte[]>>(), Arg.Any<int>());
+            MockThreadOperations
+                .Received()
+                .WaitUntilTimeout(
+                    Arg.Any<Func<byte[]>>(),
+                    Arg.Is(Timeout)
+                );
         }
 
         [Test]

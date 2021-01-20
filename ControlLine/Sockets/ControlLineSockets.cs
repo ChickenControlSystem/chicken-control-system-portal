@@ -1,11 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Net;
 using System.Net.Sockets;
-using System.Threading.Tasks;
 using ControlLine.Contract;
 using ControlLine.Contract.Sockets;
+using ControlLine.Contract.Threading;
 using ControlLine.Dto;
 using ControlLine.Exception;
 
@@ -14,17 +13,19 @@ namespace ControlLine.Sockets
     //TODO: refactor out hard coded data types
     public class ControlLineSockets : IControlLine
     {
-
         private IRawSocketClient _socketClient;
         private IControlLineStatusValidator _statusValidator;
+        private IThreadOperations _threadOperations;
 
-        public ControlLineSockets(IRawSocketClient socketClient, IControlLineStatusValidator statusValidator)
+        public ControlLineSockets(IRawSocketClient socketClient, IControlLineStatusValidator statusValidator,
+            IThreadOperations threadOperations)
         {
             _socketClient = socketClient;
             _statusValidator = statusValidator;
+            _threadOperations = threadOperations;
         }
-        
-        public OperationResponseDto SendOperation(OperationDto operationDto,int timeout)
+
+        public OperationResponseDto SendOperation(OperationDto operationDto)
         {
             var paramBytes = new List<byte>();
             foreach (var param in operationDto.Params)
@@ -32,63 +33,44 @@ namespace ControlLine.Sockets
                 paramBytes.Add(GetDataType(param));
                 paramBytes.AddRange(ValueToBytes(param));
             }
-            
+
             var payload = new List<byte> {operationDto.Operation, operationDto.Device}.Concat(paramBytes).ToArray();
             try
             {
                 _socketClient.Connect();
                 _socketClient.Send(payload);
-                var task = Task.Run(() => _socketClient.Recieve());
-                if (task.Wait(timeout))
+                try
                 {
-                    var response = task.Result;
+                    var response =
+                        _threadOperations.WaitUntilTimeout(() => _socketClient.Recieve(), operationDto.Timeout);
                     if (_statusValidator.IsError(response[0]))
                     {
                         throw _statusValidator.ValidateError(response[0]);
                     }
                     else
                     {
-                        return new OperationResponseDto()
+                        return new OperationResponseDto
                         {
                             Status = response[0],
                             Returns = BytesToValue(response.Skip(1).ToArray())
                         };
                     }
                 }
-                else
+                catch (ThreadTimeout)
                 {
                     throw new ControlLineTimeOut();
                 }
             }
-            catch (AggregateException e)
-            {
-                if (e.InnerException != null && e.InnerException.GetType() == typeof(SocketException))
-                {
-                    throw new ControlLineOffline();
-                }
-                else if (e.InnerException != null)
-                {
-                    throw e.InnerException;
-                }
-                else
-                {
-                    throw new NullReferenceException();
-                }
-            }
-            catch (SocketException e)
+            catch (SocketException)
             {
                 throw new ControlLineOffline();
-            }
-            catch (System.Exception e)
-            {
-                throw e;
             }
             finally
             {
                 _socketClient.Close();
             }
         }
-        
+
         private IEnumerable<byte> ValueToBytes(int value)
         {
             var bytes = BitConverter.GetBytes(value);
@@ -100,7 +82,7 @@ namespace ControlLine.Sockets
                 _ => throw new ArgumentException("value must be 8/16 bits")
             };
         }
-        
+
         private int BytesToValue(IReadOnlyList<byte> bytes)
         {
             return bytes[0] switch

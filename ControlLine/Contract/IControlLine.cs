@@ -1,5 +1,4 @@
-﻿using System.Threading.Tasks;
-using ControlLine.Dto;
+﻿using ControlLine.Dto;
 
 namespace ControlLine.Contract
 {
@@ -11,6 +10,6 @@ namespace ControlLine.Contract
         /// <summary>
         /// sends an operation dto over to the control
         /// </summary>
-        OperationResponseDto SendOperation(OperationDto operationDto,int timeout);
+        OperationResponseDto SendOperation(OperationDto operationDto);
     }
 }
