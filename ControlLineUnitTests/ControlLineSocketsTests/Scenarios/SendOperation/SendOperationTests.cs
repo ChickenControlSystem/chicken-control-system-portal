@@ -1,5 +1,7 @@
-﻿using ControlLine.Contract;
+﻿using System;
+using ControlLine.Contract;
 using ControlLine.Contract.Sockets;
+using ControlLine.Dto;
 using ControlLine.Sockets;
 using NSubstitute;
 
@@ -8,11 +10,11 @@ namespace ControlLineUnitTests.ControlLineSocketsTests.Scenarios.SendOperation
     public abstract class SendOperationTests
     {
 
-        protected readonly ControlLineSockets Sut;
-        protected readonly IRawSocketClient MockSocketClient;
-        protected readonly IControlLineStatusValidator MockStatusValidator;
+        protected ControlLineSockets Sut;
+        protected IRawSocketClient MockSocketClient;
+        protected IControlLineStatusValidator MockStatusValidator;
 
-        protected SendOperationTests()
+        protected void Init()
         {
             MockStatusValidator = Substitute.For<IControlLineStatusValidator>();
             MockSocketClient = Substitute.For<IRawSocketClient>();

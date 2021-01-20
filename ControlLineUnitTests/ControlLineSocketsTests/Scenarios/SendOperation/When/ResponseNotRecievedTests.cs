@@ -1,4 +1,4 @@
-﻿using System;
+﻿using System.Linq;
 using System.Net.Sockets;
 using ControlLine.Dto;
 using ControlLine.Exception;
@@ -12,33 +12,39 @@ namespace ControlLineUnitTests.ControlLineSocketsTests.Scenarios.SendOperation.W
     [Description("Given ControlLineSockets.SendOperation Is Called, When Response Cannot Be Received")]
     public class ResponseNotRecievedTests : SendOperationTests
     {
-        private readonly Exception _exception;
         private readonly SocketException _socketException = new SocketException(10048);
         private readonly byte[] _payload = new byte[]{115,121,1,255,255};
-        private readonly OperationDto _operation = new OperationDto() {Operation = 115, Device = 121, Params = new int[] {65535}};
-        
-        public ResponseNotRecievedTests()
-        { 
+        private readonly OperationDto _operation = new OperationDto() {Operation = 115, Device = 121, Params = new [] {65535}};
+
+        [SetUp]
+        protected new void Init()
+        {
+            base.Init();
+            
+            //arrange
             MockSocketClient
                 .When(x => x.Recieve())
                 .Do(x =>  throw _socketException );
-
-            try
-            {
-                Sut.SendOperation(
-                    _operation
-                );
-            }
-            catch (Exception e)
-            {
-                _exception = e;
-            }
         }
-
+        
+        private void When()
+        {
+            try { Sut.SendOperation(_operation); }catch (ControlLineOffline) { }
+        }
+        
+        private void WhenWithErrors()
+        {
+            Sut.SendOperation(_operation);
+        }
+        
         [Test]
         [Description("Then Connection Was Opened")]
         public void ConnectionOpenTest()
-        {
+        {                        
+            //act
+            When();
+            
+            //assert
             MockSocketClient
                 .Received(1)
                 .Connect();
@@ -46,12 +52,16 @@ namespace ControlLineUnitTests.ControlLineSocketsTests.Scenarios.SendOperation.W
         
         //TODO: change to 1 method call
         [Test]
-        [Description("Then Payload Was Attempted To Be Sent")]
+        [Description("Then Payload Was Sent")]
         public void PayloadSendTest()
-        {
+        {                       
+            //act
+            When();
+
+            //assert
             MockSocketClient
                 .Received()
-                .Send(Arg.Is(_payload));
+                .Send(Arg.Is<byte[]>( payload => payload.SequenceEqual(_payload)));
             MockSocketClient
                 .Received(1)
                 .Send(Arg.Any<byte[]>());
@@ -60,7 +70,11 @@ namespace ControlLineUnitTests.ControlLineSocketsTests.Scenarios.SendOperation.W
         [Test]
         [Description("Then Data Was Attempted To Be Received")]
         public void DataRecievedTest()
-        {
+        {                       
+            //act
+            When();
+
+            //assert
             MockSocketClient
                 .Received(1)
                 .Recieve();
@@ -69,7 +83,11 @@ namespace ControlLineUnitTests.ControlLineSocketsTests.Scenarios.SendOperation.W
         [Test]
         [Description("Then Connection Was Closed")]
         public void ConnectionCloseTest()
-        {
+        {                       
+            //act
+            When();
+
+            //assert
             MockSocketClient
                 .Received(1)
                 .Close();
@@ -78,7 +96,11 @@ namespace ControlLineUnitTests.ControlLineSocketsTests.Scenarios.SendOperation.W
         [Test]
         [Description("Then Response Status Was Not Validated")]
         public void IsErrorTest()
-        {
+        {                       
+            //act
+            When();
+
+            //assert
             MockStatusValidator
                 .DidNotReceive()
                 .IsError(Arg.Any<byte>());
@@ -87,7 +109,11 @@ namespace ControlLineUnitTests.ControlLineSocketsTests.Scenarios.SendOperation.W
         [Test]
         [Description("Then Response Error Was Not Validated")]
         public void ValidateErrorTest()
-        {
+        {                       
+            //act
+            When();
+
+            //assert
             MockStatusValidator
                 .DidNotReceive()
                 .ValidateError(Arg.Any<byte>());
@@ -95,9 +121,10 @@ namespace ControlLineUnitTests.ControlLineSocketsTests.Scenarios.SendOperation.W
         
         [Test]
         [Description("Then Control Line Offline Error Occurs")]
-        public void SocketErrorTest()
+        public void ControlLineOfflineTest()
         {
-            Assert.AreEqual(new ControlLineOffline(),_exception);
+            //assert
+            Assert.Throws<ControlLineOffline>(WhenWithErrors);
         }
     }
 }
