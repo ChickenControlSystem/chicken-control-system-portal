@@ -1,5 +1,4 @@
-﻿
-using System.Linq;
+﻿using System.Linq;
 using System.Threading;
 using ControlLine.Dto;
 using ControlLine.Exception;
@@ -8,41 +7,49 @@ using NUnit.Framework;
 
 namespace ControlLineUnitTests.ControlLineSocketsTests.Scenarios.SendOperation.When
 {
-    [TestFixture(2)]
-    [TestFixture(3)]
+    [TestFixture(11)]
+    [TestFixture(20)]
     [TestFixture(7000)]
     [Description("Given ControlLineSockets.SendOperation Is Called, When Payload Cannot Be Sent")]
-    //TODO: make tests shorter time
     public class ControlLineTimesOutTests : SendOperationTests
     {
-        private readonly byte[] _payload = new byte[]{115,121,1,255,255};
-        private readonly OperationDto _operation = new OperationDto() {Operation = 115, Device = 121, Params = new int[] {65535}};
+        private readonly byte[] _payload = new byte[] {115, 121, 1, 255, 255};
+
+        private readonly OperationDto _operation = new OperationDto()
+            {Operation = 115, Device = 121, Params = new int[] {65535}};
+
         private readonly int _recievePeriod;
-        
+
         public ControlLineTimesOutTests(int recievePeriod)
         {
             _recievePeriod = recievePeriod;
         }
-        
+
         [SetUp]
         protected new void Init()
         {
             base.Init();
-            
+
             //arrange
             MockSocketClient
                 .When(x => x.Recieve())
                 .Do(Callback.Always(x => { Thread.Sleep(_recievePeriod); }));
         }
-        
+
         private void When()
         {
-            try { Sut.SendOperation(_operation,TimeOut); }catch (ControlLineTimeOut) { }
+            try
+            {
+                Sut.SendOperation(_operation, TimeOut);
+            }
+            catch (ControlLineTimeOut)
+            {
+            }
         }
-        
+
         private void WhenWithErrors()
         {
-            Sut.SendOperation(_operation,TimeOut);
+            Sut.SendOperation(_operation, TimeOut);
         }
 
         [Test]
@@ -51,25 +58,25 @@ namespace ControlLineUnitTests.ControlLineSocketsTests.Scenarios.SendOperation.W
         {
             //act
             When();
-            
+
             //assert
             MockSocketClient
                 .Received(1)
                 .Connect();
         }
-        
+
         //TODO: change to 1 method call
         [Test]
         [Description("Then Payload Was Sent")]
         public void PayloadSendTest()
-        { 
+        {
             //act
             When();
 
             //assert
             MockSocketClient
                 .Received()
-                .Send(Arg.Is<byte[]>( payload => payload.SequenceEqual(_payload)));
+                .Send(Arg.Is<byte[]>(payload => payload.SequenceEqual(_payload)));
             MockSocketClient
                 .Received(1)
                 .Send(Arg.Any<byte[]>());
@@ -87,7 +94,7 @@ namespace ControlLineUnitTests.ControlLineSocketsTests.Scenarios.SendOperation.W
                 .Received(1)
                 .Recieve();
         }
-        
+
         [Test]
         [Description("Then Connection Was Closed")]
         public void ConnectionCloseTest()
@@ -113,7 +120,7 @@ namespace ControlLineUnitTests.ControlLineSocketsTests.Scenarios.SendOperation.W
                 .DidNotReceive()
                 .IsError(Arg.Any<byte>());
         }
-        
+
         [Test]
         [Description("Then Response Error Was Not Validated")]
         public void ValidateErrorTest()
@@ -126,7 +133,7 @@ namespace ControlLineUnitTests.ControlLineSocketsTests.Scenarios.SendOperation.W
                 .DidNotReceive()
                 .ValidateError(Arg.Any<byte>());
         }
-        
+
         public void ControlLineTimeOutTest()
         {
             //assert
