@@ -24,7 +24,7 @@ namespace ControlLine.Sockets
             _statusValidator = statusValidator;
         }
         
-        public OperationResponseDto SendOperation(OperationDto operationDto)
+        public OperationResponseDto SendOperation(OperationDto operationDto,int timeout)
         {
             var paramBytes = new List<byte>();
             foreach (var param in operationDto.Params)
@@ -39,7 +39,7 @@ namespace ControlLine.Sockets
                 _socketClient.Connect();
                 _socketClient.Send(payload);
                 var task = Task.Run(() => _socketClient.Recieve());
-                if (task.Wait(5000))
+                if (task.Wait(timeout))
                 {
                     var response = task.Result;
                     if (_statusValidator.IsError(response[0]))

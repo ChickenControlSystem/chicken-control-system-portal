@@ -49,12 +49,12 @@ namespace ControlLineUnitTests.ControlLineSocketsTests.Scenarios.SendOperation.W
         
         private void When()
         {
-            Sut.SendOperation(_operation);
+            Sut.SendOperation(_operation,TimeOut);
         }
         
         private void WhenWithReturn()
         {
-            _result = Sut.SendOperation(_operation);
+            _result = Sut.SendOperation(_operation,TimeOut);
         }
 
         [Test]

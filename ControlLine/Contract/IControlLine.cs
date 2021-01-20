@@ -11,6 +11,6 @@ namespace ControlLine.Contract
         /// <summary>
         /// sends an operation dto over to the control
         /// </summary>
-        OperationResponseDto SendOperation(OperationDto operationDto);
+        OperationResponseDto SendOperation(OperationDto operationDto,int timeout);
     }
 }

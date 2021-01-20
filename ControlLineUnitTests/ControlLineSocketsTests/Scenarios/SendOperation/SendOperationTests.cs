@@ -13,6 +13,7 @@ namespace ControlLineUnitTests.ControlLineSocketsTests.Scenarios.SendOperation
         protected ControlLineSockets Sut;
         protected IRawSocketClient MockSocketClient;
         protected IControlLineStatusValidator MockStatusValidator;
+        protected const int TimeOut = 1;
 
         protected void Init()
         {

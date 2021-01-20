@@ -8,8 +8,8 @@ using NUnit.Framework;
 
 namespace ControlLineUnitTests.ControlLineSocketsTests.Scenarios.SendOperation.When
 {
-    [TestFixture(5001)]
-    [TestFixture(6000)]
+    [TestFixture(2)]
+    [TestFixture(3)]
     [TestFixture(7000)]
     [Description("Given ControlLineSockets.SendOperation Is Called, When Payload Cannot Be Sent")]
     //TODO: make tests shorter time
@@ -37,12 +37,12 @@ namespace ControlLineUnitTests.ControlLineSocketsTests.Scenarios.SendOperation.W
         
         private void When()
         {
-            try { Sut.SendOperation(_operation); }catch (ControlLineTimeOut) { }
+            try { Sut.SendOperation(_operation,TimeOut); }catch (ControlLineTimeOut) { }
         }
         
         private void WhenWithErrors()
         {
-            Sut.SendOperation(_operation);
+            Sut.SendOperation(_operation,TimeOut);
         }
 
         [Test]

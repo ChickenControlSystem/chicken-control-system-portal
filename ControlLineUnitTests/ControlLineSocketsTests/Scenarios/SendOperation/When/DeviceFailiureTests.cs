@@ -38,12 +38,12 @@ namespace ControlLineUnitTests.ControlLineSocketsTests.Scenarios.SendOperation.W
         
         private void When()
         {
-            try { Sut.SendOperation(_operation); }catch (DeviceFailiure) { }
+            try { Sut.SendOperation(_operation,TimeOut); }catch (DeviceFailiure) { }
         }
         
         private void WhenWithErrors()
         {
-            Sut.SendOperation(_operation);
+            Sut.SendOperation(_operation,TimeOut);
         }
 
         [Test]
