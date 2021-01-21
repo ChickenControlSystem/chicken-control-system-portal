@@ -31,13 +31,13 @@ namespace ControlLineIntegrationTests.BerkeleyRawSocketClientTests
                 ConfLoader.GetControlLineSettings().GetEndPoint(),
                 48,
                 _threadOperations,
-                5000
+                2500
             );
         }
 
         protected void CoolDown()
         {
-            Thread.Sleep(5600);
+            Thread.Sleep(5000);
         }
     }
 }
