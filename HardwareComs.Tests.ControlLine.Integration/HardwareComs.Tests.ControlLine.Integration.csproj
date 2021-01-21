@@ -14,4 +14,16 @@
         <PackageReference Include="Microsoft.NET.Test.Sdk" Version="16.4.0"/>
     </ItemGroup>
 
+    <ItemGroup>
+        <Folder Include="BerkeleyRawSocketClientTests\Close"/>
+        <Folder Include="BerkeleyRawSocketClientTests\Connect"/>
+        <Folder Include="BerkeleyRawSocketClientTests\Recieve"/>
+        <Folder Include="BerkeleyRawSocketClientTests\Send"/>
+        <Folder Include="ControlLineSocketsTests\SendOperation\Scenarios"/>
+    </ItemGroup>
+
+    <ItemGroup>
+        <ProjectReference Include="..\HardwareComs.ControlLine\HardwareComs.ControlLine.csproj"/>
+    </ItemGroup>
+
 </Project>

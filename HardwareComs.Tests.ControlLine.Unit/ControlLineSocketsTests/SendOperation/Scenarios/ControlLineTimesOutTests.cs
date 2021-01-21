@@ -1,18 +1,17 @@
 ﻿using System;
 using System.Linq;
-using System.Net.Sockets;
 using ControlLine.Dto;
 using ControlLine.Exception;
 using NSubstitute;
+using NSubstitute.ExceptionExtensions;
 using NUnit.Framework;
 
-namespace ControlLineUnitTests.ControlLineSocketsTests.Scenarios.SendOperation.When
+namespace ControlLineUnitTests.ControlLineSocketsTests.SendOperation.Scenarios
 {
     [TestFixture]
     [Description("Given ControlLineSockets.SendOperation Is Called, When Payload Cannot Be Sent")]
-    public class PayloadNotSentTests : SendOperationTests
+    public class ControlLineTimesOutTests : SendOperationTests
     {
-        private readonly SocketException _socketException = new SocketException(10048);
         private readonly byte[] _payload = {115, 121, 1, 255, 255};
 
         private readonly OperationDto _operation = new OperationDto()
@@ -23,15 +22,17 @@ namespace ControlLineUnitTests.ControlLineSocketsTests.Scenarios.SendOperation.W
             Timeout = Timeout
         };
 
+        private const int RecievePeriod = 100;
+
         [SetUp]
         protected new void Init()
         {
             base.Init();
 
             //arrange
-            MockSocketClient
-                .When(x => x.Send(Arg.Any<byte[]>()))
-                .Do(x => throw _socketException);
+            MockThreadOperations
+                .WaitUntilTimeout(Arg.Any<Func<byte[]>>(), Arg.Any<int>())
+                .Throws<ThreadTimeout>();
         }
 
         private void When()
@@ -40,7 +41,7 @@ namespace ControlLineUnitTests.ControlLineSocketsTests.Scenarios.SendOperation.W
             {
                 Sut.SendOperation(_operation);
             }
-            catch (ControlLineOffline)
+            catch (ControlLineTimeOut)
             {
             }
         }
@@ -81,7 +82,7 @@ namespace ControlLineUnitTests.ControlLineSocketsTests.Scenarios.SendOperation.W
         }
 
         [Test]
-        [Description("Then Data Was Not Received")]
+        [Description("Then Data Was Attempted To Be Received")]
         public void DataRecievedTest()
         {
             //act
@@ -89,8 +90,14 @@ namespace ControlLineUnitTests.ControlLineSocketsTests.Scenarios.SendOperation.W
 
             //assert
             MockThreadOperations
-                .DidNotReceive()
+                .Received(1)
                 .WaitUntilTimeout(Arg.Any<Func<byte[]>>(), Arg.Any<int>());
+            MockThreadOperations
+                .Received()
+                .WaitUntilTimeout(
+                    Arg.Any<Func<byte[]>>(),
+                    Arg.Is(Timeout)
+                );
         }
 
         [Test]
@@ -132,12 +139,10 @@ namespace ControlLineUnitTests.ControlLineSocketsTests.Scenarios.SendOperation.W
                 .ValidateError(Arg.Any<byte>());
         }
 
-        [Test]
-        [Description("Then Control Line Offline Error Occurs")]
-        public void ControlLineOfflineTest()
+        public void ControlLineTimeOutTest()
         {
-            //act/assert
-            Assert.Throws<ControlLineOffline>(WhenWithErrors);
+            //assert
+            Assert.Throws<ControlLineTimeOut>(WhenWithErrors);
         }
     }
 }

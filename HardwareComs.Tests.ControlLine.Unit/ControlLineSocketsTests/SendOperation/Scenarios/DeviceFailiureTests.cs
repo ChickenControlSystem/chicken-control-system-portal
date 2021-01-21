@@ -1,50 +1,29 @@
 ﻿using System;
 using System.Linq;
 using ControlLine.Dto;
+using ControlLine.Exception.Hardware;
+using ControlLine.Exception.Hardware.Axis;
 using NSubstitute;
 using NUnit.Framework;
 
-namespace ControlLineUnitTests.ControlLineSocketsTests.Scenarios.SendOperation.When
+namespace ControlLineUnitTests.ControlLineSocketsTests.SendOperation.Scenarios
 {
-    [TestFixture((byte) 115, (byte) 121, new[] {65535}, new byte[] {115, 121, 1, 255, 255}, (byte) 115, 65535,
-        new byte[] {115, 1, 255, 255})]
-    [TestFixture((byte) 100, (byte) 50, new[] {120}, new byte[] {100, 50, 0, 120}, (byte) 115, 255,
-        new byte[] {115, 0, 255})]
-    [TestFixture((byte) 50, (byte) 90, new[] {111, 112}, new byte[] {50, 90, 0, 111, 0, 112}, (byte) 115, 4351,
-        new byte[] {115, 1, 255, 16})]
-    [TestFixture((byte) 40, (byte) 112, new[] {123, 321}, new byte[] {40, 112, 0, 123, 1, 65, 1}, (byte) 115, 16,
-        new byte[] {115, 0, 16})]
-    [Description("Given ControlLineSockets.SendOperation Is Called, When Response Retrieved Successfully")]
-    public class SuccessTests : SendOperationTests
+    [TestFixture]
+    [Description("Given ControlLineSockets.SendOperation Is Called, When Device Error Occurs")]
+    public class DeviceFailiureTests : SendOperationTests
     {
-        private readonly byte[] _payload;
-        private readonly byte[] _response;
-        private readonly byte _status;
-        private readonly int _returnData;
-        private readonly OperationDto _operation;
-        private readonly OperationResponseDto _operationResponse;
-        private OperationResponseDto _result;
+        private readonly byte[] _payload = {115, 121, 1, 255, 255};
+        private readonly byte _status = 115;
 
-        public SuccessTests(byte operation, byte deviceId, int[] parameters, byte[] payload, byte status,
-            int returnData, byte[] response)
+        private readonly OperationDto _operation = new OperationDto()
         {
-            _payload = payload;
-            _response = response;
-            _status = status;
-            _returnData = returnData;
-            _operation = new OperationDto()
-            {
-                Operation = operation,
-                Device = deviceId,
-                Params = parameters,
-                Timeout = Timeout
-            };
-            _operationResponse = new OperationResponseDto()
-            {
-                Status = _status,
-                Returns = returnData
-            };
-        }
+            Operation = 115,
+            Device = 121,
+            Params = new[] {65535},
+            Timeout = Timeout
+        };
+
+        private readonly DeviceFailiure _deviceFailiure = new AxisObstruction();
 
         [SetUp]
         protected new void Init()
@@ -52,22 +31,31 @@ namespace ControlLineUnitTests.ControlLineSocketsTests.Scenarios.SendOperation.W
             base.Init();
 
             //arrange
-            MockThreadOperations
-                .WaitUntilTimeout(Arg.Any<Func<byte[]>>(), Arg.Any<int>())
-                .Returns(_response);
             MockStatusValidator
                 .IsError(Arg.Any<byte>())
-                .Returns(false);
+                .Returns(true);
+            MockStatusValidator
+                .ValidateError(Arg.Any<byte>())
+                .Returns(_deviceFailiure);
+            MockThreadOperations
+                .WaitUntilTimeout(Arg.Any<Func<byte[]>>(), Arg.Any<int>())
+                .Returns(new[] {_status});
         }
 
         private void When()
         {
-            Sut.SendOperation(_operation);
+            try
+            {
+                Sut.SendOperation(_operation);
+            }
+            catch (DeviceFailiure)
+            {
+            }
         }
 
-        private void WhenWithReturn()
+        private void WhenWithErrors()
         {
-            _result = Sut.SendOperation(_operation);
+            Sut.SendOperation(_operation);
         }
 
         [Test]
@@ -159,20 +147,19 @@ namespace ControlLineUnitTests.ControlLineSocketsTests.Scenarios.SendOperation.W
 
             //assert
             MockStatusValidator
-                .DidNotReceive()
+                .Received(1)
                 .ValidateError(Arg.Any<byte>());
+            MockStatusValidator
+                .Received()
+                .ValidateError(Arg.Is(_status));
         }
 
         [Test]
-        [Description("Then Operation Response Is Returned")]
-        public void ResponseTest()
+        [Description("Then Device Failure Error Occurs")]
+        public void SocketErrorTest()
         {
-            //act
-            WhenWithReturn();
-
-            //assert
-            Assert.AreEqual(_operationResponse.Returns, _result.Returns);
-            Assert.AreEqual(_operationResponse.Status, _result.Status);
+            //act/assert
+            Assert.Throws<AxisObstruction>(WhenWithErrors);
         }
     }
 }

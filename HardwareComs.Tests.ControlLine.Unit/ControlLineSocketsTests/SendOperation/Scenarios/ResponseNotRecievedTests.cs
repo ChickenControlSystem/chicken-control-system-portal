@@ -1,19 +1,20 @@
 ﻿using System;
 using System.Linq;
+using System.Net.Sockets;
 using ControlLine.Dto;
-using ControlLine.Exception.Hardware;
-using ControlLine.Exception.Hardware.Axis;
+using ControlLine.Exception;
 using NSubstitute;
+using NSubstitute.ExceptionExtensions;
 using NUnit.Framework;
 
-namespace ControlLineUnitTests.ControlLineSocketsTests.Scenarios.SendOperation.When
+namespace ControlLineUnitTests.ControlLineSocketsTests.SendOperation.Scenarios
 {
     [TestFixture]
-    [Description("Given ControlLineSockets.SendOperation Is Called, When Device Error Occurs")]
-    public class DeviceFailiureTests : SendOperationTests
+    [Description("Given ControlLineSockets.SendOperation Is Called, When Response Cannot Be Received")]
+    public class ResponseNotRecievedTests : SendOperationTests
     {
+        private readonly SocketException _socketException = new SocketException(10048);
         private readonly byte[] _payload = {115, 121, 1, 255, 255};
-        private readonly byte _status = 115;
 
         private readonly OperationDto _operation = new OperationDto()
         {
@@ -23,23 +24,15 @@ namespace ControlLineUnitTests.ControlLineSocketsTests.Scenarios.SendOperation.W
             Timeout = Timeout
         };
 
-        private readonly DeviceFailiure _deviceFailiure = new AxisObstruction();
-
         [SetUp]
         protected new void Init()
         {
             base.Init();
 
             //arrange
-            MockStatusValidator
-                .IsError(Arg.Any<byte>())
-                .Returns(true);
-            MockStatusValidator
-                .ValidateError(Arg.Any<byte>())
-                .Returns(_deviceFailiure);
             MockThreadOperations
                 .WaitUntilTimeout(Arg.Any<Func<byte[]>>(), Arg.Any<int>())
-                .Returns(new[] {_status});
+                .Throws(_socketException);
         }
 
         private void When()
@@ -48,7 +41,7 @@ namespace ControlLineUnitTests.ControlLineSocketsTests.Scenarios.SendOperation.W
             {
                 Sut.SendOperation(_operation);
             }
-            catch (DeviceFailiure)
+            catch (ControlLineOffline)
             {
             }
         }
@@ -89,7 +82,7 @@ namespace ControlLineUnitTests.ControlLineSocketsTests.Scenarios.SendOperation.W
         }
 
         [Test]
-        [Description("Then Data Was Received")]
+        [Description("Then Data Was Attempted To Be Received")]
         public void DataRecievedTest()
         {
             //act
@@ -120,9 +113,8 @@ namespace ControlLineUnitTests.ControlLineSocketsTests.Scenarios.SendOperation.W
                 .Close();
         }
 
-        //TODO: change to 1 method call
         [Test]
-        [Description("Then Response Status Was Validated")]
+        [Description("Then Response Status Was Not Validated")]
         public void IsErrorTest()
         {
             //act
@@ -130,16 +122,12 @@ namespace ControlLineUnitTests.ControlLineSocketsTests.Scenarios.SendOperation.W
 
             //assert
             MockStatusValidator
-                .Received(1)
+                .DidNotReceive()
                 .IsError(Arg.Any<byte>());
-            MockStatusValidator
-                .Received()
-                .IsError(Arg.Is(_status));
         }
 
-        //TODO: change to 1 method call
         [Test]
-        [Description("Then Response Error Was Validated")]
+        [Description("Then Response Error Was Not Validated")]
         public void ValidateErrorTest()
         {
             //act
@@ -147,19 +135,16 @@ namespace ControlLineUnitTests.ControlLineSocketsTests.Scenarios.SendOperation.W
 
             //assert
             MockStatusValidator
-                .Received(1)
+                .DidNotReceive()
                 .ValidateError(Arg.Any<byte>());
-            MockStatusValidator
-                .Received()
-                .ValidateError(Arg.Is(_status));
         }
 
         [Test]
-        [Description("Then Device Failure Error Occurs")]
-        public void SocketErrorTest()
+        [Description("Then Control Line Offline Error Occurs")]
+        public void ControlLineOfflineTest()
         {
-            //act/assert
-            Assert.Throws<AxisObstruction>(WhenWithErrors);
+            //assert
+            Assert.Throws<ControlLineOffline>(WhenWithErrors);
         }
     }
 }

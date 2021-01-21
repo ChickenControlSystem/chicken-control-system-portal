@@ -5,7 +5,7 @@ using ControlLine.Exception;
 using NSubstitute;
 using NUnit.Framework;
 
-namespace ControlLineUnitTests.ControlLineSocketsTests.Scenarios.SendOperation.When
+namespace ControlLineUnitTests.ControlLineSocketsTests.SendOperation.Scenarios
 {
     [TestFixture]
     [Description("Given ControlLineSockets.SendOperation Is Called, When Connection Cannot Be Opened")]

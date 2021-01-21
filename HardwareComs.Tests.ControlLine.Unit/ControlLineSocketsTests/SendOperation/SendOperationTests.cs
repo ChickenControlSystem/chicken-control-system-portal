@@ -4,7 +4,7 @@ using ControlLine.Contract.Threading;
 using ControlLine.Sockets;
 using NSubstitute;
 
-namespace ControlLineUnitTests.ControlLineSocketsTests.Scenarios.SendOperation
+namespace ControlLineUnitTests.ControlLineSocketsTests.SendOperation
 {
     public abstract class SendOperationTests
     {

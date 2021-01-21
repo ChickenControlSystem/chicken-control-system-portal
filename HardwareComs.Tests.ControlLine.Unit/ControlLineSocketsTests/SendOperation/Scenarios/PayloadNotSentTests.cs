@@ -4,14 +4,13 @@ using System.Net.Sockets;
 using ControlLine.Dto;
 using ControlLine.Exception;
 using NSubstitute;
-using NSubstitute.ExceptionExtensions;
 using NUnit.Framework;
 
-namespace ControlLineUnitTests.ControlLineSocketsTests.Scenarios.SendOperation.When
+namespace ControlLineUnitTests.ControlLineSocketsTests.SendOperation.Scenarios
 {
     [TestFixture]
-    [Description("Given ControlLineSockets.SendOperation Is Called, When Response Cannot Be Received")]
-    public class ResponseNotRecievedTests : SendOperationTests
+    [Description("Given ControlLineSockets.SendOperation Is Called, When Payload Cannot Be Sent")]
+    public class PayloadNotSentTests : SendOperationTests
     {
         private readonly SocketException _socketException = new SocketException(10048);
         private readonly byte[] _payload = {115, 121, 1, 255, 255};
@@ -30,9 +29,9 @@ namespace ControlLineUnitTests.ControlLineSocketsTests.Scenarios.SendOperation.W
             base.Init();
 
             //arrange
-            MockThreadOperations
-                .WaitUntilTimeout(Arg.Any<Func<byte[]>>(), Arg.Any<int>())
-                .Throws(_socketException);
+            MockSocketClient
+                .When(x => x.Send(Arg.Any<byte[]>()))
+                .Do(x => throw _socketException);
         }
 
         private void When()
@@ -82,7 +81,7 @@ namespace ControlLineUnitTests.ControlLineSocketsTests.Scenarios.SendOperation.W
         }
 
         [Test]
-        [Description("Then Data Was Attempted To Be Received")]
+        [Description("Then Data Was Not Received")]
         public void DataRecievedTest()
         {
             //act
@@ -90,14 +89,8 @@ namespace ControlLineUnitTests.ControlLineSocketsTests.Scenarios.SendOperation.W
 
             //assert
             MockThreadOperations
-                .Received(1)
+                .DidNotReceive()
                 .WaitUntilTimeout(Arg.Any<Func<byte[]>>(), Arg.Any<int>());
-            MockThreadOperations
-                .Received()
-                .WaitUntilTimeout(
-                    Arg.Any<Func<byte[]>>(),
-                    Arg.Is(Timeout)
-                );
         }
 
         [Test]
@@ -143,7 +136,7 @@ namespace ControlLineUnitTests.ControlLineSocketsTests.Scenarios.SendOperation.W
         [Description("Then Control Line Offline Error Occurs")]
         public void ControlLineOfflineTest()
         {
-            //assert
+            //act/assert
             Assert.Throws<ControlLineOffline>(WhenWithErrors);
         }
     }
