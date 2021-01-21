@@ -13,11 +13,13 @@ namespace ControlLine.Sockets
     //TODO: refactor out hard coded data types
     public class ControlLineSockets : IControlLine
     {
-        private IRawSocketClient _socketClient;
+        public const int MaxPayloadLength = 48;
+
+        private ISocketClient _socketClient;
         private IControlLineStatusValidator _statusValidator;
         private IThreadOperations _threadOperations;
 
-        public ControlLineSockets(IRawSocketClient socketClient, IControlLineStatusValidator statusValidator,
+        public ControlLineSockets(ISocketClient socketClient, IControlLineStatusValidator statusValidator,
             IThreadOperations threadOperations)
         {
             _socketClient = socketClient;
@@ -42,7 +44,7 @@ namespace ControlLine.Sockets
                 try
                 {
                     var response =
-                        _threadOperations.WaitUntilTimeout(() => _socketClient.Recieve(), operationDto.Timeout);
+                        _threadOperations.WaitUntilFuncTimeout(() => _socketClient.Recieve(), operationDto.Timeout);
                     if (_statusValidator.IsError(response[0]))
                     {
                         throw _statusValidator.ValidateError(response[0]);
@@ -77,8 +79,8 @@ namespace ControlLine.Sockets
 
             return GetDataType(value) switch
             {
-                0 => bytes.Take(1).ToArray(),
-                1 => bytes.Take(2).ToArray(),
+                1 => bytes.Take(1).ToArray(),
+                2 => bytes.Take(2).ToArray(),
                 _ => throw new ArgumentException("value must be 8/16 bits")
             };
         }
@@ -87,8 +89,8 @@ namespace ControlLine.Sockets
         {
             return bytes[0] switch
             {
-                0 => bytes[1],
-                1 => BitConverter.ToUInt16(bytes.Skip(1).Take(2).ToArray()),
+                1 => bytes[1],
+                2 => BitConverter.ToUInt16(bytes.Skip(1).Take(2).ToArray()),
                 _ => throw new ArgumentException("invalid param length, must be 8/16 bits")
             };
         }
@@ -97,8 +99,8 @@ namespace ControlLine.Sockets
         {
             return (value >= 0) switch
             {
-                true when value <= 255 => 0,
-                true when value <= 65535 => 1,
+                true when value <= 255 => 1,
+                true when value <= 65535 => 2,
                 _ => throw new ArgumentException("value must be 8/16 bits")
             };
         }

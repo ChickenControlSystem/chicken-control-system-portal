@@ -3,7 +3,7 @@
     /// <summary>
     /// a module that receives and sends to a raw ip socket server
     /// </summary>
-    public interface IRawSocketClient
+    public interface ISocketClient
     {
         /// <summary>
         /// connects to an ip and port

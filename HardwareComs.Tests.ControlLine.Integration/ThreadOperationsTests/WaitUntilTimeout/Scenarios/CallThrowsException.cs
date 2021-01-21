@@ -4,7 +4,7 @@ using NUnit.Framework;
 
 namespace ControlLineIntegrationTests.ThreadOperationsTests.WaitUntilTimeout.Scenarios
 {
-    [TestFixture(240)]
+    [TestFixture(0)]
     [TestFixture(200)]
     [TestFixture(100)]
     [TestFixture(10)]
@@ -26,7 +26,7 @@ namespace ControlLineIntegrationTests.ThreadOperationsTests.WaitUntilTimeout.Sce
 
         private void When()
         {
-            Sut.WaitUntilTimeout(SutCall, Timeout);
+            Sut.WaitUntilFuncTimeout(SutCall, Timeout);
         }
 
         private byte[] SutCall()

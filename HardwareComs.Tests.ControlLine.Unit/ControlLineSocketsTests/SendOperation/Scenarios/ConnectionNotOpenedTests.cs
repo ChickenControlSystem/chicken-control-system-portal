@@ -84,7 +84,7 @@ namespace ControlLineUnitTests.ControlLineSocketsTests.SendOperation.Scenarios
             //assert
             MockThreadOperations
                 .DidNotReceive()
-                .WaitUntilTimeout(Arg.Any<Func<byte[]>>(), Arg.Any<int>());
+                .WaitUntilFuncTimeout(Arg.Any<Func<byte[]>>(), Arg.Any<int>());
         }
 
         [Test]

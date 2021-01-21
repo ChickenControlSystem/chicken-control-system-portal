@@ -9,7 +9,7 @@ namespace ControlLineUnitTests.ControlLineSocketsTests.SendOperation
     public abstract class SendOperationTests
     {
         protected ControlLineSockets Sut;
-        protected IRawSocketClient MockSocketClient;
+        protected ISocketClient MockSocketClient;
         protected IControlLineStatusValidator MockStatusValidator;
         protected IThreadOperations MockThreadOperations;
 
@@ -18,7 +18,7 @@ namespace ControlLineUnitTests.ControlLineSocketsTests.SendOperation
         protected void Init()
         {
             MockStatusValidator = Substitute.For<IControlLineStatusValidator>();
-            MockSocketClient = Substitute.For<IRawSocketClient>();
+            MockSocketClient = Substitute.For<ISocketClient>();
             MockThreadOperations = Substitute.For<IThreadOperations>();
             Sut = new ControlLineSockets(
                 MockSocketClient,

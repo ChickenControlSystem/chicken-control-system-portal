@@ -6,14 +6,14 @@ using NUnit.Framework;
 
 namespace ControlLineUnitTests.ControlLineSocketsTests.SendOperation.Scenarios
 {
-    [TestFixture((byte) 115, (byte) 121, new[] {65535}, new byte[] {115, 121, 1, 255, 255}, (byte) 115, 65535,
-        new byte[] {115, 1, 255, 255})]
-    [TestFixture((byte) 100, (byte) 50, new[] {120}, new byte[] {100, 50, 0, 120}, (byte) 115, 255,
-        new byte[] {115, 0, 255})]
-    [TestFixture((byte) 50, (byte) 90, new[] {111, 112}, new byte[] {50, 90, 0, 111, 0, 112}, (byte) 115, 4351,
-        new byte[] {115, 1, 255, 16})]
-    [TestFixture((byte) 40, (byte) 112, new[] {123, 321}, new byte[] {40, 112, 0, 123, 1, 65, 1}, (byte) 115, 16,
-        new byte[] {115, 0, 16})]
+    [TestFixture((byte) 115, (byte) 121, new[] {65535}, new byte[] {115, 121, 2, 255, 255}, (byte) 115, 65535,
+        new byte[] {115, 2, 255, 255})]
+    [TestFixture((byte) 100, (byte) 50, new[] {120}, new byte[] {100, 50, 1, 120}, (byte) 115, 255,
+        new byte[] {115, 1, 255})]
+    [TestFixture((byte) 50, (byte) 90, new[] {111, 112}, new byte[] {50, 90, 1, 111, 1, 112}, (byte) 115, 4351,
+        new byte[] {115, 2, 255, 16})]
+    [TestFixture((byte) 40, (byte) 112, new[] {123, 321}, new byte[] {40, 112, 1, 123, 2, 65, 1}, (byte) 115, 16,
+        new byte[] {115, 1, 16})]
     [Description("Given ControlLineSockets.SendOperation Is Called, When Response Retrieved Successfully")]
     public class SuccessTests : SendOperationTests
     {
@@ -53,7 +53,7 @@ namespace ControlLineUnitTests.ControlLineSocketsTests.SendOperation.Scenarios
 
             //arrange
             MockThreadOperations
-                .WaitUntilTimeout(Arg.Any<Func<byte[]>>(), Arg.Any<int>())
+                .WaitUntilFuncTimeout(Arg.Any<Func<byte[]>>(), Arg.Any<int>())
                 .Returns(_response);
             MockStatusValidator
                 .IsError(Arg.Any<byte>())
@@ -110,10 +110,10 @@ namespace ControlLineUnitTests.ControlLineSocketsTests.SendOperation.Scenarios
             //assert
             MockThreadOperations
                 .Received(1)
-                .WaitUntilTimeout(Arg.Any<Func<byte[]>>(), Arg.Any<int>());
+                .WaitUntilFuncTimeout(Arg.Any<Func<byte[]>>(), Arg.Any<int>());
             MockThreadOperations
                 .Received()
-                .WaitUntilTimeout(
+                .WaitUntilFuncTimeout(
                     Arg.Any<Func<byte[]>>(),
                     Arg.Is(Timeout)
                 );

@@ -12,7 +12,7 @@ namespace ControlLineUnitTests.ControlLineSocketsTests.SendOperation.Scenarios
     [Description("Given ControlLineSockets.SendOperation Is Called, When Payload Cannot Be Sent")]
     public class ControlLineTimesOutTests : SendOperationTests
     {
-        private readonly byte[] _payload = {115, 121, 1, 255, 255};
+        private readonly byte[] _payload = {115, 121, 2, 255, 255};
 
         private readonly OperationDto _operation = new OperationDto()
         {
@@ -31,7 +31,7 @@ namespace ControlLineUnitTests.ControlLineSocketsTests.SendOperation.Scenarios
 
             //arrange
             MockThreadOperations
-                .WaitUntilTimeout(Arg.Any<Func<byte[]>>(), Arg.Any<int>())
+                .WaitUntilFuncTimeout(Arg.Any<Func<byte[]>>(), Arg.Any<int>())
                 .Throws<ThreadTimeout>();
         }
 
@@ -91,10 +91,10 @@ namespace ControlLineUnitTests.ControlLineSocketsTests.SendOperation.Scenarios
             //assert
             MockThreadOperations
                 .Received(1)
-                .WaitUntilTimeout(Arg.Any<Func<byte[]>>(), Arg.Any<int>());
+                .WaitUntilFuncTimeout(Arg.Any<Func<byte[]>>(), Arg.Any<int>());
             MockThreadOperations
                 .Received()
-                .WaitUntilTimeout(
+                .WaitUntilFuncTimeout(
                     Arg.Any<Func<byte[]>>(),
                     Arg.Is(Timeout)
                 );

@@ -13,7 +13,7 @@ namespace ControlLineUnitTests.ControlLineSocketsTests.SendOperation.Scenarios
     public class PayloadNotSentTests : SendOperationTests
     {
         private readonly SocketException _socketException = new SocketException(10048);
-        private readonly byte[] _payload = {115, 121, 1, 255, 255};
+        private readonly byte[] _payload = {115, 121, 2, 255, 255};
 
         private readonly OperationDto _operation = new OperationDto()
         {
@@ -90,7 +90,7 @@ namespace ControlLineUnitTests.ControlLineSocketsTests.SendOperation.Scenarios
             //assert
             MockThreadOperations
                 .DidNotReceive()
-                .WaitUntilTimeout(Arg.Any<Func<byte[]>>(), Arg.Any<int>());
+                .WaitUntilFuncTimeout(Arg.Any<Func<byte[]>>(), Arg.Any<int>());
         }
 
         [Test]

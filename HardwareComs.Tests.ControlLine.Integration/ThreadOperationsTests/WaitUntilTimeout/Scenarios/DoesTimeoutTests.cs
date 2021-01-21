@@ -4,10 +4,10 @@ using NUnit.Framework;
 
 namespace ControlLineIntegrationTests.ThreadOperationsTests.WaitUntilTimeout.Scenarios
 {
-    [TestFixture(251)]
-    [TestFixture(300)]
-    [TestFixture(500)]
-    [TestFixture(600)]
+    [TestFixture(5001)]
+    [TestFixture(6000)]
+    [TestFixture(7000)]
+    [TestFixture(10000)]
     [Description("Given ThreadOperations.WaitUntilTimeout Is Called, When Call Times Out")]
     public class DoesTimeoutTests : WaitUntilTimeoutTests
     {
@@ -26,7 +26,7 @@ namespace ControlLineIntegrationTests.ThreadOperationsTests.WaitUntilTimeout.Sce
 
         private void When()
         {
-            Sut.WaitUntilTimeout(SutCall, Timeout);
+            Sut.WaitUntilFuncTimeout(SutCall, Timeout);
         }
 
         private byte[] SutCall()
