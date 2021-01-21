@@ -1,5 +1,4 @@
 ﻿using System.Net.Sockets;
-using System.Threading;
 using NUnit.Framework;
 
 namespace ControlLineIntegrationTests.BerkeleyRawSocketClientTests.Scenarios
@@ -32,7 +31,7 @@ namespace ControlLineIntegrationTests.BerkeleyRawSocketClientTests.Scenarios
         [TearDown]
         public void TearDown()
         {
-            Thread.Sleep(1000);
+            CoolDown();
         }
     }
 }

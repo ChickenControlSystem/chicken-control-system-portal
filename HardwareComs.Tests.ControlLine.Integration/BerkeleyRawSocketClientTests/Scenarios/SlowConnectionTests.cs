@@ -48,7 +48,7 @@ namespace ControlLineIntegrationTests.BerkeleyRawSocketClientTests.Scenarios
         [TearDown]
         public void TearDown()
         {
-            Thread.Sleep(1000);
+            CoolDown();
         }
     }
 }

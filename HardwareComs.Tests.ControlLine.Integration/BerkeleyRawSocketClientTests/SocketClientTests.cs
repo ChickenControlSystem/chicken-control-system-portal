@@ -1,7 +1,8 @@
-﻿using System.Net;
+﻿using System.Threading;
 using ControlLine.Contract.Threading;
 using ControlLine.Sockets;
 using ControlLine.Threading;
+using ControlSystem.Tests.Enviroment;
 
 namespace ControlLineIntegrationTests.BerkeleyRawSocketClientTests
 {
@@ -17,7 +18,7 @@ namespace ControlLineIntegrationTests.BerkeleyRawSocketClientTests
         {
             _threadOperations = new ThreadOperations();
             Server = new FakeBerkeleyTcpServer(
-                new IPEndPoint(IPAddress.Parse("127.0.0.1"), Port),
+                ConfLoader.GetControlLineSettings().GetEndPoint(),
                 ServerPayload,
                 _threadOperations
             );
@@ -27,11 +28,16 @@ namespace ControlLineIntegrationTests.BerkeleyRawSocketClientTests
         protected void InitClient()
         {
             Client = new BerkeleyTcpClient(
-                new IPEndPoint(IPAddress.Parse("127.0.0.1"), Port),
+                ConfLoader.GetControlLineSettings().GetEndPoint(),
                 48,
                 _threadOperations,
                 5000
             );
+        }
+
+        protected void CoolDown()
+        {
+            Thread.Sleep(5600);
         }
     }
 }

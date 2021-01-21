@@ -14,7 +14,7 @@ namespace ControlSystem.Tests.Enviroment
 
         public static ControlLineSettings GetControlLineSettings()
         {
-            return InitConfiguration().GetSection("ControlLine").Get<ControlLineSettings>();
+            return InitConfiguration().GetSection("ControlLineSettings").Get<ControlLineSettings>();
         }
     }
 }

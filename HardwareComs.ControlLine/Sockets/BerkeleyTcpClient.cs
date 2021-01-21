@@ -59,7 +59,7 @@ namespace ControlLine.Sockets
             {
                 _threadOperations.WaitUntilActionTimeout(action, _timeout);
             }
-            catch (System.Exception e)
+            catch (System.Exception)
             {
                 throw new SocketException();
             }
@@ -71,7 +71,7 @@ namespace ControlLine.Sockets
             {
                 _threadOperations.WaitUntilFuncTimeout(func, _timeout);
             }
-            catch (System.Exception e)
+            catch (System.Exception)
             {
                 throw new SocketException();
             }

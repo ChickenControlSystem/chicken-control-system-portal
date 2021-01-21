@@ -340,5 +340,5 @@ ASALocalRun/
 healthchecksdb
 
 # Config Files
-appsettings.json
-appsettings.test.json
+appsettings.local.json
+appsettings.test.local.json
