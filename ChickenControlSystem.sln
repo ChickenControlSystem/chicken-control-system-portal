@@ -25,7 +25,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HardwareComs.Tests.ControlL
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{4EB5A6ED-27FD-4121-A83A-885CBF4A3AD0}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ControlSystem.Tests.Enviroment", "ControlSystem.Tests.Enviroment\ControlSystem.Tests.Enviroment.csproj", "{691570C1-D483-400F-B549-BE320A9C0F2C}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ControlSystem.Enviroment", "ControlSystem.Enviroment\ControlSystem.Enviroment.csproj", "{691570C1-D483-400F-B549-BE320A9C0F2C}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

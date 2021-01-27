@@ -1,6 +1,5 @@
 ﻿using System.Linq;
 using System.Net.Sockets;
-using System.Threading;
 using NUnit.Framework;
 
 namespace ControlLineIntegrationTests.BerkeleyRawSocketClientTests.Scenarios
@@ -20,30 +19,21 @@ namespace ControlLineIntegrationTests.BerkeleyRawSocketClientTests.Scenarios
             ServerPayload = new byte[] {10, 120};
             _recievedFromServer = new byte[]
             {
-                10, 20, 30, 10, 120,
-                0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
-                0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
-                0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
-                0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
-                0, 0, 0
+                10, 20, 30, 10, 120, 0, 0, 0
             };
         }
 
         [SetUp]
         protected new void Init()
         {
-            Port = 5000;
             base.Init();
         }
 
         private void When()
         {
             Client.Connect();
-            Thread.Sleep(50);
             Client.Send(_sendToServer);
-            Thread.Sleep(50);
             _result = Client.Recieve();
-            Thread.Sleep(50);
             Client.Close();
         }
 
@@ -72,12 +62,6 @@ namespace ControlLineIntegrationTests.BerkeleyRawSocketClientTests.Scenarios
 
             //act/assert
             Assert.Throws<SocketException>(When);
-        }
-
-        [TearDown]
-        public void TearDown()
-        {
-            CoolDown();
         }
     }
 }

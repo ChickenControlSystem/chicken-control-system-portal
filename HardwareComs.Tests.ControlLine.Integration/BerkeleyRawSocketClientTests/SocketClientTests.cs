@@ -1,5 +1,4 @@
-﻿using System.Threading;
-using ControlLine.Contract.Threading;
+﻿using ControlLine.Contract.Threading;
 using ControlLine.Sockets;
 using ControlLine.Threading;
 using ControlSystem.Tests.Enviroment;
@@ -12,13 +11,12 @@ namespace ControlLineIntegrationTests.BerkeleyRawSocketClientTests
         protected BerkeleyTcpClient Client;
         protected byte[] ServerPayload;
         private IThreadOperations _threadOperations;
-        protected int Port;
 
         protected void Init()
         {
             _threadOperations = new ThreadOperations();
             Server = new FakeBerkeleyTcpServer(
-                ConfLoader.GetControlLineSettings().GetEndPoint(),
+                ConfigurationLoader.GetTestConfigurationLoader().GetControlLineSettings().GetEndPoint(),
                 ServerPayload,
                 _threadOperations
             );
@@ -28,16 +26,11 @@ namespace ControlLineIntegrationTests.BerkeleyRawSocketClientTests
         protected void InitClient()
         {
             Client = new BerkeleyTcpClient(
-                ConfLoader.GetControlLineSettings().GetEndPoint(),
-                48,
+                ConfigurationLoader.GetTestConfigurationLoader().GetControlLineSettings().GetEndPoint(),
+                8,
                 _threadOperations,
-                2500
+                100
             );
-        }
-
-        protected void CoolDown()
-        {
-            Thread.Sleep(5000);
         }
     }
 }

@@ -15,11 +15,7 @@
     </ItemGroup>
 
     <ItemGroup>
-        <Folder Include="ControlLineSocketsTests\SendOperation\Scenarios"/>
-    </ItemGroup>
-
-    <ItemGroup>
-        <ProjectReference Include="..\ControlSystem.Tests.Enviroment\ControlSystem.Tests.Enviroment.csproj"/>
+        <ProjectReference Include="..\ControlSystem.Enviroment\ControlSystem.Enviroment.csproj"/>
         <ProjectReference Include="..\HardwareComs.ControlLine\HardwareComs.ControlLine.csproj"/>
     </ItemGroup>
 

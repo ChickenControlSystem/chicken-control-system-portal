@@ -11,7 +11,6 @@ namespace ControlLineIntegrationTests.BerkeleyRawSocketClientTests.Scenarios
         [SetUp]
         protected new void Init()
         {
-            Port = 5004;
             base.Init();
         }
 
@@ -26,12 +25,6 @@ namespace ControlLineIntegrationTests.BerkeleyRawSocketClientTests.Scenarios
         {
             //act/assert
             Assert.Throws<SocketException>(When);
-        }
-
-        [TearDown]
-        public void TearDown()
-        {
-            CoolDown();
         }
     }
 }

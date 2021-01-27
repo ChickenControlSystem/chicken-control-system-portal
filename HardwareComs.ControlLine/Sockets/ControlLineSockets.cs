@@ -13,7 +13,7 @@ namespace ControlLine.Sockets
     //TODO: refactor out hard coded data types
     public class ControlLineSockets : IControlLine
     {
-        public const int MaxPayloadLength = 48;
+        public const int MaxPayloadLength = 8;
 
         private ISocketClient _socketClient;
         private IControlLineStatusValidator _statusValidator;
@@ -32,8 +32,15 @@ namespace ControlLine.Sockets
             var paramBytes = new List<byte>();
             foreach (var param in operationDto.Params)
             {
-                paramBytes.Add(GetDataType(param));
-                paramBytes.AddRange(ValueToBytes(param));
+                try
+                {
+                    paramBytes.Add(GetDataType(param));
+                    paramBytes.AddRange(ValueToBytes(param));
+                }
+                catch (ArgumentException)
+                {
+                    //TODO: handle
+                }
             }
 
             var payload = new List<byte> {operationDto.Operation, operationDto.Device}.Concat(paramBytes).ToArray();
@@ -51,11 +58,21 @@ namespace ControlLine.Sockets
                     }
                     else
                     {
-                        return new OperationResponseDto
+                        try
                         {
-                            Status = response[0],
-                            Returns = BytesToValue(response.Skip(1).ToArray())
-                        };
+                            return new OperationResponseDto
+                            {
+                                Status = response[0],
+                                Returns = BytesToValue(response.Skip(1).ToArray())
+                            };
+                        }
+                        catch (ArgumentException)
+                        {
+                            return new OperationResponseDto
+                            {
+                                Status = response[0]
+                            };
+                        }
                     }
                 }
                 catch (ThreadTimeout)

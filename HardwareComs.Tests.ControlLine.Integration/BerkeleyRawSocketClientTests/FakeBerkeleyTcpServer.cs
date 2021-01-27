@@ -1,7 +1,6 @@
 ﻿using System.Linq;
 using System.Net;
 using System.Net.Sockets;
-using System.Threading;
 using ControlLine.Contract.Threading;
 
 namespace ControlLineIntegrationTests.BerkeleyRawSocketClientTests
@@ -45,22 +44,12 @@ namespace ControlLineIntegrationTests.BerkeleyRawSocketClientTests
             _threadOperations.RunBackground(RecieveClose);
         }
 
-        /// <summary>
-        /// runs test server on new thread, when server responds slowly
-        /// </summary>
-        public void RunBadConnection()
-        {
-            _threadOperations.RunBackground(BadConnection);
-        }
-
         private void RecieveRespond()
         {
             _socket.Listen(10);
             var client = _socket.Accept();
-            Thread.Sleep(50);
             var buffer = new byte[_payload.Length + 1];
             client.Receive(buffer);
-            Thread.Sleep(50);
             client.Send(buffer.Concat(_payload).ToArray());
             client.Close();
             _socket.Close();
@@ -70,18 +59,6 @@ namespace ControlLineIntegrationTests.BerkeleyRawSocketClientTests
         {
             _socket.Listen(10);
             var client = _socket.Accept();
-            Thread.Sleep(50);
-            var buffer = new byte[_payload.Length + 1];
-            client.Receive(buffer);
-            client.Close();
-            _socket.Close();
-        }
-
-        private void BadConnection()
-        {
-            _socket.Listen(10);
-            var client = _socket.Accept();
-            Thread.Sleep(5500);
             var buffer = new byte[_payload.Length + 1];
             client.Receive(buffer);
             client.Close();
