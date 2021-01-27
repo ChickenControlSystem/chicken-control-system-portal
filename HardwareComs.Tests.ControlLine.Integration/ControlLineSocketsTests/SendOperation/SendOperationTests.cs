@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Net;
 using System.Net.Sockets;
 using ControlLine.Contract;
 using ControlLine.Contract.Sockets;
@@ -6,7 +7,6 @@ using ControlLine.Contract.Threading;
 using ControlLine.ControlLineStatusValidator;
 using ControlLine.Sockets;
 using ControlLine.Threading;
-using ControlSystem.Tests.Enviroment;
 
 namespace ControlLineIntegrationTests.ControlLineSocketsTests.SendOperation
 {
@@ -22,7 +22,7 @@ namespace ControlLineIntegrationTests.ControlLineSocketsTests.SendOperation
         {
             _threadOperations = new ThreadOperations();
             _socketClient = new BerkeleyTcpClient(
-                ConfigurationLoader.GetTestConfigurationLoader().GetControlLineSettings().GetEndPoint(),
+                new IPEndPoint(IPAddress.Parse("127.0.0.1"), 5000),
                 ControlLineSockets.MaxPayloadLength,
                 _threadOperations,
                 250
@@ -30,7 +30,7 @@ namespace ControlLineIntegrationTests.ControlLineSocketsTests.SendOperation
             try
             {
                 _fakeControlLineServer = new FakeControlLineServer(
-                    ConfigurationLoader.GetTestConfigurationLoader().GetControlLineSettings().GetEndPoint(),
+                    new IPEndPoint(IPAddress.Parse("127.0.0.1"), 5000),
                     new Dictionary<byte[], byte[]>()
                     {
                         {

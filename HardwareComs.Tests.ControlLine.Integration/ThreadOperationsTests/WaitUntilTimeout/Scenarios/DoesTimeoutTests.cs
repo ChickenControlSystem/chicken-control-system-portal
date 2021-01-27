@@ -4,7 +4,6 @@ using NUnit.Framework;
 
 namespace ControlLineIntegrationTests.ThreadOperationsTests.WaitUntilTimeout.Scenarios
 {
-    [TestFixture(5001)]
     [TestFixture(6000)]
     [TestFixture(7000)]
     [TestFixture(10000)]
