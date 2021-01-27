@@ -39,22 +39,19 @@ namespace ControlLineIntegrationTests.ControlLineSocketsTests.SendOperation
         {
             _threadOperations.RunBackground(() =>
             {
-                foreach (var value in new[] {true, true, true})
-                {
-                    _socket.Listen(10);
-                    var client = _socket.Accept();
-                    var buffer = new byte[8];
-                    client.Receive(buffer);
-                    _requestResponses.First().Key.ToList().ForEach(x => TestContext.Out.Write(x));
-                    client.Send(
-                        _requestResponses
-                            .ToList()
-                            .Where(x => x.Key.SequenceEqual(buffer))
-                            .Select(x => x.Value)
-                            .First()
-                    );
-                    client.Close();
-                }
+                _socket.Listen(10);
+                var client = _socket.Accept();
+                var buffer = new byte[8];
+                client.Receive(buffer);
+                _requestResponses.First().Key.ToList().ForEach(x => TestContext.Out.Write(x));
+                client.Send(
+                    _requestResponses
+                        .ToList()
+                        .Where(x => x.Key.SequenceEqual(buffer))
+                        .Select(x => x.Value)
+                        .First()
+                );
+                client.Close();
             });
         }
     }

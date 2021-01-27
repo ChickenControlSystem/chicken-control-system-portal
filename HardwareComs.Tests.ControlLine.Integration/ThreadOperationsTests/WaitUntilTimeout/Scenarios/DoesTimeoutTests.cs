@@ -5,7 +5,6 @@ using NUnit.Framework;
 namespace ControlLineIntegrationTests.ThreadOperationsTests.WaitUntilTimeout.Scenarios
 {
     [TestFixture(6000)]
-    [TestFixture(7000)]
     [TestFixture(10000)]
     [Description("Given ThreadOperations.WaitUntilTimeout Is Called, When Call Times Out")]
     public class DoesTimeoutTests : WaitUntilTimeoutTests

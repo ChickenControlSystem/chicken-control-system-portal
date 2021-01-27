@@ -6,8 +6,6 @@ namespace ControlLineIntegrationTests.ThreadOperationsTests.WaitUntilTimeout.Sce
 {
     [TestFixture(0)]
     [TestFixture(200)]
-    [TestFixture(100)]
-    [TestFixture(10)]
     [Description("Given ThreadOperations.WaitUntilTimeout Is Called, When Error Occurs In Call")]
     public class CallThrowsException : WaitUntilTimeoutTests
     {
