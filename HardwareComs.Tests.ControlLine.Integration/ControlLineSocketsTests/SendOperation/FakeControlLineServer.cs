@@ -58,7 +58,7 @@ namespace ControlLineIntegrationTests.ControlLineSocketsTests.SendOperation
                             client.Close();
                         }
                     },
-                    5000
+                    10000
                 ));
         }
     }
