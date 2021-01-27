@@ -36,6 +36,7 @@ namespace ControlLineIntegrationTests.ControlLineSocketsTests.SendOperation.Scen
         }
 
         [Test]
+        [NonParallelizable]
         public void SuccessResponseTest()
         {
             Assert.AreEqual(_result.Returns, _operationResponse.Returns);

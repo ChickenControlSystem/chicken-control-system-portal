@@ -28,6 +28,7 @@ namespace ControlLineIntegrationTests.ControlLineSocketsTests.SendOperation.Scen
         }
 
         [Test]
+        [NonParallelizable]
         public void SuccessResponseTest()
         {
             Assert.Throws<DeviceOffline>(() => Sut.SendOperation(_operation));

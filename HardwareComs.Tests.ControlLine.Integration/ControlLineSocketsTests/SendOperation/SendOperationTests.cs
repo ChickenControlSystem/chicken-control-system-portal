@@ -12,24 +12,24 @@ namespace ControlLineIntegrationTests.ControlLineSocketsTests.SendOperation
 {
     public class SendOperationTests
     {
-        protected ISocketClient SocketClient;
-        protected IControlLineStatusValidator ControlLineStatusValidator;
-        protected IThreadOperations ThreadOperations;
+        private ISocketClient _socketClient;
+        private IControlLineStatusValidator _controlLineStatusValidator;
+        private IThreadOperations _threadOperations;
         protected IControlLine Sut;
-        protected FakeControlLineServer FakeControlLineServer;
+        private FakeControlLineServer _fakeControlLineServer;
 
         protected void Init()
         {
-            ThreadOperations = new ThreadOperations();
-            SocketClient = new BerkeleyTcpClient(
+            _threadOperations = new ThreadOperations();
+            _socketClient = new BerkeleyTcpClient(
                 ConfigurationLoader.GetTestConfigurationLoader().GetControlLineSettings().GetEndPoint(),
                 ControlLineSockets.MaxPayloadLength,
-                ThreadOperations,
+                _threadOperations,
                 250
             );
             try
             {
-                FakeControlLineServer = new FakeControlLineServer(
+                _fakeControlLineServer = new FakeControlLineServer(
                     ConfigurationLoader.GetTestConfigurationLoader().GetControlLineSettings().GetEndPoint(),
                     new Dictionary<byte[], byte[]>()
                     {
@@ -52,20 +52,20 @@ namespace ControlLineIntegrationTests.ControlLineSocketsTests.SendOperation
                             new byte[] {1, 2, 244, 1, 0, 0, 0, 0}
                         }
                     },
-                    ThreadOperations
+                    _threadOperations
                 );
-                FakeControlLineServer.Run();
+                _fakeControlLineServer.Run();
             }
             catch (SocketException)
             {
                 //TODO: handle
             }
 
-            ControlLineStatusValidator = new ControlLineStatusValidator();
+            _controlLineStatusValidator = new ControlLineStatusValidator();
             Sut = new ControlLineSockets(
-                SocketClient,
-                ControlLineStatusValidator,
-                ThreadOperations
+                _socketClient,
+                _controlLineStatusValidator,
+                _threadOperations
             );
         }
     }
