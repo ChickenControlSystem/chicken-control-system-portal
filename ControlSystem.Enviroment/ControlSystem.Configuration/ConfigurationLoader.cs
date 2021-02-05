@@ -1,6 +1,6 @@
 ﻿using Microsoft.Extensions.Configuration;
 
-namespace ControlSystem.Tests.Enviroment
+namespace ControlSystem.Tests.Enviroment.ControlSystem.Configuration
 {
     public class ConfigurationLoader
     {

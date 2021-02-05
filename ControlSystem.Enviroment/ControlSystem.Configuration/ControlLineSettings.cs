@@ -1,6 +1,6 @@
 ﻿using System.Net;
 
-namespace ControlSystem.Tests.Enviroment
+namespace ControlSystem.Tests.Enviroment.ControlSystem.Configuration
 {
     public class ControlLineSettings
     {

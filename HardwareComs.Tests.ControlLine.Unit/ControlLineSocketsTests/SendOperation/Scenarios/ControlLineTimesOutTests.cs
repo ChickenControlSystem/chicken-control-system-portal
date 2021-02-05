@@ -12,18 +12,6 @@ namespace ControlLineUnitTests.ControlLineSocketsTests.SendOperation.Scenarios
     [Description("Given ControlLineSockets.SendOperation Is Called, When Payload Cannot Be Sent")]
     public class ControlLineTimesOutTests : SendOperationTests
     {
-        private readonly byte[] _payload = {115, 121, 2, 255, 255};
-
-        private readonly OperationDto _operation = new OperationDto()
-        {
-            Operation = 115,
-            Device = 121,
-            Params = new[] {65535},
-            Timeout = Timeout
-        };
-
-        private const int RecievePeriod = 100;
-
         [SetUp]
         protected new void Init()
         {
@@ -34,6 +22,18 @@ namespace ControlLineUnitTests.ControlLineSocketsTests.SendOperation.Scenarios
                 .WaitUntilFuncTimeout(Arg.Any<Func<byte[]>>(), Arg.Any<int>())
                 .Throws<ThreadTimeout>();
         }
+
+        private readonly byte[] _payload = {115, 121, 2, 255, 255};
+
+        private readonly OperationDto _operation = new OperationDto
+        {
+            Operation = 115,
+            Device = 121,
+            Params = new[] {65535},
+            Timeout = Timeout
+        };
+
+        private const int RecievePeriod = 100;
 
         private void When()
         {

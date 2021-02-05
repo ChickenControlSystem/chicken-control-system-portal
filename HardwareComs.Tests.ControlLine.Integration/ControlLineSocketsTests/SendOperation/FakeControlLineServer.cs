@@ -3,15 +3,14 @@ using System.Linq;
 using System.Net;
 using System.Net.Sockets;
 using ControlLine.Contract.Threading;
-using NUnit.Framework;
 
 namespace ControlLineIntegrationTests.ControlLineSocketsTests.SendOperation
 {
     public class FakeControlLineServer
     {
+        private readonly Dictionary<byte[], byte[]> _requestResponses;
         private readonly Socket _socket;
         private readonly IThreadOperations _threadOperations;
-        private readonly Dictionary<byte[], byte[]> _requestResponses;
 
         private FakeControlLineServer(Socket socket, Dictionary<byte[], byte[]> requestResponses,
             IThreadOperations threadOperations)
@@ -43,7 +42,6 @@ namespace ControlLineIntegrationTests.ControlLineSocketsTests.SendOperation
                 var client = _socket.Accept();
                 var buffer = new byte[8];
                 client.Receive(buffer);
-                _requestResponses.First().Key.ToList().ForEach(x => TestContext.Out.Write(x));
                 client.Send(
                     _requestResponses
                         .ToList()

@@ -5,17 +5,17 @@ using ControlLine.Contract.Threading;
 using ControlLine.ControlLineStatusValidator;
 using ControlLine.Sockets;
 using ControlLine.Threading;
-using ControlSystem.Tests.Enviroment;
+using ControlSystem.Tests.Enviroment.ControlSystem.Configuration;
 
 namespace ControlLineIntegrationTests.ControlLineSocketsTests.SendOperation
 {
     public class SendOperationTests
     {
-        private ISocketClient _socketClient;
         private IControlLineStatusValidator _controlLineStatusValidator;
+        private FakeControlLineServer _fakeControlLineServer;
+        private ISocketClient _socketClient;
         private IThreadOperations _threadOperations;
         protected IControlLine Sut;
-        private FakeControlLineServer _fakeControlLineServer;
 
         protected void Init()
         {
@@ -28,7 +28,7 @@ namespace ControlLineIntegrationTests.ControlLineSocketsTests.SendOperation
             );
             _fakeControlLineServer = new FakeControlLineServer(
                 ConfigurationLoader.GetTestConfigurationLoader().GetControlLineSettings().GetEndPoint(),
-                new Dictionary<byte[], byte[]>()
+                new Dictionary<byte[], byte[]>
                 {
                     {
                         //mock request: move door absolute, 120mm 

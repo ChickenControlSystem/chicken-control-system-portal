@@ -15,9 +15,9 @@ namespace ControlLine.Sockets
     {
         public const int MaxPayloadLength = 8;
 
-        private ISocketClient _socketClient;
-        private IControlLineStatusValidator _statusValidator;
-        private IThreadOperations _threadOperations;
+        private readonly ISocketClient _socketClient;
+        private readonly IControlLineStatusValidator _statusValidator;
+        private readonly IThreadOperations _threadOperations;
 
         public ControlLineSockets(ISocketClient socketClient, IControlLineStatusValidator statusValidator,
             IThreadOperations threadOperations)
@@ -31,7 +31,6 @@ namespace ControlLine.Sockets
         {
             var paramBytes = new List<byte>();
             foreach (var param in operationDto.Params)
-            {
                 try
                 {
                     paramBytes.Add(GetDataType(param));
@@ -41,7 +40,6 @@ namespace ControlLine.Sockets
                 {
                     //TODO: handle
                 }
-            }
 
             var payload = new List<byte> {operationDto.Operation, operationDto.Device}.Concat(paramBytes).ToArray();
             try
@@ -53,11 +51,8 @@ namespace ControlLine.Sockets
                     var response =
                         _threadOperations.WaitUntilFuncTimeout(() => _socketClient.Recieve(), operationDto.Timeout);
                     if (_statusValidator.IsError(response[0]))
-                    {
                         throw _statusValidator.ValidateError(response[0]);
-                    }
                     else
-                    {
                         try
                         {
                             return new OperationResponseDto
@@ -73,7 +68,6 @@ namespace ControlLine.Sockets
                                 Status = response[0]
                             };
                         }
-                    }
                 }
                 catch (ThreadTimeout)
                 {

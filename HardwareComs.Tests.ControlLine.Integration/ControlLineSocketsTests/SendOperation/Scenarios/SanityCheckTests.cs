@@ -1,4 +1,5 @@
 ﻿using ControlLine.Dto;
+using ControlLine.Exception;
 using ControlLine.Exception.Hardware;
 using NUnit.Framework;
 
@@ -6,13 +7,19 @@ namespace ControlLineIntegrationTests.ControlLineSocketsTests.SendOperation.Scen
 {
     [TestFixture((byte) 2, (byte) 2, 120)]
     [Description("Given Door Is Moved 120mm Absolute, When Device Error Occurs")]
-    public class MoveDoorAbsoluteTests : SendOperationTests
+    public class SanityCheckTests : SendOperationTests
     {
+        [SetUp]
+        public new void Init()
+        {
+            base.Init();
+        }
+
         private readonly OperationDto _operation;
 
-        public MoveDoorAbsoluteTests(byte operation, byte device, int ammount)
+        public SanityCheckTests(byte operation, byte device, int ammount)
         {
-            _operation = new OperationDto()
+            _operation = new OperationDto
             {
                 Operation = operation,
                 Timeout = 1000,
@@ -21,17 +28,14 @@ namespace ControlLineIntegrationTests.ControlLineSocketsTests.SendOperation.Scen
             };
         }
 
-        [SetUp]
-        public new void Init()
-        {
-            base.Init();
-        }
-
         [Test]
         [NonParallelizable]
-        public void SuccessResponseTest()
+        [Description("Then The Device Error Is Received, Then The Control Line Times Out")]
+        public void SanityCheck()
         {
+            //act/assert
             Assert.Throws<DeviceOffline>(() => Sut.SendOperation(_operation));
+            Assert.Throws<ControlLineOffline>(() => Sut.SendOperation(_operation));
         }
     }
 }

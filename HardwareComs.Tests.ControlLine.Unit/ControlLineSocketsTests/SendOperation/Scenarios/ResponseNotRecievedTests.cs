@@ -13,17 +13,6 @@ namespace ControlLineUnitTests.ControlLineSocketsTests.SendOperation.Scenarios
     [Description("Given ControlLineSockets.SendOperation Is Called, When Response Cannot Be Received")]
     public class ResponseNotRecievedTests : SendOperationTests
     {
-        private readonly SocketException _socketException = new SocketException(10048);
-        private readonly byte[] _payload = {115, 121, 2, 255, 255};
-
-        private readonly OperationDto _operation = new OperationDto()
-        {
-            Operation = 115,
-            Device = 121,
-            Params = new[] {65535},
-            Timeout = Timeout
-        };
-
         [SetUp]
         protected new void Init()
         {
@@ -34,6 +23,17 @@ namespace ControlLineUnitTests.ControlLineSocketsTests.SendOperation.Scenarios
                 .WaitUntilFuncTimeout(Arg.Any<Func<byte[]>>(), Arg.Any<int>())
                 .Throws(_socketException);
         }
+
+        private readonly SocketException _socketException = new SocketException(10048);
+        private readonly byte[] _payload = {115, 121, 2, 255, 255};
+
+        private readonly OperationDto _operation = new OperationDto
+        {
+            Operation = 115,
+            Device = 121,
+            Params = new[] {65535},
+            Timeout = Timeout
+        };
 
         private void When()
         {

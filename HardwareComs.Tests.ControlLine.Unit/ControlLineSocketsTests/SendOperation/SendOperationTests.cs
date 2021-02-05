@@ -8,12 +8,11 @@ namespace ControlLineUnitTests.ControlLineSocketsTests.SendOperation
 {
     public abstract class SendOperationTests
     {
-        protected ControlLineSockets Sut;
+        protected const int Timeout = 10;
         protected ISocketClient MockSocketClient;
         protected IControlLineStatusValidator MockStatusValidator;
         protected IThreadOperations MockThreadOperations;
-
-        protected const int Timeout = 10;
+        protected ControlLineSockets Sut;
 
         protected void Init()
         {

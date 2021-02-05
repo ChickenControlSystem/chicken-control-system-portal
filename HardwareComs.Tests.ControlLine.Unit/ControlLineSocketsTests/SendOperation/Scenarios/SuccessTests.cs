@@ -17,6 +17,20 @@ namespace ControlLineUnitTests.ControlLineSocketsTests.SendOperation.Scenarios
     [Description("Given ControlLineSockets.SendOperation Is Called, When Response Retrieved Successfully")]
     public class SuccessTests : SendOperationTests
     {
+        [SetUp]
+        protected new void Init()
+        {
+            base.Init();
+
+            //arrange
+            MockThreadOperations
+                .WaitUntilFuncTimeout(Arg.Any<Func<byte[]>>(), Arg.Any<int>())
+                .Returns(_response);
+            MockStatusValidator
+                .IsError(Arg.Any<byte>())
+                .Returns(false);
+        }
+
         private readonly byte[] _payload;
         private readonly byte[] _response;
         private readonly byte _status;
@@ -32,32 +46,18 @@ namespace ControlLineUnitTests.ControlLineSocketsTests.SendOperation.Scenarios
             _response = response;
             _status = status;
             _returnData = returnData;
-            _operation = new OperationDto()
+            _operation = new OperationDto
             {
                 Operation = operation,
                 Device = deviceId,
                 Params = parameters,
                 Timeout = Timeout
             };
-            _operationResponse = new OperationResponseDto()
+            _operationResponse = new OperationResponseDto
             {
                 Status = _status,
                 Returns = returnData
             };
-        }
-
-        [SetUp]
-        protected new void Init()
-        {
-            base.Init();
-
-            //arrange
-            MockThreadOperations
-                .WaitUntilFuncTimeout(Arg.Any<Func<byte[]>>(), Arg.Any<int>())
-                .Returns(_response);
-            MockStatusValidator
-                .IsError(Arg.Any<byte>())
-                .Returns(false);
         }
 
         private void When()

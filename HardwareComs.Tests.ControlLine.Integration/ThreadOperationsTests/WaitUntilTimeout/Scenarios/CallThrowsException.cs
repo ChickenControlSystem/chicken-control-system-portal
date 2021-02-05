@@ -9,17 +9,17 @@ namespace ControlLineIntegrationTests.ThreadOperationsTests.WaitUntilTimeout.Sce
     [Description("Given ThreadOperations.WaitUntilTimeout Is Called, When Error Occurs In Call")]
     public class CallThrowsException : WaitUntilTimeoutTests
     {
+        [SetUp]
+        protected new void Init()
+        {
+            base.Init();
+        }
+
         private readonly int _timeoutPeriod;
 
         public CallThrowsException(int timeoutPeriod)
         {
             _timeoutPeriod = timeoutPeriod;
-        }
-
-        [SetUp]
-        protected new void Init()
-        {
-            base.Init();
         }
 
         private void When()

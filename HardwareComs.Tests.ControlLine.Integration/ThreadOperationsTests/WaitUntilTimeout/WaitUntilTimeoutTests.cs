@@ -4,9 +4,9 @@ namespace ControlLineIntegrationTests.ThreadOperationsTests.WaitUntilTimeout
 {
     public class WaitUntilTimeoutTests
     {
-        protected ThreadOperations Sut;
         protected const int Timeout = 5000;
         protected byte[] Return;
+        protected ThreadOperations Sut;
 
         protected void Init()
         {

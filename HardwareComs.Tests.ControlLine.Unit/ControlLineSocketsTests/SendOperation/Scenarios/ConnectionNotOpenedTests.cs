@@ -11,16 +11,6 @@ namespace ControlLineUnitTests.ControlLineSocketsTests.SendOperation.Scenarios
     [Description("Given ControlLineSockets.SendOperation Is Called, When Connection Cannot Be Opened")]
     public class ConnectionNotOpenedTests : SendOperationTests
     {
-        private readonly SocketException _socketException = new SocketException(10048);
-
-        private readonly OperationDto _operation = new OperationDto()
-        {
-            Operation = 115,
-            Device = 121,
-            Params = new[] {65535},
-            Timeout = Timeout
-        };
-
         [SetUp]
         protected new void Init()
         {
@@ -31,6 +21,16 @@ namespace ControlLineUnitTests.ControlLineSocketsTests.SendOperation.Scenarios
                 .When(x => x.Connect())
                 .Do(x => throw _socketException);
         }
+
+        private readonly SocketException _socketException = new SocketException(10048);
+
+        private readonly OperationDto _operation = new OperationDto
+        {
+            Operation = 115,
+            Device = 121,
+            Params = new[] {65535},
+            Timeout = Timeout
+        };
 
         private void When()
         {

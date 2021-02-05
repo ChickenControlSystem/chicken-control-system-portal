@@ -12,19 +12,6 @@ namespace ControlLineUnitTests.ControlLineSocketsTests.SendOperation.Scenarios
     [Description("Given ControlLineSockets.SendOperation Is Called, When Device Error Occurs")]
     public class DeviceFailiureTests : SendOperationTests
     {
-        private readonly byte[] _payload = {115, 121, 2, 255, 255};
-        private readonly byte _status = 115;
-
-        private readonly OperationDto _operation = new OperationDto()
-        {
-            Operation = 115,
-            Device = 121,
-            Params = new[] {65535},
-            Timeout = Timeout
-        };
-
-        private readonly DeviceFailiure _deviceFailiure = new AxisObstruction();
-
         [SetUp]
         protected new void Init()
         {
@@ -41,6 +28,19 @@ namespace ControlLineUnitTests.ControlLineSocketsTests.SendOperation.Scenarios
                 .WaitUntilFuncTimeout(Arg.Any<Func<byte[]>>(), Arg.Any<int>())
                 .Returns(new[] {_status});
         }
+
+        private readonly byte[] _payload = {115, 121, 2, 255, 255};
+        private readonly byte _status = 115;
+
+        private readonly OperationDto _operation = new OperationDto
+        {
+            Operation = 115,
+            Device = 121,
+            Params = new[] {65535},
+            Timeout = Timeout
+        };
+
+        private readonly DeviceFailiure _deviceFailiure = new AxisObstruction();
 
         private void When()
         {

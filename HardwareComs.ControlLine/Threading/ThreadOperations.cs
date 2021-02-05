@@ -12,10 +12,7 @@ namespace ControlLine.Threading
             try
             {
                 var task = Task.Run(func);
-                if (task.Wait(timeout))
-                {
-                    return task.Result;
-                }
+                if (task.Wait(timeout)) return task.Result;
             }
             catch (AggregateException e)
             {
@@ -30,10 +27,7 @@ namespace ControlLine.Threading
             try
             {
                 var task = Task.Run(action);
-                if (task.Wait(timeout))
-                {
-                    return;
-                }
+                if (task.Wait(timeout)) return;
             }
             catch (AggregateException e)
             {

@@ -9,8 +9,8 @@ namespace ControlLine.Sockets
     public class BerkeleyTcpClient : ISocketClient
     {
         private readonly IPEndPoint _endPoint;
-        private readonly Socket _socket;
         private readonly int _packetLength;
+        private readonly Socket _socket;
         private readonly IThreadOperations _threadOperations;
         private readonly int _timeout;
 
