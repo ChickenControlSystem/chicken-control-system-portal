@@ -2,13 +2,13 @@
 using ControlLine.Contract.Sockets;
 using ControlLine.Contract.Threading;
 using ControlLine.Dto;
-using ControlLine.Sockets;
 using NSubstitute;
 using UnitTest;
 
-namespace ControlLineUnitTests.ControlLineSocketsTests.SendOperation
+namespace ControlLineUnitTests.ControlLineSockets.SendOperationTests
 {
-    public abstract class Given_ControlLine_SendOperation_Was_Called : GivenWhenThenTests<ControlLineSockets>
+    public abstract class
+        Given_ControlLine_SendOperation_Was_Called : GivenWhenThenTests<ControlLine.Sockets.ControlLineSockets>
     {
         protected const int Timeout = 10;
         protected ISocketClient MockSocketClient;
@@ -22,7 +22,7 @@ namespace ControlLineUnitTests.ControlLineSocketsTests.SendOperation
             MockSocketClient = Substitute.For<ISocketClient>();
             MockThreadOperations = Substitute.For<IThreadOperations>();
 
-            SUT = new ControlLineSockets(
+            SUT = new ControlLine.Sockets.ControlLineSockets(
                 MockSocketClient,
                 MockStatusValidator,
                 MockThreadOperations

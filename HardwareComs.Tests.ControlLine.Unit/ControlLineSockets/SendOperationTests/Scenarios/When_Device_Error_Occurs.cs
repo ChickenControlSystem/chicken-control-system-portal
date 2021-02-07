@@ -1,11 +1,11 @@
 ﻿using ControlLine.Dto;
 using ControlLine.Exception.Hardware;
 using ControlLine.Exception.Hardware.Axis;
-using ControlLineUnitTests.ControlLineSocketsTests.SendOperation.Scenarios.Shared.Socket;
+using ControlLineUnitTests.ControlLineSockets.SendOperationTests.Scenarios.Shared.Socket;
 using NSubstitute;
 using NUnit.Framework;
 
-namespace ControlLineUnitTests.ControlLineSocketsTests.SendOperation.Scenarios
+namespace ControlLineUnitTests.ControlLineSockets.SendOperationTests.Scenarios
 {
     [TestFixture]
     public class When_Device_Error_Occurs : When_Socket_Communication_Was_Successful

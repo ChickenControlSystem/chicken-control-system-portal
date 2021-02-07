@@ -2,7 +2,7 @@
 using ControlLine.Dto;
 using NUnit.Framework;
 
-namespace ControlLineUnitTests.ControlLineSocketsTests.SendOperation.Scenarios
+namespace ControlLineUnitTests.ControlLineSockets.SendOperationTests.Scenarios
 {
     [TestFixture(65536)]
     [TestFixture(75540)]

@@ -1,9 +1,9 @@
 ﻿using ControlLine.Dto;
-using ControlLineUnitTests.ControlLineSocketsTests.SendOperation.Scenarios.Shared.Socket;
+using ControlLineUnitTests.ControlLineSockets.SendOperationTests.Scenarios.Shared.Socket;
 using NSubstitute;
 using NUnit.Framework;
 
-namespace ControlLineUnitTests.ControlLineSocketsTests.SendOperation.Scenarios
+namespace ControlLineUnitTests.ControlLineSockets.SendOperationTests.Scenarios
 {
     [TestFixture((byte) 115, (byte) 121, new[] {65535}, new byte[] {115, 121, 2, 255, 255}, (byte) 115, 65535,
         new byte[] {115, 2, 255, 255})]

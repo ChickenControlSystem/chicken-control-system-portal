@@ -2,7 +2,7 @@
 using NSubstitute;
 using NUnit.Framework;
 
-namespace ControlLineUnitTests.ControlLineSocketsTests.SendOperation.Scenarios.Shared.Socket
+namespace ControlLineUnitTests.ControlLineSockets.SendOperationTests.Scenarios.Shared.Socket
 {
     public abstract class When_Socket_Error_Occurs : When_Preconditions_Are_Satisfied
     {
