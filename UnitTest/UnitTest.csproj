@@ -2,11 +2,10 @@
 
     <PropertyGroup>
         <TargetFramework>netcoreapp3.1</TargetFramework>
-        <RootNamespace>ControlLine</RootNamespace>
     </PropertyGroup>
 
     <ItemGroup>
-        <ProjectReference Include="..\CodeContracts\CodeContracts.csproj"/>
+        <PackageReference Include="nunit" Version="3.13.1"/>
     </ItemGroup>
 
 </Project>

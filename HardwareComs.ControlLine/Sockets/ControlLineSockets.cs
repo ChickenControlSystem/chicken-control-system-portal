@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Net.Sockets;
+using CodeContracts;
 using ControlLine.Contract;
 using ControlLine.Contract.Sockets;
 using ControlLine.Contract.Threading;
@@ -27,19 +28,18 @@ namespace ControlLine.Sockets
             _threadOperations = threadOperations;
         }
 
+        /// <exception cref="ArgumentException"></exception>>
         public OperationResponseDto SendOperation(OperationDto operationDto)
         {
+            operationDto.Params.ToList()
+                .ForEach(x => CodeContract.PreCondition<ArgumentException>(x > 0 && x <= 65535));
+
             var paramBytes = new List<byte>();
             foreach (var param in operationDto.Params)
-                try
-                {
-                    paramBytes.Add(GetDataType(param));
-                    paramBytes.AddRange(ValueToBytes(param));
-                }
-                catch (ArgumentException)
-                {
-                    //TODO: handle
-                }
+            {
+                paramBytes.Add(GetDataType(param));
+                paramBytes.AddRange(ValueToBytes(param));
+            }
 
             var payload = new List<byte> {operationDto.Operation, operationDto.Device}.Concat(paramBytes).ToArray();
             try
@@ -48,8 +48,7 @@ namespace ControlLine.Sockets
                 _socketClient.Send(payload);
                 try
                 {
-                    var response =
-                        _threadOperations.WaitUntilFuncTimeout(() => _socketClient.Recieve(), operationDto.Timeout);
+                    var response = _socketClient.Recieve();
                     if (_statusValidator.IsError(response[0]))
                         throw _statusValidator.ValidateError(response[0]);
                     else
@@ -84,7 +83,7 @@ namespace ControlLine.Sockets
             }
         }
 
-        private IEnumerable<byte> ValueToBytes(int value)
+        private byte[] ValueToBytes(int value)
         {
             var bytes = BitConverter.GetBytes(value);
 
@@ -92,7 +91,7 @@ namespace ControlLine.Sockets
             {
                 1 => bytes.Take(1).ToArray(),
                 2 => bytes.Take(2).ToArray(),
-                _ => throw new ArgumentException("value must be 8/16 bits")
+                _ => new byte[] { }
             };
         }
 
@@ -102,7 +101,7 @@ namespace ControlLine.Sockets
             {
                 1 => bytes[1],
                 2 => BitConverter.ToUInt16(bytes.Skip(1).Take(2).ToArray()),
-                _ => throw new ArgumentException("invalid param length, must be 8/16 bits")
+                _ => 0
             };
         }
 
@@ -112,7 +111,7 @@ namespace ControlLine.Sockets
             {
                 true when value <= 255 => 1,
                 true when value <= 65535 => 2,
-                _ => throw new ArgumentException("value must be 8/16 bits")
+                _ => 0
             };
         }
     }

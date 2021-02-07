@@ -31,16 +31,19 @@ namespace ControlLine.Sockets
         {
         }
 
+        /// <exception cref="SocketException"></exception>
         public void Connect()
         {
             HandleSocketAction(() => _socket.Connect(_endPoint));
         }
 
+        /// <exception cref="SocketException"></exception>
         public void Send(byte[] payload)
         {
             HandleSocketAction(() => _socket.Send(payload));
         }
 
+        /// <exception cref="SocketException"></exception>
         public byte[] Recieve()
         {
             var response = new byte[_packetLength];
@@ -48,6 +51,7 @@ namespace ControlLine.Sockets
             return response;
         }
 
+        /// <exception cref="SocketException"></exception>
         public void Close()
         {
             _socket.Close();
@@ -61,18 +65,7 @@ namespace ControlLine.Sockets
             }
             catch (System.Exception)
             {
-                throw new SocketException();
-            }
-        }
-
-        private void HandleSocketFunc<T>(Func<T> func)
-        {
-            try
-            {
-                _threadOperations.WaitUntilFuncTimeout(func, _timeout);
-            }
-            catch (System.Exception)
-            {
+                //TODO: log
                 throw new SocketException();
             }
         }
