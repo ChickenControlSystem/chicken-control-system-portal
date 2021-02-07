@@ -49,9 +49,6 @@ namespace ControlLineUnitTests.ControlLineSockets.SendOperationTests.Scenarios
             MockSocketClient
                 .Recieve()
                 .Returns(_response);
-            MockStatusValidator
-                .IsError(Arg.Any<byte>())
-                .Returns(false);
 
             _result = SUT.SendOperation(Operation);
         }

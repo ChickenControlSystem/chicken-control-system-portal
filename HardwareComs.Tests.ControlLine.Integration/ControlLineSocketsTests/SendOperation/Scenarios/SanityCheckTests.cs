@@ -1,6 +1,5 @@
 ﻿using System.Net.Sockets;
 using ControlLine.Dto;
-using ControlLine.Exception.Hardware;
 using NUnit.Framework;
 
 namespace ControlLineIntegrationTests.ControlLineSocketsTests.SendOperation.Scenarios
@@ -34,7 +33,7 @@ namespace ControlLineIntegrationTests.ControlLineSocketsTests.SendOperation.Scen
         public void SanityCheck()
         {
             //act/assert
-            Assert.Throws<DeviceOffline>(() => Sut.SendOperation(_operation));
+            Assert.DoesNotThrow(() => Sut.SendOperation(_operation));
             Assert.Throws<SocketException>(() => Sut.SendOperation(_operation));
         }
     }

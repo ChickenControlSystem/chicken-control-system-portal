@@ -2,7 +2,6 @@
 using ControlLine.Contract;
 using ControlLine.Contract.Sockets;
 using ControlLine.Contract.Threading;
-using ControlLine.ControlLineStatusValidator;
 using ControlLine.Sockets;
 using ControlLine.Threading;
 using ControlSystem.Tests.Enviroment.ControlSystem.Configuration;
@@ -11,7 +10,6 @@ namespace ControlLineIntegrationTests.ControlLineSocketsTests.SendOperation
 {
     public class SendOperationTests
     {
-        private IControlLineStatusValidator _controlLineStatusValidator;
         private FakeControlLineServer _fakeControlLineServer;
         private ISocketClient _socketClient;
         private IThreadOperations _threadOperations;
@@ -41,11 +39,8 @@ namespace ControlLineIntegrationTests.ControlLineSocketsTests.SendOperation
             );
             _fakeControlLineServer.Run();
 
-            _controlLineStatusValidator = new ControlLineStatusValidator();
             Sut = new ControlLineSockets(
-                _socketClient,
-                _controlLineStatusValidator,
-                _threadOperations
+                _socketClient
             );
         }
     }

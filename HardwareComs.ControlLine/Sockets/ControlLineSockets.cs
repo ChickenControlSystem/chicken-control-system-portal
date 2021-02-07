@@ -5,7 +5,6 @@ using System.Net.Sockets;
 using CodeContracts;
 using ControlLine.Contract;
 using ControlLine.Contract.Sockets;
-using ControlLine.Contract.Threading;
 using ControlLine.Dto;
 
 namespace ControlLine.Sockets
@@ -16,15 +15,10 @@ namespace ControlLine.Sockets
         public const int MaxPayloadLength = 8;
 
         private readonly ISocketClient _socketClient;
-        private readonly IControlLineStatusValidator _statusValidator;
-        private readonly IThreadOperations _threadOperations;
 
-        public ControlLineSockets(ISocketClient socketClient, IControlLineStatusValidator statusValidator,
-            IThreadOperations threadOperations)
+        public ControlLineSockets(ISocketClient socketClient)
         {
             _socketClient = socketClient;
-            _statusValidator = statusValidator;
-            _threadOperations = threadOperations;
         }
 
         /// <exception cref="ArgumentException"></exception>>
@@ -47,18 +41,11 @@ namespace ControlLine.Sockets
                 _socketClient.Connect();
                 _socketClient.Send(payload);
                 var response = _socketClient.Recieve();
-                if (_statusValidator.IsError(response[0]))
+                return new OperationResponseDto
                 {
-                    throw _statusValidator.ValidateError(response[0]);
-                }
-                else
-                {
-                    return new OperationResponseDto
-                    {
-                        Status = response[0],
-                        Returns = BytesToValue(response.Skip(1).ToArray())
-                    };
-                }
+                    Status = response[0],
+                    Returns = BytesToValue(response.Skip(1).ToArray())
+                };
             }
             finally
             {
@@ -66,7 +53,7 @@ namespace ControlLine.Sockets
             }
         }
 
-        private byte[] ValueToBytes(int value)
+        private static byte[] ValueToBytes(int value)
         {
             var bytes = BitConverter.GetBytes(value);
 
@@ -78,7 +65,7 @@ namespace ControlLine.Sockets
             };
         }
 
-        private int BytesToValue(IReadOnlyList<byte> bytes)
+        private static int BytesToValue(IReadOnlyList<byte> bytes)
         {
             return bytes[0] switch
             {
@@ -88,7 +75,7 @@ namespace ControlLine.Sockets
             };
         }
 
-        private byte GetDataType(int value)
+        private static byte GetDataType(int value)
         {
             return (value >= 0) switch
             {
