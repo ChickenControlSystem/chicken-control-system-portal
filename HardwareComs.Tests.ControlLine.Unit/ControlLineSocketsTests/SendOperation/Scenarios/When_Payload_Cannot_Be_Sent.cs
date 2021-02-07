@@ -1,13 +1,14 @@
 ﻿using System.Linq;
 using System.Net.Sockets;
 using ControlLine.Dto;
+using ControlLineUnitTests.ControlLineSocketsTests.SendOperation.Scenarios.Shared.Socket;
 using NSubstitute;
 using NUnit.Framework;
 
 namespace ControlLineUnitTests.ControlLineSocketsTests.SendOperation.Scenarios
 {
     [TestFixture]
-    public class When_Payload_Cannot_Be_Sent : Given_ControlLine_SendOperation_Was_Called
+    public class When_Payload_Cannot_Be_Sent : When_Socket_Error_Occurs
     {
         private readonly SocketException _socketException = new SocketException();
         private readonly byte[] _payload = {115, 121, 2, 255, 255};

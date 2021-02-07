@@ -1,4 +1,4 @@
-﻿using ControlLine.Exception;
+﻿using System.Net.Sockets;
 using NSubstitute;
 using NUnit.Framework;
 
@@ -23,9 +23,9 @@ namespace ControlLineUnitTests.ControlLineSocketsTests.SendOperation.Scenarios.S
         }
 
         [Test]
-        public void Then_Control_Line_Offline_Error_Occurs()
+        public void Then_SocketException_Is_Thrown()
         {
-            Assert.Throws<ControlLineOffline>(() => SUT.SendOperation(Operation));
+            Assert.Throws<SocketException>(() => SUT.SendOperation(Operation));
         }
     }
 }

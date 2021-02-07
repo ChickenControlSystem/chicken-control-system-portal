@@ -7,7 +7,6 @@ using ControlLine.Contract;
 using ControlLine.Contract.Sockets;
 using ControlLine.Contract.Threading;
 using ControlLine.Dto;
-using ControlLine.Exception;
 
 namespace ControlLine.Sockets
 {
@@ -29,6 +28,7 @@ namespace ControlLine.Sockets
         }
 
         /// <exception cref="ArgumentException"></exception>>
+        /// <exception cref="SocketException"></exception>>
         public OperationResponseDto SendOperation(OperationDto operationDto)
         {
             operationDto.Params.ToList()
@@ -46,36 +46,19 @@ namespace ControlLine.Sockets
             {
                 _socketClient.Connect();
                 _socketClient.Send(payload);
-                try
+                var response = _socketClient.Recieve();
+                if (_statusValidator.IsError(response[0]))
                 {
-                    var response = _socketClient.Recieve();
-                    if (_statusValidator.IsError(response[0]))
-                        throw _statusValidator.ValidateError(response[0]);
-                    else
-                        try
-                        {
-                            return new OperationResponseDto
-                            {
-                                Status = response[0],
-                                Returns = BytesToValue(response.Skip(1).ToArray())
-                            };
-                        }
-                        catch (ArgumentException)
-                        {
-                            return new OperationResponseDto
-                            {
-                                Status = response[0]
-                            };
-                        }
+                    throw _statusValidator.ValidateError(response[0]);
                 }
-                catch (ThreadTimeout)
+                else
                 {
-                    throw new ControlLineTimeOut();
+                    return new OperationResponseDto
+                    {
+                        Status = response[0],
+                        Returns = BytesToValue(response.Skip(1).ToArray())
+                    };
                 }
-            }
-            catch (SocketException)
-            {
-                throw new ControlLineOffline();
             }
             finally
             {

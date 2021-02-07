@@ -1,5 +1,5 @@
-﻿using ControlLine.Dto;
-using ControlLine.Exception;
+﻿using System.Net.Sockets;
+using ControlLine.Dto;
 using ControlLine.Exception.Hardware;
 using NUnit.Framework;
 
@@ -35,7 +35,7 @@ namespace ControlLineIntegrationTests.ControlLineSocketsTests.SendOperation.Scen
         {
             //act/assert
             Assert.Throws<DeviceOffline>(() => Sut.SendOperation(_operation));
-            Assert.Throws<ControlLineOffline>(() => Sut.SendOperation(_operation));
+            Assert.Throws<SocketException>(() => Sut.SendOperation(_operation));
         }
     }
 }
