@@ -7,7 +7,5 @@
         public byte Device { get; set; }
 
         public int[] Params { get; set; }
-
-        public int Timeout { get; set; }
     }
 }

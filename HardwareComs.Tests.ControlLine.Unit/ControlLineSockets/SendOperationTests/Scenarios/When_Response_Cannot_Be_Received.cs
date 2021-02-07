@@ -20,8 +20,7 @@ namespace ControlLineUnitTests.ControlLineSockets.SendOperationTests.Scenarios
             {
                 Operation = 115,
                 Device = 121,
-                Params = new[] {65535},
-                Timeout = Timeout
+                Params = new[] {65535}
             };
 
             MockSocketClient

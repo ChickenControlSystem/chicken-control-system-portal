@@ -33,8 +33,7 @@ namespace ControlLineUnitTests.ControlLineSockets.SendOperationTests.Scenarios
             {
                 Operation = operation,
                 Device = deviceId,
-                Params = parameters,
-                Timeout = Timeout
+                Params = parameters
             };
         }
 

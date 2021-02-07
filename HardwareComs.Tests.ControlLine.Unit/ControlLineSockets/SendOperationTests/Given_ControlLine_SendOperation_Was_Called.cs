@@ -8,7 +8,6 @@ namespace ControlLineUnitTests.ControlLineSockets.SendOperationTests
     public abstract class
         Given_ControlLine_SendOperation_Was_Called : GivenWhenThenTests<ControlLine.Sockets.ControlLineSockets>
     {
-        protected const int Timeout = 10;
         protected ISocketClient MockSocketClient;
         protected OperationDto Operation;
 
