@@ -16,8 +16,8 @@
     </ItemGroup>
 
     <ItemGroup>
+        <ProjectReference Include="..\Common.UnitTest\Common.UnitTest.csproj"/>
         <ProjectReference Include="..\HardwareComs.ControlLine\HardwareComs.ControlLine.csproj"/>
-        <ProjectReference Include="..\UnitTest\UnitTest.csproj"/>
     </ItemGroup>
 
 </Project>

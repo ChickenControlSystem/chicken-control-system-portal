@@ -2,10 +2,7 @@
 
     <PropertyGroup>
         <TargetFramework>netcoreapp3.1</TargetFramework>
+        <RootNamespace>Threading</RootNamespace>
     </PropertyGroup>
-
-    <ItemGroup>
-        <PackageReference Include="nunit" Version="3.13.1"/>
-    </ItemGroup>
 
 </Project>

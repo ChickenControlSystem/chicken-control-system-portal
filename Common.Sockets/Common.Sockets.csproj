@@ -2,10 +2,11 @@
 
     <PropertyGroup>
         <TargetFramework>netcoreapp3.1</TargetFramework>
+        <RootNamespace>Sockets</RootNamespace>
     </PropertyGroup>
 
     <ItemGroup>
-        <ProjectReference Include="..\Threading\Threading.csproj"/>
+        <ProjectReference Include="..\Common.Threading\Common.Threading.csproj"/>
     </ItemGroup>
 
 </Project>

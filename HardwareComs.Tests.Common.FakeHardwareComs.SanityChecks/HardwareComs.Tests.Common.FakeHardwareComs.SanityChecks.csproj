@@ -13,8 +13,8 @@
     </ItemGroup>
 
     <ItemGroup>
+        <ProjectReference Include="..\Common.UnitTest\Common.UnitTest.csproj"/>
         <ProjectReference Include="..\HardwareComs.Tests.Common.FakeHardwareComs\HardwareComs.Tests.Common.FakeHardwareComs.csproj"/>
-        <ProjectReference Include="..\UnitTest\UnitTest.csproj"/>
     </ItemGroup>
 
 </Project>

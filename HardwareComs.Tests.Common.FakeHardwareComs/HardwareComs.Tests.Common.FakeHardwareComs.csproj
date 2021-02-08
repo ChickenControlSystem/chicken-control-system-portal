@@ -5,10 +5,10 @@
     </PropertyGroup>
 
     <ItemGroup>
-        <ProjectReference Include="..\CodeContracts\CodeContracts.csproj"/>
+        <ProjectReference Include="..\Common.CodeContracts\Common.CodeContracts.csproj"/>
+        <ProjectReference Include="..\Common.Threading\Common.Threading.csproj"/>
+        <ProjectReference Include="..\Common.UnitTest\Common.UnitTest.csproj"/>
         <ProjectReference Include="..\ControlSystem.Enviroment\ControlSystem.Enviroment.csproj"/>
-        <ProjectReference Include="..\Threading\Threading.csproj"/>
-        <ProjectReference Include="..\UnitTest\UnitTest.csproj"/>
     </ItemGroup>
 
 </Project>

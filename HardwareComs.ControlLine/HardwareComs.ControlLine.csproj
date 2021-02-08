@@ -6,8 +6,8 @@
     </PropertyGroup>
 
     <ItemGroup>
-        <ProjectReference Include="..\CodeContracts\CodeContracts.csproj"/>
-        <ProjectReference Include="..\Sockets\Sockets.csproj"/>
+        <ProjectReference Include="..\Common.CodeContracts\Common.CodeContracts.csproj"/>
+        <ProjectReference Include="..\Common.Sockets\Common.Sockets.csproj"/>
     </ItemGroup>
 
 </Project>
