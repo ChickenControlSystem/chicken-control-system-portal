@@ -2,10 +2,11 @@
 
     <PropertyGroup>
         <TargetFramework>netcoreapp3.1</TargetFramework>
+        <RootNamespace>Sockets</RootNamespace>
     </PropertyGroup>
 
     <ItemGroup>
-        <PackageReference Include="nunit" Version="3.13.1"/>
+        <ProjectReference Include="..\Common.Threading\Common.Threading.csproj"/>
     </ItemGroup>
 
 </Project>

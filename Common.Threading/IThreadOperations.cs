@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace ControlLine.Contract.Threading
+namespace Threading
 {
     /// <summary>
     ///     handles threading operations for functions

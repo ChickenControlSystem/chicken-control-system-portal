@@ -4,20 +4,17 @@
         <TargetFramework>netcoreapp3.1</TargetFramework>
 
         <IsPackable>false</IsPackable>
-
-        <RootNamespace>ControlLineUnitTests</RootNamespace>
     </PropertyGroup>
 
     <ItemGroup>
-        <PackageReference Include="NSubstitute" Version="4.2.2" />
         <PackageReference Include="nunit" Version="3.13.1"/>
-        <PackageReference Include="NUnit3TestAdapter" Version="3.15.1" />
-        <PackageReference Include="Microsoft.NET.Test.Sdk" Version="16.4.0" />
+        <PackageReference Include="NUnit3TestAdapter" Version="3.15.1"/>
+        <PackageReference Include="Microsoft.NET.Test.Sdk" Version="16.4.0"/>
     </ItemGroup>
 
     <ItemGroup>
         <ProjectReference Include="..\Common.UnitTest\Common.UnitTest.csproj"/>
-        <ProjectReference Include="..\HardwareComs.ControlLine\HardwareComs.ControlLine.csproj"/>
+        <ProjectReference Include="..\HardwareComs.Tests.Common.FakeHardwareComs\HardwareComs.Tests.Common.FakeHardwareComs.csproj"/>
     </ItemGroup>
 
 </Project>

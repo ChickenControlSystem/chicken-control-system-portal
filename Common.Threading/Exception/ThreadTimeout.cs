@@ -1,4 +1,4 @@
-﻿namespace ControlLine.Exception
+﻿namespace Threading.Exception
 {
     /// <summary>
     ///     when a blocked thread has overrun its timeout period

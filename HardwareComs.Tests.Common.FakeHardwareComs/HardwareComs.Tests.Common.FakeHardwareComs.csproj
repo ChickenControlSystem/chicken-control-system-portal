@@ -2,12 +2,13 @@
 
     <PropertyGroup>
         <TargetFramework>netcoreapp3.1</TargetFramework>
-        <RootNamespace>ControlLine</RootNamespace>
     </PropertyGroup>
 
     <ItemGroup>
         <ProjectReference Include="..\Common.CodeContracts\Common.CodeContracts.csproj"/>
-        <ProjectReference Include="..\Common.Sockets\Common.Sockets.csproj"/>
+        <ProjectReference Include="..\Common.Threading\Common.Threading.csproj"/>
+        <ProjectReference Include="..\Common.UnitTest\Common.UnitTest.csproj"/>
+        <ProjectReference Include="..\ControlSystem.Enviroment\ControlSystem.Enviroment.csproj"/>
     </ItemGroup>
 
 </Project>
