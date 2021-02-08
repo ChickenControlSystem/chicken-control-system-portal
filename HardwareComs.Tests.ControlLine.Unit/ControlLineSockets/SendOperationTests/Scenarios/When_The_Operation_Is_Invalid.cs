@@ -9,17 +9,17 @@ namespace ControlLineUnitTests.ControlLineSockets.SendOperationTests.Scenarios
     [TestFixture(65540, 122)]
     [TestFixture(123, 65540)]
     [TestFixture(-2)]
-    public class When_The_Operation_Parameters_Are_Out_Of_Range : Given_ControlLine_SendOperation_Was_Called
+    public class When_The_Operation_Is_Invalid : Given_ControlLine_SendOperation_Was_Called
     {
         private OperationDto _operation;
         private readonly int[] _operationParams;
 
-        public When_The_Operation_Parameters_Are_Out_Of_Range(int operationParam)
+        public When_The_Operation_Is_Invalid(int operationParam)
         {
             _operationParams = new[] {operationParam};
         }
 
-        public When_The_Operation_Parameters_Are_Out_Of_Range(int operationParam1, int operationParam2)
+        public When_The_Operation_Is_Invalid(int operationParam1, int operationParam2)
         {
             _operationParams = new[] {operationParam1, operationParam2};
         }

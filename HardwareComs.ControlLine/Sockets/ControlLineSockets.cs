@@ -25,6 +25,8 @@ namespace ControlLine.Sockets
         /// <exception cref="SocketException"></exception>>
         public OperationResponseDto SendOperation(OperationDto operationDto)
         {
+            //PRE-CONDITION
+            //TODO LOGGING
             operationDto.Params.ToList()
                 .ForEach(x => CodeContract.PreCondition<ArgumentException>(x > 0 && x <= 65535));
 
@@ -41,6 +43,13 @@ namespace ControlLine.Sockets
                 _socketClient.Connect();
                 _socketClient.Send(payload);
                 var response = _socketClient.Recieve();
+
+                //POST-CONDITIONS
+                //TODO LOGGING
+                CodeContract.PostCondition<ArgumentException>(response[1] > 0 && response[1] < 4);
+                CodeContract.PostCondition<ArgumentException>(response[0] > 0);
+                CodeContract.PostCondition<ArgumentException>(response.Length == 8);
+
                 return new OperationResponseDto
                 {
                     Status = response[0],

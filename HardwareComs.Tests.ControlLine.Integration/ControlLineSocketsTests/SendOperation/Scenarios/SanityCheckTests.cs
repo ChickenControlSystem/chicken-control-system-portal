@@ -21,7 +21,6 @@ namespace ControlLineIntegrationTests.ControlLineSocketsTests.SendOperation.Scen
             _operation = new OperationDto
             {
                 Operation = operation,
-                Timeout = 1000,
                 Device = device,
                 Params = new[] {ammount}
             };
