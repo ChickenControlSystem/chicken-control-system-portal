@@ -27,5 +27,19 @@ namespace ControlLineUnitTests.ControlLineSockets.SendOperationTests.Scenarios.S
                 .Received(1)
                 .Recieve();
         }
+
+        [Test]
+        public void Then_Communication_Was_In_Order()
+        {
+            Received.InOrder(
+                () =>
+                {
+                    MockSocketClient.Connect();
+                    MockSocketClient.Send(Arg.Any<byte[]>());
+                    MockSocketClient.Recieve();
+                    MockSocketClient.Close();
+                }
+            );
+        }
     }
 }

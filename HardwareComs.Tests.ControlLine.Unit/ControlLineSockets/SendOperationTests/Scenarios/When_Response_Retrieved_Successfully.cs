@@ -27,7 +27,7 @@ namespace ControlLineUnitTests.ControlLineSockets.SendOperationTests.Scenarios
 
             MockSocketClient
                 .Recieve()
-                .Returns(new byte[] {115, 2, 255, 255});
+                .Returns(new byte[] {115, 2, 255, 255, 0, 0, 0, 0});
 
             _result = SUT.SendOperation(Operation);
         }
