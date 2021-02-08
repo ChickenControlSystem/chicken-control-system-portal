@@ -1,9 +1,8 @@
 ﻿using System;
 using System.Threading.Tasks;
-using ControlLine.Contract.Threading;
-using ControlLine.Exception;
+using Threading.Exception;
 
-namespace ControlLine.Threading
+namespace Threading
 {
     public class ThreadOperations : IThreadOperations
     {

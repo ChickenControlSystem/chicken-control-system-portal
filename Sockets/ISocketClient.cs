@@ -1,4 +1,4 @@
-﻿namespace ControlLine.Contract.Sockets
+﻿namespace Sockets
 {
     /// <summary>
     ///     a module that receives and sends to a raw ip socket server

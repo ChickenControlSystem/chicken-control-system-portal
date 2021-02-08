@@ -1,10 +1,9 @@
 ﻿using System;
 using System.Net;
 using System.Net.Sockets;
-using ControlLine.Contract.Sockets;
-using ControlLine.Contract.Threading;
+using Threading;
 
-namespace ControlLine.Sockets
+namespace Sockets
 {
     public class BerkeleyTcpClient : ISocketClient
     {

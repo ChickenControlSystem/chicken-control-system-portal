@@ -4,8 +4,8 @@ using System.Linq;
 using System.Net.Sockets;
 using CodeContracts;
 using ControlLine.Contract;
-using ControlLine.Contract.Sockets;
 using ControlLine.Dto;
+using Sockets;
 
 namespace ControlLine.Sockets
 {

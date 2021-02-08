@@ -1,6 +1,6 @@
-﻿using ControlLine.Contract.Sockets;
-using ControlLine.Dto;
+﻿using ControlLine.Dto;
 using NSubstitute;
+using Sockets;
 using UnitTest;
 
 namespace ControlLineUnitTests.ControlLineSockets.SendOperationTests
