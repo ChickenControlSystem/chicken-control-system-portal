@@ -3,10 +3,8 @@ using NUnit.Framework;
 
 namespace UnitTest
 {
-    public abstract class GivenWhenThenTests<T>
+    public class GivenWhenThenTests
     {
-        protected T SUT;
-
         [SetUp]
         public void SetUpClass()
         {
@@ -29,11 +27,15 @@ namespace UnitTest
         /// <summary>
         /// set up for test fixture
         /// </summary>
-        protected abstract void Given();
+        protected virtual void Given()
+        {
+        }
 
         /// <summary>
         /// set up for test method, SUT operation can be run (it will ignore exceptions)
         /// </summary>
-        protected abstract void When();
+        protected virtual void When()
+        {
+        }
     }
 }

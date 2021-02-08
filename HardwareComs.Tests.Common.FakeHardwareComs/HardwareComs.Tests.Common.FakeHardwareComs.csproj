@@ -5,8 +5,10 @@
     </PropertyGroup>
 
     <ItemGroup>
+        <ProjectReference Include="..\CodeContracts\CodeContracts.csproj"/>
         <ProjectReference Include="..\ControlSystem.Enviroment\ControlSystem.Enviroment.csproj"/>
         <ProjectReference Include="..\Threading\Threading.csproj"/>
+        <ProjectReference Include="..\UnitTest\UnitTest.csproj"/>
     </ItemGroup>
 
 </Project>

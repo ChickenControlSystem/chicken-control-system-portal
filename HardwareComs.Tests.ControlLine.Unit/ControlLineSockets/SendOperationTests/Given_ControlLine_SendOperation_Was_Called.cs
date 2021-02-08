@@ -6,7 +6,7 @@ using UnitTest;
 namespace ControlLineUnitTests.ControlLineSockets.SendOperationTests
 {
     public abstract class
-        Given_ControlLine_SendOperation_Was_Called : GivenWhenThenTests<ControlLine.Sockets.ControlLineSockets>
+        Given_ControlLine_SendOperation_Was_Called : GenericGivenWhenThenTests<ControlLine.Sockets.ControlLineSockets>
     {
         protected ISocketClient MockSocketClient;
         protected OperationDto Operation;
