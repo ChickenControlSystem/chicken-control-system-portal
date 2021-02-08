@@ -3,9 +3,9 @@ using System.Net;
 using System.Net.Sockets;
 using Threading;
 
-namespace Sockets
+namespace Sockets.Client
 {
-    public class BerkeleyTcpClient : ISocketClient
+    public class TcpClient : ISocketClient
     {
         private readonly IPEndPoint _endPoint;
         private readonly int _packetLength;
@@ -13,7 +13,7 @@ namespace Sockets
         private readonly IThreadOperations _threadOperations;
         private readonly int _timeout;
 
-        private BerkeleyTcpClient(IPEndPoint endPoint, Socket socket, int packetLength,
+        private TcpClient(IPEndPoint endPoint, Socket socket, int packetLength,
             IThreadOperations threadOperations, int timeout)
         {
             _endPoint = endPoint;
@@ -23,7 +23,7 @@ namespace Sockets
             _timeout = timeout;
         }
 
-        public BerkeleyTcpClient(IPEndPoint endPoint, int packetLength, IThreadOperations threadOperations,
+        public TcpClient(IPEndPoint endPoint, int packetLength, IThreadOperations threadOperations,
             int timeout) :
             this(endPoint, new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp), packetLength,
                 threadOperations, timeout)

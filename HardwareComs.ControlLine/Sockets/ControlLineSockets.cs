@@ -5,7 +5,7 @@ using System.Net.Sockets;
 using CodeContracts;
 using ControlLine.Contract;
 using ControlLine.Dto;
-using Sockets;
+using Sockets.Client;
 
 namespace ControlLine.Sockets
 {
