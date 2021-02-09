@@ -1,10 +1,10 @@
 ﻿using System.Net.Sockets;
 using ControlLine.Dto;
-using ControlLineUnitTests.ControlLineSockets.SendOperationTests.Scenarios.Shared.Socket;
+using HardwareComs.Tests.ControlLine.Unit.ControlLineSockets.SendOperationTests.Scenarios.Shared.Socket;
 using NSubstitute;
 using NUnit.Framework;
 
-namespace ControlLineUnitTests.ControlLineSockets.SendOperationTests.Scenarios
+namespace HardwareComs.Tests.ControlLine.Unit.ControlLineSockets.SendOperationTests.Scenarios
 {
     [TestFixture]
     public class When_Connection_Cannot_Be_Opened : When_Socket_Error_Occurs

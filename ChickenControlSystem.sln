@@ -41,6 +41,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Common.Threading", "Common.
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HardwareComs.Tests.Common.FakeHardwareComs.SanityChecks", "HardwareComs.Tests.Common.FakeHardwareComs.SanityChecks\HardwareComs.Tests.Common.FakeHardwareComs.SanityChecks.csproj", "{0374CA17-8B89-447B-9095-D065808AEC75}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HardwareComs.Tests.ControlLine.Integration", "HardwareComs.Tests.ControlLine.Integration\HardwareComs.Tests.ControlLine.Integration.csproj", "{DCB36858-CD6F-457D-9AC2-E6A4171EAD2E}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -95,6 +97,10 @@ Global
 		{0374CA17-8B89-447B-9095-D065808AEC75}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0374CA17-8B89-447B-9095-D065808AEC75}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{0374CA17-8B89-447B-9095-D065808AEC75}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DCB36858-CD6F-457D-9AC2-E6A4171EAD2E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DCB36858-CD6F-457D-9AC2-E6A4171EAD2E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DCB36858-CD6F-457D-9AC2-E6A4171EAD2E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DCB36858-CD6F-457D-9AC2-E6A4171EAD2E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -115,6 +121,7 @@ Global
 		{4CB7DB23-C092-4815-B930-105C08E7B14B} = {484F1C17-5C01-4208-B01A-F5A4EDDA88E5}
 		{D78C0111-1A32-45BD-8D51-5CFC5FE8254A} = {484F1C17-5C01-4208-B01A-F5A4EDDA88E5}
 		{0374CA17-8B89-447B-9095-D065808AEC75} = {EA7F7032-5629-4ADB-9A00-9E1F8087B77F}
+		{DCB36858-CD6F-457D-9AC2-E6A4171EAD2E} = {3205F8D9-F0DF-474C-BD24-3AB0DF5DEDC1}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {EC6C8F85-99C9-4B88-ADD1-00937B62E4F2}

@@ -1,7 +1,7 @@
 ﻿using NSubstitute;
 using NUnit.Framework;
 
-namespace ControlLineUnitTests.ControlLineSockets.SendOperationTests.Scenarios.Shared
+namespace HardwareComs.Tests.ControlLine.Unit.ControlLineSockets.SendOperationTests.Scenarios.Shared
 {
     public abstract class When_Preconditions_Are_Satisfied : Given_ControlLine_SendOperation_Was_Called
     {

@@ -1,9 +1,9 @@
 ﻿using ControlLine.Dto;
-using ControlLineUnitTests.ControlLineSockets.SendOperationTests.Scenarios.Shared.Socket;
+using HardwareComs.Tests.ControlLine.Unit.ControlLineSockets.SendOperationTests.Scenarios.Shared.Socket;
 using NSubstitute;
 using NUnit.Framework;
 
-namespace ControlLineUnitTests.ControlLineSockets.SendOperationTests.Scenarios
+namespace HardwareComs.Tests.ControlLine.Unit.ControlLineSockets.SendOperationTests.Scenarios
 {
     public class When_Response_Retrieved_Successfully : When_Socket_Communication_Was_Successful
     {

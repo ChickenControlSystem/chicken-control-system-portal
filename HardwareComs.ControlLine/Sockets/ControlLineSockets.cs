@@ -46,6 +46,8 @@ namespace ControlLine.Sockets
 
                 //POST-CONDITIONS
                 //TODO LOGGING
+                CodeContract.PostCondition<SocketException>(
+                    !response.SequenceEqual(new byte[] {0, 0, 0, 0, 0, 0, 0, 0}));
                 CodeContract.PostCondition<ArgumentException>(response[1] > 0 && response[1] < 4);
                 CodeContract.PostCondition<ArgumentException>(response[0] > 0);
                 CodeContract.PostCondition<ArgumentException>(response.Length == 8);
