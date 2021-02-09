@@ -7,7 +7,15 @@ namespace HardwareComs.Tests.Common.FakeHardwareComs.SanityChecks.SanityChecks
     {
         protected override void GivenServices()
         {
-            Service = new FakeHardwareComsServer(new ThreadOperations());
+            Service = new FakeHardwareComsServer(
+                new ThreadOperations(),
+                new RequestResponseFlagsDto
+                {
+                    AbsoluteMoveDoorFail = true,
+                    ReadLightFail = false,
+                    RelativeMoveDoorFail = false
+                }
+            );
         }
     }
 }
