@@ -62,7 +62,7 @@ namespace Sockets.Client
             {
                 _threadOperations.WaitUntilActionTimeout(action, _timeout);
             }
-            catch (System.Exception)
+            catch (Exception)
             {
                 //TODO: log
                 throw new SocketException();

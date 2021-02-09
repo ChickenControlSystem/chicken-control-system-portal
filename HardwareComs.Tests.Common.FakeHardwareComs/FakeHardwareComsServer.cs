@@ -66,7 +66,7 @@ namespace HardwareComs.Tests.Common.FakeHardwareComs
                                 //ignore
                             }
                         }
-                    }, 500);
+                    }, 50);
                 }
             );
         }
