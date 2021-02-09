@@ -54,7 +54,11 @@ namespace HardwareComs.Tests.Common.FakeHardwareComs
                                 var buffer = new byte[8];
                                 handle.Receive(buffer);
                                 var payload = GetResponse(buffer);
-                                handle.Send(payload ?? new byte[] {0, 0, 0, 0, 0, 0, 0, 0});
+                                if (payload != null)
+                                {
+                                    handle.Send(payload);
+                                }
+
                                 handle.Close();
                             }
                             catch (Exception)
