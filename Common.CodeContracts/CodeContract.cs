@@ -3,12 +3,12 @@
 namespace CodeContracts
 {
     /// <summary>
-    /// defines the functions for contractual requirements (pre/post conditions) in methods
+    ///     defines the functions for contractual requirements (pre/post conditions) in methods
     /// </summary>
     public static class CodeContract
     {
         /// <summary>
-        /// throws an exception if the specified pre condition is not met
+        ///     throws an exception if the specified pre condition is not met
         /// </summary>
         public static void PreCondition<TException>(bool predicate)
             where TException : Exception, new()
@@ -17,7 +17,7 @@ namespace CodeContracts
         }
 
         /// <summary>
-        /// throws an exception if the specified post condition is not met
+        ///     throws an exception if the specified post condition is not met
         /// </summary>
         public static void PostCondition<TException>(bool predicate)
             where TException : Exception, new()
@@ -28,10 +28,7 @@ namespace CodeContracts
         private static void Condition<TException>(bool predicate)
             where TException : Exception, new()
         {
-            if (!predicate)
-            {
-                throw new TException();
-            }
+            if (!predicate) throw new TException();
         }
     }
 }

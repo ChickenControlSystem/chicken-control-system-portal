@@ -21,8 +21,10 @@ namespace ControlLine.Sockets
             _socketClient = socketClient;
         }
 
-        /// <exception cref="ArgumentException"></exception>>
-        /// <exception cref="SocketException"></exception>>
+        /// <exception cref="ArgumentException"></exception>
+        /// >
+        /// <exception cref="SocketException"></exception>
+        /// >
         public OperationResponseDto SendOperation(OperationDto operationDto)
         {
             //PRE-CONDITION

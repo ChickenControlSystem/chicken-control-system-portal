@@ -14,19 +14,14 @@ namespace HardwareComs.Tests.Common.FakeHardwareComs.RequestResponses
         public Tuple<byte[], byte[]> GetRequestResponse(bool isResponseFail = false)
         {
             if (isResponseFail)
-            {
                 return new Tuple<byte[], byte[]>(
                     RequestResponse.Item1,
                     RequestResponse.Item3
                 );
-            }
-            else
-            {
-                return new Tuple<byte[], byte[]>(
-                    RequestResponse.Item1,
-                    RequestResponse.Item2
-                );
-            }
+            return new Tuple<byte[], byte[]>(
+                RequestResponse.Item1,
+                RequestResponse.Item2
+            );
         }
     }
 }

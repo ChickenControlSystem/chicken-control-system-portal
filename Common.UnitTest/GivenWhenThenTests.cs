@@ -25,14 +25,14 @@ namespace UnitTest
         }
 
         /// <summary>
-        /// set up for test fixture
+        ///     set up for test fixture
         /// </summary>
         protected virtual void Given()
         {
         }
 
         /// <summary>
-        /// set up for test method, SUT operation can be run (it will ignore exceptions)
+        ///     set up for test method, SUT operation can be run (it will ignore exceptions)
         /// </summary>
         protected virtual void When()
         {

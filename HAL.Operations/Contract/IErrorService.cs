@@ -3,12 +3,12 @@
 namespace HAL.Operations.Contract
 {
     /// <summary>
-    /// handles control line errors
+    ///     handles control line errors
     /// </summary>
     public interface IErrorService
     {
         /// <summary>
-        /// returns success, failure depending on error, logs error
+        ///     returns success, failure depending on error, logs error
         /// </summary>
         OperationResultEnum Validate(int errorCode);
     }

@@ -1,4 +1,5 @@
-﻿using ControlLine.Contract;
+﻿using System;
+using ControlLine.Contract;
 using HAL.Models.Contract;
 using HAL.Operations.Contract;
 using HAL.Operations.Enum;
@@ -18,17 +19,17 @@ namespace HAL.Operations
 
         public OperationResultEnum MoveAxisAbsolute(IDevice axis)
         {
-            throw new System.NotImplementedException();
+            throw new NotImplementedException();
         }
 
         public OperationResultEnum MoveAxisRelative(IDevice axis)
         {
-            throw new System.NotImplementedException();
+            throw new NotImplementedException();
         }
 
         public OperationResultEnum MoveAxisSearch(IDevice axis, IDevice sensor)
         {
-            throw new System.NotImplementedException();
+            throw new NotImplementedException();
         }
     }
 }
