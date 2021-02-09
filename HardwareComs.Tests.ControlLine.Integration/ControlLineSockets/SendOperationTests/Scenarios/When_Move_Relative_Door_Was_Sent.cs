@@ -3,7 +3,7 @@ using NUnit.Framework;
 
 namespace HardwareComs.Tests.ControlLine.Integration.ControlLineSockets.SendOperationTests.Scenarios
 {
-    public class When_Read_Light_Operation_Was_Sent : Given_ControlLine_SendOperation_Was_Called
+    public class When_Move_Relative_Door_Was_Sent : Given_ControlLine_SendOperation_Was_Called
     {
         private OperationResponseDto _result;
 
@@ -12,9 +12,9 @@ namespace HardwareComs.Tests.ControlLine.Integration.ControlLineSockets.SendOper
             _result = SUT.SendOperation(
                 new OperationDto
                 {
-                    Device = 1,
-                    Operation = 1,
-                    Params = new int[] { }
+                    Device = 2,
+                    Operation = 3,
+                    Params = new[] {28536}
                 }
             );
         }
@@ -26,9 +26,9 @@ namespace HardwareComs.Tests.ControlLine.Integration.ControlLineSockets.SendOper
         }
 
         [Test]
-        public void Then_Operation_Response_Return_Is_200()
+        public void Then_Operation_Response_Return_Is_Zero()
         {
-            Assert.AreEqual(200, _result.Returns);
+            Assert.AreEqual(0, _result.Returns);
         }
     }
 }

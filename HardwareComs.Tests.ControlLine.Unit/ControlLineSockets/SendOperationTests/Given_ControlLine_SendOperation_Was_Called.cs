@@ -3,10 +3,11 @@ using NSubstitute;
 using Sockets.Client;
 using UnitTest;
 
-namespace ControlLineUnitTests.ControlLineSockets.SendOperationTests
+namespace HardwareComs.Tests.ControlLine.Unit.ControlLineSockets.SendOperationTests
 {
     public abstract class
-        Given_ControlLine_SendOperation_Was_Called : GenericGivenWhenThenTests<ControlLine.Sockets.ControlLineSockets>
+        Given_ControlLine_SendOperation_Was_Called : GenericGivenWhenThenTests<
+            global::ControlLine.Sockets.ControlLineSockets>
     {
         protected ISocketClient MockSocketClient;
         protected OperationDto Operation;
@@ -15,7 +16,7 @@ namespace ControlLineUnitTests.ControlLineSockets.SendOperationTests
         {
             MockSocketClient = Substitute.For<ISocketClient>();
 
-            SUT = new ControlLine.Sockets.ControlLineSockets(
+            SUT = new global::ControlLine.Sockets.ControlLineSockets(
                 MockSocketClient
             );
         }

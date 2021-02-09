@@ -13,7 +13,7 @@ namespace HardwareComs.Tests.ControlLine.Integration.ControlLineSockets.SendOper
                 new RequestResponseFlagsDto
                 {
                     AbsoluteMoveDoorFail = false,
-                    ReadLightFail = true,
+                    ReadLightFail = false,
                     RelativeMoveDoorFail = false
                 }
             );

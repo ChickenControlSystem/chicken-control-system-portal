@@ -1,10 +1,10 @@
 ﻿using System;
 using ControlLine.Dto;
-using ControlLineUnitTests.ControlLineSockets.SendOperationTests.Scenarios.Shared.Socket;
+using HardwareComs.Tests.ControlLine.Unit.ControlLineSockets.SendOperationTests.Scenarios.Shared.Socket;
 using NSubstitute;
 using NUnit.Framework;
 
-namespace ControlLineUnitTests.ControlLineSockets.SendOperationTests.Scenarios
+namespace HardwareComs.Tests.ControlLine.Unit.ControlLineSockets.SendOperationTests.Scenarios
 {
     [TestFixture("Data Type Is Less Than 1", new byte[] {1, 0, 116, 0, 0, 0, 0, 0})]
     [TestFixture("Data Type Is Greater Than 3", new byte[] {1, 4, 116, 0, 0, 0, 0, 0})]
