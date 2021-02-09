@@ -15,7 +15,7 @@ namespace HardwareComs.Tests.ControlLine.Integration.ControlLineSockets.SendOper
                     ConfigurationLoader.GetTestConfigurationLoader().GetControlLineSettings().GetEndPoint(),
                     8,
                     new ThreadOperations(),
-                    400
+                    5000
                 )
             );
         }
