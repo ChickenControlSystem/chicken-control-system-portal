@@ -5,9 +5,9 @@ namespace HAL.Operations.Contract
 {
     public interface IAxisOperations
     {
-        public OperationResultEnum MoveAxisAbsolute(IDevice axis);
+        public OperationResultEnum MoveAxisAbsolute(IDevice axis, int ammount);
 
-        public OperationResultEnum MoveAxisRelative(IDevice axis);
+        public OperationResultEnum MoveAxisRelative(IDevice axis, int ammount);
 
         public OperationResultEnum MoveAxisSearch(IDevice axis, IDevice sensor);
     }
