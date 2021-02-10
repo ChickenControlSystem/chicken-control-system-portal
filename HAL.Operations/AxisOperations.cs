@@ -20,19 +20,24 @@ namespace HAL.Operations
 
         public OperationResultEnum MoveAxisAbsolute(IDevice axis, int ammount)
         {
-            throw new NotImplementedException();
+            return GenericAxisMove(axis, ammount, 2);
         }
 
         public OperationResultEnum MoveAxisRelative(IDevice axis, int ammount)
         {
-            var result = _controlLine.SendOperation(new OperationDto
-                {Device = axis.Id, Operation = 3, Params = new[] {ammount}});
-            return _errorService.Validate(result.Status);
+            return GenericAxisMove(axis, ammount, 3);
         }
 
         public OperationResultEnum MoveAxisSearch(IDevice axis, IDevice sensor)
         {
             throw new NotImplementedException();
+        }
+
+        private OperationResultEnum GenericAxisMove(IDevice axis, int ammount, byte operationId)
+        {
+            var result = _controlLine.SendOperation(new OperationDto
+                {Device = axis.Id, Operation = operationId, Params = new[] {ammount}});
+            return _errorService.Validate(result.Status);
         }
     }
 }

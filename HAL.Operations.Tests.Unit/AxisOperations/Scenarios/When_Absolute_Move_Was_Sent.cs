@@ -5,17 +5,17 @@ using HAL.Operations.Enum;
 using NSubstitute;
 using NUnit.Framework;
 
-namespace HAL.Operations.Tests.Unit.AxisOperations.Relative
+namespace HAL.Operations.Tests.Unit.AxisOperations.Scenarios
 {
     [TestFixture(OperationResultEnum.Failiure, (byte) 4)]
     [TestFixture(OperationResultEnum.Succeess, (byte) 1)]
-    public class When_Relative_Move_Is_Sent : Given_Operation_Was_Called
+    public class When_Absolute_Move_Was_Sent : Given_Operation_Was_Called
     {
         private readonly OperationResultEnum _moveResult;
         private readonly byte _errorCode;
         private OperationResultEnum _result;
 
-        public When_Relative_Move_Is_Sent(OperationResultEnum moveResult, byte errorCode)
+        public When_Absolute_Move_Was_Sent(OperationResultEnum moveResult, byte errorCode)
         {
             _moveResult = moveResult;
             _errorCode = errorCode;
@@ -31,7 +31,7 @@ namespace HAL.Operations.Tests.Unit.AxisOperations.Relative
                 .Validate(Arg.Any<byte>())
                 .Returns(_moveResult);
 
-            _result = SUT.MoveAxisRelative(new DoorAxis(), 120);
+            _result = SUT.MoveAxisAbsolute(new DoorAxis(), 120);
         }
 
         [Test]
@@ -53,7 +53,7 @@ namespace HAL.Operations.Tests.Unit.AxisOperations.Relative
                 .SendOperation(Arg.Is<OperationDto>(
                     operation =>
                         operation.Device == 2 &&
-                        operation.Operation == 3 &&
+                        operation.Operation == 2 &&
                         operation.Params.SequenceEqual(new[] {120})
                 ));
             MockControlLine
