@@ -7,8 +7,8 @@ namespace HAL.Operations.Tests.Unit.AxisOperations
 {
     public abstract class Given_Operation_Was_Called : GenericGivenWhenThenTests<Operations.AxisOperations>
     {
-        protected IErrorService MockErrorService;
         protected IControlLine MockControlLine;
+        protected IErrorService MockErrorService;
 
         protected override void Given()
         {

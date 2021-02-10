@@ -7,5 +7,7 @@
         public bool AbsoluteMoveDoorFail { get; set; }
 
         public bool RelativeMoveDoorFail { get; set; }
+
+        public bool SearchMoveDoorFail { get; set; }
     }
 }

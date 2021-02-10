@@ -30,7 +30,7 @@ namespace ControlLine.Sockets
             //PRE-CONDITION
             //TODO LOGGING
             operationDto.Params.ToList()
-                .ForEach(x => CodeContract.PreCondition<ArgumentException>(x > 0 && x <= 65535));
+                .ForEach(x => CodeContract.PreCondition<ArgumentException>(x >= 0 && x <= 65535));
 
             var paramBytes = new List<byte>();
             foreach (var param in operationDto.Params)

@@ -2,7 +2,7 @@
 using Threading;
 using UnitTest;
 
-namespace HardwareComs.Tests.ControlLine.Integration.ControlLineSockets.SendOperationTests
+namespace HAL.Operations.Tests.Integration.AxisOperations
 {
     public class Given_Hardware_Coms_Server_Was_Started : IntegrationService<FakeHardwareComsServer>
     {
@@ -10,7 +10,10 @@ namespace HardwareComs.Tests.ControlLine.Integration.ControlLineSockets.SendOper
         {
             Service = new FakeHardwareComsServer(
                 new ThreadOperations(),
-                new RequestResponseFlagsDto()
+                new RequestResponseFlagsDto
+                {
+                    AbsoluteMoveDoorFail = true
+                }
             );
         }
     }

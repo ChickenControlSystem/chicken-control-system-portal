@@ -17,6 +17,15 @@ namespace CodeContracts
         }
 
         /// <summary>
+        ///     throws an exception if the specified pre condition is not met
+        /// </summary>
+        public static void PreCondition<TException>(Func<bool> predicate)
+            where TException : Exception, new()
+        {
+            Condition<TException>(predicate());
+        }
+
+        /// <summary>
         ///     throws an exception if the specified post condition is not met
         /// </summary>
         public static void PostCondition<TException>(bool predicate)
