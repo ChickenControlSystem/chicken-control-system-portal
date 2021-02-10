@@ -14,7 +14,8 @@ namespace HardwareComs.Tests.Common.FakeHardwareComs
             {
                 new ReadLight().GetRequestResponse(requestResponseFlags.ReadLightFail),
                 new MoveDoorAbsolute().GetRequestResponse(requestResponseFlags.AbsoluteMoveDoorFail),
-                new MoveDoorRelative().GetRequestResponse(requestResponseFlags.RelativeMoveDoorFail)
+                new MoveDoorRelative().GetRequestResponse(requestResponseFlags.RelativeMoveDoorFail),
+                new MoveDoorSearch().GetRequestResponse(requestResponseFlags.SearchMoveDoorFail)
             };
 
             return requestResponseCollection;

@@ -21,14 +21,16 @@ namespace ControlLine.Sockets
             _socketClient = socketClient;
         }
 
-        /// <exception cref="ArgumentException"></exception>>
-        /// <exception cref="SocketException"></exception>>
+        /// <exception cref="ArgumentException"></exception>
+        /// >
+        /// <exception cref="SocketException"></exception>
+        /// >
         public OperationResponseDto SendOperation(OperationDto operationDto)
         {
             //PRE-CONDITION
             //TODO LOGGING
             operationDto.Params.ToList()
-                .ForEach(x => CodeContract.PreCondition<ArgumentException>(x > 0 && x <= 65535));
+                .ForEach(x => CodeContract.PreCondition<ArgumentException>(x >= 0 && x <= 65535));
 
             var paramBytes = new List<byte>();
             foreach (var param in operationDto.Params)

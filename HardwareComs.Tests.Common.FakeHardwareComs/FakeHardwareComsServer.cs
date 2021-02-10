@@ -11,9 +11,9 @@ namespace HardwareComs.Tests.Common.FakeHardwareComs
 {
     public class FakeHardwareComsServer : ITestService
     {
+        private readonly List<Tuple<byte[], byte[]>> _requestResponseCollection;
         private readonly Socket _socket;
         private readonly IThreadOperations _threadOperations;
-        private readonly List<Tuple<byte[], byte[]>> _requestResponseCollection;
 
         private FakeHardwareComsServer(IThreadOperations threadOperations, Socket socket,
             List<Tuple<byte[], byte[]>> requestResponseCollection)
@@ -47,17 +47,13 @@ namespace HardwareComs.Tests.Common.FakeHardwareComs
                     _threadOperations.WaitUntilActionTimeout(() =>
                     {
                         while (true)
-                        {
                             try
                             {
                                 var handle = _socket.Accept();
                                 var buffer = new byte[8];
                                 handle.Receive(buffer);
                                 var payload = GetResponse(buffer);
-                                if (payload != null)
-                                {
-                                    handle.Send(payload);
-                                }
+                                if (payload != null) handle.Send(payload);
 
                                 handle.Close();
                             }
@@ -65,7 +61,6 @@ namespace HardwareComs.Tests.Common.FakeHardwareComs
                             {
                                 //ignore
                             }
-                        }
                     }, 50);
                 }
             );

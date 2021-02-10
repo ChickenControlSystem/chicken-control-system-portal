@@ -2,7 +2,7 @@
 using Sockets.Client;
 using Threading;
 using UnitTest;
-using ControlLineTcpSockets = global::ControlLine.Sockets.ControlLineSockets;
+using ControlLineTcpSockets = ControlLine.Sockets.ControlLineSockets;
 
 namespace HardwareComs.Tests.ControlLine.Integration.ControlLineSockets.SendOperationTests
 {
