@@ -10,6 +10,6 @@ namespace HAL.Operations.Contract
         /// <summary>
         ///     returns success, failure depending on error, logs error
         /// </summary>
-        OperationResultEnum Validate(int errorCode);
+        OperationResultEnum Validate(byte errorCode);
     }
 }

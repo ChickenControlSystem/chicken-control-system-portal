@@ -18,4 +18,8 @@
         <ProjectReference Include="..\HAL.Operations\HAL.Operations.csproj"/>
     </ItemGroup>
 
+    <ItemGroup>
+        <Folder Include="AxisOperations\Relative\Shared"/>
+    </ItemGroup>
+
 </Project>

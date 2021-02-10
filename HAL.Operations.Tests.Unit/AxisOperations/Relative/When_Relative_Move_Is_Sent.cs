@@ -7,18 +7,29 @@ using NUnit.Framework;
 
 namespace HAL.Operations.Tests.Unit.AxisOperations.Relative
 {
-    public class When_Error_Occurs : Given_Operation_Was_Called
+    [TestFixture(OperationResultEnum.Failiure, (byte) 4)]
+    [TestFixture(OperationResultEnum.Succeess, (byte) 1)]
+    public class When_Relative_Move_Is_Sent : Given_Operation_Was_Called
     {
+        private readonly OperationResultEnum _moveResult;
+        private readonly byte _errorCode;
         private OperationResultEnum _result;
+
+        public When_Relative_Move_Is_Sent(OperationResultEnum moveResult, byte errorCode)
+        {
+            _moveResult = moveResult;
+            _errorCode = errorCode;
+        }
 
         protected override void When()
         {
+            var operationResponse = new OperationResponseDto {Status = _errorCode};
             MockControlLine
                 .SendOperation(Arg.Any<OperationDto>())
-                .Returns(new OperationResponseDto {Status = 4});
+                .Returns(operationResponse);
             MockErrorService
-                .Validate(Arg.Any<int>())
-                .Returns(OperationResultEnum.Failiure);
+                .Validate(Arg.Any<byte>())
+                .Returns(_moveResult);
 
             _result = SUT.MoveAxisRelative(new DoorAxis(), 120);
         }
@@ -28,10 +39,10 @@ namespace HAL.Operations.Tests.Unit.AxisOperations.Relative
         {
             MockErrorService
                 .Received()
-                .Validate(Arg.Is(4));
+                .Validate(Arg.Is(_errorCode));
             MockErrorService
                 .Received(1)
-                .Validate(Arg.Any<int>());
+                .Validate(Arg.Any<byte>());
         }
 
         [Test]
@@ -57,15 +68,15 @@ namespace HAL.Operations.Tests.Unit.AxisOperations.Relative
                 () =>
                 {
                     MockControlLine.SendOperation(Arg.Any<OperationDto>());
-                    MockErrorService.Validate(Arg.Any<int>());
+                    MockErrorService.Validate(Arg.Any<byte>());
                 }
             );
         }
 
         [Test]
-        public void Then_Move_Fails()
+        public void Then_Move_Is_Move_Result()
         {
-            Assert.AreEqual(OperationResultEnum.Failiure, _result);
+            Assert.AreEqual(_moveResult, _result);
         }
     }
 }
