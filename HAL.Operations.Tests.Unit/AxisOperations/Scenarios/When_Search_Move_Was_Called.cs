@@ -7,18 +7,25 @@ using NUnit.Framework;
 
 namespace HAL.Operations.Tests.Unit.AxisOperations.Scenarios
 {
-    [TestFixture(OperationResultEnum.Failiure, (byte) 4)]
-    [TestFixture(OperationResultEnum.Succeess, (byte) 1)]
-    public class When_Absolute_Move_Was_Sent : Given_Operation_Was_Called
+    [TestFixture(OperationResultEnum.Failiure, (byte) 3, (byte) 1, true)]
+    [TestFixture(OperationResultEnum.Succeess, (byte) 1, (byte) 1, true)]
+    [TestFixture(OperationResultEnum.Failiure, (byte) 3, (byte) 0, false)]
+    [TestFixture(OperationResultEnum.Succeess, (byte) 1, (byte) 0, false)]
+    public class When_Search_Move_Was_Called : Given_Operation_Was_Called
     {
         private readonly OperationResultEnum _moveResult;
         private readonly byte _errorCode;
+        private readonly byte _directionPayload;
+        private readonly bool _direction;
         private OperationResultEnum _result;
 
-        public When_Absolute_Move_Was_Sent(OperationResultEnum moveResult, byte errorCode)
+        public When_Search_Move_Was_Called(OperationResultEnum moveResult, byte errorCode, byte directionPayload,
+            bool direction)
         {
             _moveResult = moveResult;
             _errorCode = errorCode;
+            _directionPayload = directionPayload;
+            _direction = direction;
         }
 
         protected override void When()
@@ -31,7 +38,7 @@ namespace HAL.Operations.Tests.Unit.AxisOperations.Scenarios
                 .Validate(Arg.Any<byte>())
                 .Returns(_moveResult);
 
-            _result = SUT.MoveAxisAbsolute(new DoorAxis(), 120);
+            _result = SUT.MoveAxisSearch(new DoorAxis(), new FloorDigitalSensor(), _direction);
         }
 
         [Test]
@@ -53,8 +60,8 @@ namespace HAL.Operations.Tests.Unit.AxisOperations.Scenarios
                 .SendOperation(Arg.Is<OperationDto>(
                     operation =>
                         operation.Device == 2 &&
-                        operation.Operation == 2 &&
-                        operation.Params.SequenceEqual(new[] {120})
+                        operation.Operation == 4 &&
+                        operation.Params.SequenceEqual(new[] {3, _directionPayload})
                 ));
             MockControlLine
                 .Received(1)
