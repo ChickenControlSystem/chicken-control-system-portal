@@ -2,7 +2,7 @@
 using Threading;
 using UnitTest;
 
-namespace HAL.Operations.Tests.Integration.AxisOperations
+namespace HAL.Operations.Tests.Integration
 {
     public class Given_Hardware_Coms_Server_Was_Started : IntegrationService<FakeHardwareComsServer>
     {

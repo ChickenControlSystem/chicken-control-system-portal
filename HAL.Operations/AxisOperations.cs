@@ -6,15 +6,10 @@ using HAL.Operations.Enum;
 
 namespace HAL.Operations
 {
-    public class AxisOperations : IAxisOperations
+    public class AxisOperations : HardwareOperations, IAxisOperations
     {
-        private readonly IControlLine _controlLine;
-        private readonly IErrorService _errorService;
-
-        public AxisOperations(IErrorService errorService, IControlLine controlLine)
+        public AxisOperations(IErrorService errorService, IControlLine controlLine) : base(errorService, controlLine)
         {
-            _errorService = errorService;
-            _controlLine = controlLine;
         }
 
         public OperationResultEnum MoveAxisAbsolute(IDevice axis, int ammount)
@@ -52,12 +47,6 @@ namespace HAL.Operations
                     ammount
                 }
             });
-        }
-
-        private OperationResultEnum SendOperation(OperationDto operation)
-        {
-            var result = _controlLine.SendOperation(operation);
-            return _errorService.Validate(result.Status);
         }
     }
 }
