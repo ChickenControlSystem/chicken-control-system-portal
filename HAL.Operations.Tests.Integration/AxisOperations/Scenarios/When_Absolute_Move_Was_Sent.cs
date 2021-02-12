@@ -2,7 +2,7 @@
 using HAL.Operations.Enum;
 using NUnit.Framework;
 
-namespace HAL.Operations.Tests.Integration.AxisOperations.Scenarios
+namespace HAL.Operations.Tests.Integration.AxisOperations
 {
     public class When_Absolute_Move_Was_Sent : Given_Operation_Was_Called
     {
