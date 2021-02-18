@@ -4,7 +4,7 @@ using BLL.HardwareModules.Common.Contract;
 
 namespace BLL.HardwareModules.Common.Sequence
 {
-    public class SerialSequence : Sequence, ISequence
+    public class SerialSequence : Sequence, ISequence, ISerialSeqeuenceBuilder
     {
         public SerialSequence(List<IRunnable> tasks) : base(tasks)
         {
