@@ -57,6 +57,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BLL.HardwareModules.Door", 
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BLL.HardwareModules.Common", "BLL.HardwareModules.Common\BLL.HardwareModules.Common.csproj", "{2F88047E-4268-43EF-A448-EA7123B1FB76}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{86308B82-6AB1-48CB-8167-88F807CB650A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BLL.HardwareModules.Door.Tests.Unit", "BLL.HardwareModules.Door.Tests.Unit\BLL.HardwareModules.Door.Tests.Unit.csproj", "{D35BEAA7-322D-4FEE-95B4-48F71828DA21}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -131,6 +135,10 @@ Global
 		{2F88047E-4268-43EF-A448-EA7123B1FB76}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2F88047E-4268-43EF-A448-EA7123B1FB76}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2F88047E-4268-43EF-A448-EA7123B1FB76}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D35BEAA7-322D-4FEE-95B4-48F71828DA21}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D35BEAA7-322D-4FEE-95B4-48F71828DA21}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D35BEAA7-322D-4FEE-95B4-48F71828DA21}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D35BEAA7-322D-4FEE-95B4-48F71828DA21}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -158,6 +166,8 @@ Global
 		{90AB9296-98A9-4D2A-92BF-146CA9A0BA27} = {5E937C74-6FC6-4F91-84B8-A086FB3A106C}
 		{82AAF288-AF8E-4F96-9833-1414985B9FEB} = {AD40E528-B6A6-4E9E-A1CD-6FAC34229521}
 		{2F88047E-4268-43EF-A448-EA7123B1FB76} = {AD40E528-B6A6-4E9E-A1CD-6FAC34229521}
+		{86308B82-6AB1-48CB-8167-88F807CB650A} = {AD40E528-B6A6-4E9E-A1CD-6FAC34229521}
+		{D35BEAA7-322D-4FEE-95B4-48F71828DA21} = {86308B82-6AB1-48CB-8167-88F807CB650A}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {EC6C8F85-99C9-4B88-ADD1-00937B62E4F2}

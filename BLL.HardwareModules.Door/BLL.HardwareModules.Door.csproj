@@ -4,4 +4,9 @@
         <TargetFramework>netcoreapp3.1</TargetFramework>
     </PropertyGroup>
 
+    <ItemGroup>
+        <ProjectReference Include="..\BLL.HardwareModules.Common\BLL.HardwareModules.Common.csproj"/>
+        <ProjectReference Include="..\HAL.Operations\HAL.Operations.csproj"/>
+    </ItemGroup>
+
 </Project>
