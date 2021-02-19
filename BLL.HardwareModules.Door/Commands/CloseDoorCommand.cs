@@ -1,7 +1,6 @@
 ﻿using BLL.HardwareModules.Common.Contract;
 using BLL.HardwareModules.Common.Sequence;
 using HAL.Models.Contract;
-using HAL.Models.Device;
 using HAL.Operations.Contract;
 
 namespace BLL.HardwareModules.Door.Commands
@@ -13,12 +12,13 @@ namespace BLL.HardwareModules.Door.Commands
         private readonly IDevice _door;
         private readonly IDevice _floor;
 
-        public CloseDoorCommand(IAxisOperations axisOperations, IValidateOperationService validateOperationService)
+        public CloseDoorCommand(IAxisOperations axisOperations, IValidateOperationService validateOperationService,
+            IDevice door, IDevice floor)
         {
             _axisOperations = axisOperations;
             _validateOperationService = validateOperationService;
-            _door = new DoorAxis();
-            _floor = new FloorDigitalSensor();
+            _door = door;
+            _floor = floor;
         }
 
         public SequenceResultEnum Run()

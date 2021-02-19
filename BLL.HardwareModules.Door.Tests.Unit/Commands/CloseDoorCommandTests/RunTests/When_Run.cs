@@ -22,6 +22,21 @@ namespace BLL.HardwareModules.Door.Tests.Unit.Commands.CloseDoorCommandTests.Run
 
         protected override void When()
         {
+            MockDoorAxis
+                .Id
+                .Returns((byte) 2);
+            MockDoorAxis
+                .Name
+                .Returns("Door Axis");
+            MockFloorSensor
+                .Id
+                .Returns((byte) 1);
+            MockFloorSensor
+                .Name
+                .Returns("Floor Sensor");
+            MockErrorValidateOperationService
+                .GetSequenceResult(Arg.Any<OperationResultEnum>())
+                .Returns(_expectedResult);
             MockAxisOperations
                 .MoveAxisSearch(
                     Arg.Any<IDevice>(),
@@ -34,27 +49,34 @@ namespace BLL.HardwareModules.Door.Tests.Unit.Commands.CloseDoorCommandTests.Run
         }
 
         [Test]
+        public void Then_Validate_Operation_Method_Was_Called()
+        {
+            MockErrorValidateOperationService
+                .GetSequenceResult(Arg.Is(_operationResult));
+        }
+
+        [Test]
         public void Then_Search_Move_For_Door_To_Floor_Sensor_Occured()
         {
             MockAxisOperations
                 .Received(1)
                 .MoveAxisSearch(
-                    Arg.Any<IDevice>(),
-                    Arg.Any<IDevice>(),
+                    Arg.Any<IDoor>(),
+                    Arg.Any<IFloorSensor>(),
                     Arg.Any<bool>()
                 );
             MockAxisOperations
                 .Received()
                 .MoveAxisSearch(
-                    Arg.Is<IDevice>(
+                    Arg.Is<IDoor>(
                         device =>
-                            device.Id == DoorAxis.Id &&
-                            device.Name == DoorAxis.Name
+                            device.Id == 2 &&
+                            device.Name == "Door Axis"
                     ),
-                    Arg.Is<IDevice>(
+                    Arg.Is<IFloorSensor>(
                         device =>
-                            device.Id == FloorSensor.Id &&
-                            device.Name == FloorSensor.Name
+                            device.Id == 1 &&
+                            device.Name == "Floor Sensor"
                     ),
                     Arg.Is(false)
                 );
