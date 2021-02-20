@@ -22,18 +22,6 @@ namespace BLL.HardwareModules.Door.Tests.Unit.Commands.CloseDoorCommandTests.Run
 
         protected override void When()
         {
-            MockDoorAxis
-                .Id
-                .Returns((byte) 2);
-            MockDoorAxis
-                .Name
-                .Returns("Door Axis");
-            MockFloorSensor
-                .Id
-                .Returns((byte) 1);
-            MockFloorSensor
-                .Name
-                .Returns("Floor Sensor");
             MockErrorValidateOperationService
                 .GetSequenceResult(Arg.Any<OperationResultEnum>())
                 .Returns(_expectedResult);

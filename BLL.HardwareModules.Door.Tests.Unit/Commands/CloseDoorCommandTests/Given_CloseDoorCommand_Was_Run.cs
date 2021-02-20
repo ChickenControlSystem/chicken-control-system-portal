@@ -1,6 +1,7 @@
 ﻿using BLL.HardwareModules.Common.Contract;
 using BLL.HardwareModules.Door.Commands;
 using HAL.Models.Contract;
+using HAL.Models.Device;
 using HAL.Operations.Contract;
 using NSubstitute;
 using UnitTest;
@@ -11,21 +12,21 @@ namespace BLL.HardwareModules.Door.Tests.Unit.Commands.CloseDoorCommandTests
     {
         protected IAxisOperations MockAxisOperations;
         protected IValidateOperationService MockErrorValidateOperationService;
-        protected IDoor MockDoorAxis;
-        protected IFloorSensor MockFloorSensor;
+        private IDoor _doorAxis;
+        private IFloorSensor _floorSensor;
 
         protected override void Given()
         {
             MockAxisOperations = Substitute.For<IAxisOperations>();
             MockErrorValidateOperationService = Substitute.For<IValidateOperationService>();
-            MockDoorAxis = Substitute.For<IDoor>();
-            MockFloorSensor = Substitute.For<IFloorSensor>();
+            _doorAxis = new DoorAxis();
+            _floorSensor = new FloorDigitalSensor();
 
             SUT = new CloseDoorCommand(
                 MockAxisOperations,
                 MockErrorValidateOperationService,
-                MockFloorSensor,
-                MockDoorAxis
+                _floorSensor,
+                _doorAxis
             );
         }
     }
