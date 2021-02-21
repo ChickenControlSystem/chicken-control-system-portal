@@ -30,16 +30,15 @@ namespace BLL.Common.Tests.Integration.BuildSerialSequence
             );
 
             SUT = sequenceBuilder
-                .EnqueueTask(MockFirstTask)
-                .EnqueueTask(MockSecondTask)
-                .EnqueueTask(MockThirdTask)
+                .Queue(MockFirstTask)
+                .Queue(MockSecondTask)
+                .Queue(MockThirdTask)
                 .EndQueue()
-                .MakeSerial()
-                .AddFailAction(() =>
+                .Serial()
+                .Fail(() =>
                 {
                     //PRETEND TO LOG ERROR
                 })
-                .AddRecoveryFunc(() => SequenceResultEnum.Success)
                 .Build();
         }
     }

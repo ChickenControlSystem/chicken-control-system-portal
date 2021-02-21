@@ -18,4 +18,8 @@
         <ProjectReference Include="..\Common.UnitTest\Common.UnitTest.csproj"/>
     </ItemGroup>
 
+    <ItemGroup>
+        <Folder Include="RunSequenceWithinSequence"/>
+    </ItemGroup>
+
 </Project>
