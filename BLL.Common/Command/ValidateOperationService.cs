@@ -1,9 +1,9 @@
 ﻿using System;
-using BLL.HardwareModules.Common.Contract;
-using BLL.HardwareModules.Common.Sequence;
+using BLL.Common.Contract;
+using BLL.Common.Sequence;
 using HAL.Operations.Enum;
 
-namespace BLL.HardwareModules.Common.Command
+namespace BLL.Common.Command
 {
     public class ValidateOperationService : IValidateOperationService
     {

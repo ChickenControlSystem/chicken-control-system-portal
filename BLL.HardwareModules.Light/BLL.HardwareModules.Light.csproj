@@ -6,7 +6,6 @@
 
     <ItemGroup>
         <ProjectReference Include="..\BLL.Common\BLL.Common.csproj"/>
-        <ProjectReference Include="..\HAL.Operations\HAL.Operations.csproj"/>
     </ItemGroup>
 
 </Project>

@@ -1,12 +1,23 @@
 ﻿using System;
 using System.Collections.Generic;
-using BLL.HardwareModules.Common.Contract;
+using BLL.Common.Contract;
+using BLL.Common.TaskRecovery;
 
-namespace BLL.HardwareModules.Common.Sequence
+namespace BLL.Common.Sequence
 {
     public class SerialSequence : Sequence, ISequence, ISerialSeqeuenceBuilder
     {
-        public SerialSequence(List<IRunnable> tasks) : base(tasks)
+        public SerialSequence(
+            List<IRunnable> tasks,
+            RecoveryOptionsDto recoveryOptions,
+            Action failAction,
+            int runCount
+        ) : base(
+            tasks,
+            recoveryOptions,
+            failAction,
+            runCount
+        )
         {
         }
 
@@ -30,9 +41,6 @@ namespace BLL.HardwareModules.Common.Sequence
             return SequenceResultEnum.Success;
         }
 
-        public void HandleFail()
-        {
-            //TODO: LOGS ERROR
-        }
+        public void HandleFail() => FailAction();
     }
 }

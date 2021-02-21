@@ -1,4 +1,4 @@
-﻿using BLL.HardwareModules.Common.Contract;
+﻿using BLL.Common.Contract;
 using BLL.HardwareModules.Door.Commands;
 using HAL.Models.Contract;
 using HAL.Models.Device;
@@ -25,8 +25,8 @@ namespace BLL.HardwareModules.Door.Tests.Unit.Commands.CloseDoorCommandTests
             SUT = new CloseDoorCommand(
                 MockAxisOperations,
                 MockErrorValidateOperationService,
-                _floorSensor,
-                _doorAxis
+                _doorAxis,
+                _floorSensor
             );
         }
     }

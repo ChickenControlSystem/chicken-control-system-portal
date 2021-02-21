@@ -1,4 +1,4 @@
-﻿using BLL.HardwareModules.Common.Sequence;
+﻿using BLL.Common.Sequence;
 using HAL.Models.Contract;
 using HAL.Operations.Enum;
 using NSubstitute;
@@ -40,6 +40,10 @@ namespace BLL.HardwareModules.Door.Tests.Unit.Commands.CloseDoorCommandTests.Run
         public void Then_Validate_Operation_Method_Was_Called()
         {
             MockErrorValidateOperationService
+                .Received(1)
+                .GetSequenceResult(Arg.Any<OperationResultEnum>());
+            MockErrorValidateOperationService
+                .Received()
                 .GetSequenceResult(Arg.Is(_operationResult));
         }
 
