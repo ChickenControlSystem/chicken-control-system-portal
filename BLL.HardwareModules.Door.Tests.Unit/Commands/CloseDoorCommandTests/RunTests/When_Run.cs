@@ -67,7 +67,7 @@ namespace BLL.HardwareModules.Door.Tests.Unit.Commands.CloseDoorCommandTests.Run
                     ),
                     Arg.Is<IFloorSensor>(
                         device =>
-                            device.Id == 1 &&
+                            device.Id == 3 &&
                             device.Name == "Floor Sensor"
                     ),
                     Arg.Is(false)
