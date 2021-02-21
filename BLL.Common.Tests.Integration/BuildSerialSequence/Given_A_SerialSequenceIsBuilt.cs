@@ -4,7 +4,7 @@ using NSubstitute;
 using Threading;
 using UnitTest;
 
-namespace BLL.Common.Tests.Unit.BuildSerialSequence
+namespace BLL.Common.Tests.Integration.BuildSerialSequence
 {
     public class Given_A_SerialSequenceIsBuilt : GenericGivenWhenThenTests<ISequence>
     {

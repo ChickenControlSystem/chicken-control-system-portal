@@ -1,9 +1,10 @@
-﻿using BLL.Common.Sequence;
+﻿using BLL.Common.Contract;
+using BLL.Common.Sequence;
 using BLL.Common.TaskRecovery;
 using NSubstitute;
 using NUnit.Framework;
 
-namespace BLL.Common.Tests.Unit.BuildSerialSequence.RunTests.WithoutRecovery
+namespace BLL.Common.Tests.Integration.BuildSerialSequence.RunTests.WithRecovery
 {
     [TestFixture(1, 1, 1)]
     [TestFixture(1, 1, 3)]
@@ -13,15 +14,18 @@ namespace BLL.Common.Tests.Unit.BuildSerialSequence.RunTests.WithoutRecovery
     [TestFixture(3, 1, 3)]
     [TestFixture(3, 3, 1)]
     [TestFixture(3, 3, 3)]
-    public class When_Third_Task_Fails : Given_A_SerialSequenceIsBuilt
+    public class When_First_Task_Fails_And_Recovery_Action_Succeeds : Given_A_SerialSequenceIsBuilt
     {
+        private SequenceResultEnum _result;
+        private RecoveryOptionsDto _recoveryOptions;
+        private IRunnable _mockRecoveryTask;
+
         private readonly int _runCountSecond;
         private readonly int _runCountFirst;
         private readonly int _runCountThird;
-        private SequenceResultEnum _result;
-        private RecoveryOptionsDto _recoveryOptions;
 
-        public When_Third_Task_Fails(int runCountSecond, int runCountFirst, int runCountThird)
+        public When_First_Task_Fails_And_Recovery_Action_Succeeds(int runCountSecond, int runCountFirst,
+            int runCountThird)
         {
             _runCountSecond = runCountSecond;
             _runCountFirst = runCountFirst;
@@ -30,14 +34,21 @@ namespace BLL.Common.Tests.Unit.BuildSerialSequence.RunTests.WithoutRecovery
 
         protected override void When()
         {
-            _recoveryOptions = new RecoveryOptionsDto();
+            _mockRecoveryTask = Substitute.For<IRunnable>();
+            _mockRecoveryTask
+                .Run()
+                .Returns(SequenceResultEnum.Success);
+            _recoveryOptions = new RecoveryOptionsDto(true, _mockRecoveryTask.Run);
 
+            MockFirstTask
+                .RecoveryOptions
+                .Returns(_recoveryOptions);
             MockFirstTask
                 .RunCount
                 .Returns(_runCountFirst);
             MockFirstTask
                 .Run()
-                .Returns(SequenceResultEnum.Success);
+                .Returns(SequenceResultEnum.Fail);
 
             MockSecondTask
                 .RunCount
@@ -47,23 +58,20 @@ namespace BLL.Common.Tests.Unit.BuildSerialSequence.RunTests.WithoutRecovery
                 .Returns(SequenceResultEnum.Success);
 
             MockThirdTask
-                .RecoveryOptions
-                .Returns(_recoveryOptions);
-            MockThirdTask
                 .RunCount
                 .Returns(_runCountThird);
             MockThirdTask
                 .Run()
-                .Returns(SequenceResultEnum.Fail);
+                .Returns(SequenceResultEnum.Success);
 
             _result = SUT.Run();
         }
 
         [Test]
-        public void Then_Fisrt_Task_Is_Run_Once()
+        public void Then_Fisrt_Task_Is_Run_For_The_Ammount_Of_Times_Determined_In_The_Run_Count()
         {
             MockFirstTask
-                .Received(1)
+                .Received(_runCountFirst)
                 .Run();
         }
 
@@ -76,25 +84,25 @@ namespace BLL.Common.Tests.Unit.BuildSerialSequence.RunTests.WithoutRecovery
         }
 
         [Test]
-        public void Then_Third_Task_Is_Run_For_The_Ammount_Of_Times_Determined_In_The_Run_Count()
+        public void Then_Third_Task_Is_Run_Once()
         {
             MockThirdTask
-                .Received(_runCountThird)
+                .Received(1)
                 .Run();
         }
 
         [Test]
-        public void Then_Fail_Action_Is_Run_Once()
+        public void Then_Fail_Action_Is_Not_Run()
         {
-            MockThirdTask
-                .Received(1)
+            MockFirstTask
+                .DidNotReceive()
                 .HandleFail();
         }
 
         [Test]
-        public void Then_Seqeuence_Fails()
+        public void Then_Seqeuence_Succeeds()
         {
-            Assert.AreEqual(SequenceResultEnum.Fail, _result);
+            Assert.AreEqual(SequenceResultEnum.Success, _result);
         }
     }
 }

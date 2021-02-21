@@ -4,7 +4,7 @@ using BLL.Common.TaskRecovery;
 using NSubstitute;
 using NUnit.Framework;
 
-namespace BLL.Common.Tests.Unit.BuildSerialSequence.RunTests.WithRecovery
+namespace BLL.Common.Tests.Integration.BuildSerialSequence.RunTests.WithRecovery
 {
     [TestFixture(1, 1, 1)]
     [TestFixture(1, 1, 3)]
@@ -14,18 +14,18 @@ namespace BLL.Common.Tests.Unit.BuildSerialSequence.RunTests.WithRecovery
     [TestFixture(3, 1, 3)]
     [TestFixture(3, 3, 1)]
     [TestFixture(3, 3, 3)]
-    public class When_Third_Task_Fails_And_Recovery_Action_Fails : Given_A_SerialSequenceIsBuilt
+    public class When_Third_Task_Fails_And_Recovery_Action_Succeeds : Given_A_SerialSequenceIsBuilt
     {
+        private SequenceResultEnum _result;
+        private RecoveryOptionsDto _recoveryOptions;
+        private IRunnable _mockRecoveryTask;
+
         private readonly int _runCountSecond;
         private readonly int _runCountFirst;
         private readonly int _runCountThird;
 
-        private SequenceResultEnum _result;
-        private RecoveryOptionsDto _recoveryOptions;
-
-        private IRunnable _mockRecoveryTask;
-
-        public When_Third_Task_Fails_And_Recovery_Action_Fails(int runCountSecond, int runCountFirst, int runCountThird)
+        public When_Third_Task_Fails_And_Recovery_Action_Succeeds(int runCountSecond, int runCountFirst,
+            int runCountThird)
         {
             _runCountSecond = runCountSecond;
             _runCountFirst = runCountFirst;
@@ -37,7 +37,7 @@ namespace BLL.Common.Tests.Unit.BuildSerialSequence.RunTests.WithRecovery
             _mockRecoveryTask = Substitute.For<IRunnable>();
             _mockRecoveryTask
                 .Run()
-                .Returns(SequenceResultEnum.Fail);
+                .Returns(SequenceResultEnum.Success);
             _recoveryOptions = new RecoveryOptionsDto(true, _mockRecoveryTask.Run);
 
             MockFirstTask
@@ -92,17 +92,17 @@ namespace BLL.Common.Tests.Unit.BuildSerialSequence.RunTests.WithRecovery
         }
 
         [Test]
-        public void Then_Fail_Action_Is_Run_Once()
+        public void Then_Fail_Action_Is_Not_Run()
         {
-            MockThirdTask
-                .Received(1)
+            MockFirstTask
+                .DidNotReceive()
                 .HandleFail();
         }
 
         [Test]
-        public void Then_Seqeuence_Fails()
+        public void Then_Seqeuence_Succeeds()
         {
-            Assert.AreEqual(SequenceResultEnum.Fail, _result);
+            Assert.AreEqual(SequenceResultEnum.Success, _result);
         }
     }
 }

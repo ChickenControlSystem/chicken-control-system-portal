@@ -65,7 +65,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BLL.HardwareModules.Light.T
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BLL.HardwareModules.Light", "BLL.HardwareModules.Light\BLL.HardwareModules.Light.csproj", "{B3DB32DD-A20A-49B0-8DAE-156078F73915}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BLL.Common.Tests.Unit", "BLL.Common.Tests.Unit\BLL.Common.Tests.Unit.csproj", "{E604EA36-76D5-48B3-85B2-B63DF55F6B28}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BLL.Common.Tests.Integration", "BLL.Common.Tests.Integration\BLL.Common.Tests.Integration.csproj", "{E604EA36-76D5-48B3-85B2-B63DF55F6B28}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

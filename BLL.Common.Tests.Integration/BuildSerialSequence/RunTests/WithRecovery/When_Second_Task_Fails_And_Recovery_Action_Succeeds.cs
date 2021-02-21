@@ -4,7 +4,7 @@ using BLL.Common.TaskRecovery;
 using NSubstitute;
 using NUnit.Framework;
 
-namespace BLL.Common.Tests.Unit.BuildSerialSequence.RunTests.WithRecovery
+namespace BLL.Common.Tests.Integration.BuildSerialSequence.RunTests.WithRecovery
 {
     [TestFixture(1, 1, 1)]
     [TestFixture(1, 1, 3)]
@@ -14,7 +14,7 @@ namespace BLL.Common.Tests.Unit.BuildSerialSequence.RunTests.WithRecovery
     [TestFixture(3, 1, 3)]
     [TestFixture(3, 3, 1)]
     [TestFixture(3, 3, 3)]
-    public class When_Third_Task_Fails_And_Recovery_Action_Succeeds : Given_A_SerialSequenceIsBuilt
+    public class When_Second_Task_Fails_And_Recovery_Action_Succeeds : Given_A_SerialSequenceIsBuilt
     {
         private SequenceResultEnum _result;
         private RecoveryOptionsDto _recoveryOptions;
@@ -24,7 +24,7 @@ namespace BLL.Common.Tests.Unit.BuildSerialSequence.RunTests.WithRecovery
         private readonly int _runCountFirst;
         private readonly int _runCountThird;
 
-        public When_Third_Task_Fails_And_Recovery_Action_Succeeds(int runCountSecond, int runCountFirst,
+        public When_Second_Task_Fails_And_Recovery_Action_Succeeds(int runCountSecond, int runCountFirst,
             int runCountThird)
         {
             _runCountSecond = runCountSecond;
@@ -48,21 +48,21 @@ namespace BLL.Common.Tests.Unit.BuildSerialSequence.RunTests.WithRecovery
                 .Returns(SequenceResultEnum.Success);
 
             MockSecondTask
+                .RecoveryOptions
+                .Returns(_recoveryOptions);
+            MockSecondTask
                 .RunCount
                 .Returns(_runCountSecond);
             MockSecondTask
                 .Run()
-                .Returns(SequenceResultEnum.Success);
+                .Returns(SequenceResultEnum.Fail);
 
-            MockThirdTask
-                .RecoveryOptions
-                .Returns(_recoveryOptions);
             MockThirdTask
                 .RunCount
                 .Returns(_runCountThird);
             MockThirdTask
                 .Run()
-                .Returns(SequenceResultEnum.Fail);
+                .Returns(SequenceResultEnum.Success);
 
             _result = SUT.Run();
         }
@@ -76,18 +76,18 @@ namespace BLL.Common.Tests.Unit.BuildSerialSequence.RunTests.WithRecovery
         }
 
         [Test]
-        public void Then_Second_Task_Is_Run_Once()
+        public void Then_Third_Task_Is_Run_Once()
         {
-            MockSecondTask
+            MockThirdTask
                 .Received(1)
                 .Run();
         }
 
         [Test]
-        public void Then_Third_Task_Is_Run_For_The_Ammount_Of_Times_Determined_In_The_Run_Count()
+        public void Then_Second_Task_Is_Run_For_The_Ammount_Of_Times_Determined_In_The_Run_Count()
         {
-            MockThirdTask
-                .Received(_runCountThird)
+            MockSecondTask
+                .Received(_runCountSecond)
                 .Run();
         }
 
