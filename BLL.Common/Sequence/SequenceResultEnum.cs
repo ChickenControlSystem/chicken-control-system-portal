@@ -1,4 +1,4 @@
-﻿namespace BLL.HardwareModules.Common.Sequence
+﻿namespace BLL.Common.Sequence
 {
     public enum SequenceResultEnum
     {

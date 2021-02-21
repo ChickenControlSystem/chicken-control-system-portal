@@ -1,8 +1,8 @@
 ﻿using System;
-using BLL.HardwareModules.Common.Sequence;
+using BLL.Common.Sequence;
 using HAL.Operations.Enum;
 
-namespace BLL.HardwareModules.Common.Contract
+namespace BLL.Common.Contract
 {
     public interface IValidateOperationService
     {

@@ -1,4 +1,4 @@
-﻿namespace BLL.HardwareModules.Common.Contract
+﻿namespace BLL.Common.Contract
 {
     public interface ISerialSeqeuenceBuilder
     {
