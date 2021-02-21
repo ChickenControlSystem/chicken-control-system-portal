@@ -23,24 +23,20 @@ namespace BLL.Common.Sequence
 
         public SequenceResultEnum Run()
         {
-            try
+            var result = SequenceResultEnum.Success;
+
+            foreach (var task in Tasks)
             {
-                Tasks.ForEach(task =>
-                {
-                    var result = RunOrRetryTask(task);
-                    if (result == SequenceResultEnum.Success) return;
-                    result = RecoverOrFailTask(task);
-                    if (result == SequenceResultEnum.Success) return;
-                    task.HandleFail();
-                    throw new InvalidOperationException();
-                });
-            }
-            catch (InvalidOperationException)
-            {
-                return SequenceResultEnum.Fail;
+                if (RunOrRetryTask(task) == SequenceResultEnum.Success) continue;
+
+                if (RecoverOrFailTask(task) == SequenceResultEnum.Success) continue;
+
+                task.HandleFail();
+                result = SequenceResultEnum.Fail;
+                break;
             }
 
-            return SequenceResultEnum.Success;
+            return result;
         }
 
         private static SequenceResultEnum RunOrRetryTask(IRunnable task)
