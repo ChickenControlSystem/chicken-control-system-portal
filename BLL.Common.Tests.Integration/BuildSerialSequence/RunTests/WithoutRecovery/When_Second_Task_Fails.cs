@@ -9,7 +9,7 @@ namespace BLL.Common.Tests.Integration.BuildSerialSequence.RunTests.WithoutRecov
     [TestFixture(1, 3)]
     [TestFixture(3, 1)]
     [TestFixture(3, 3)]
-    public class When_Second_Task_Fails : Given_A_SerialSequenceIsBuilt
+    public class When_Second_Task_Fails : Given_A_Serial_Sequence_Is_Built
     {
         private readonly int _runCountSecond;
         private readonly int _runCountFirst;

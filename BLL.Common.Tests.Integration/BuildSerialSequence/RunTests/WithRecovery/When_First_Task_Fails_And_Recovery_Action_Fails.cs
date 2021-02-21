@@ -8,7 +8,7 @@ namespace BLL.Common.Tests.Integration.BuildSerialSequence.RunTests.WithRecovery
 {
     [TestFixture(1)]
     [TestFixture(3)]
-    public class When_First_Task_Fails_And_Recovery_Action_Fails : Given_A_SerialSequenceIsBuilt
+    public class When_First_Task_Fails_And_Recovery_Action_Fails : Given_A_Serial_Sequence_Is_Built
     {
         private readonly int _runCount;
 

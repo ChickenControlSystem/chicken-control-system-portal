@@ -13,7 +13,7 @@ namespace BLL.Common.Tests.Integration.BuildSerialSequence.RunTests.WithoutRecov
     [TestFixture(3, 1, 3)]
     [TestFixture(3, 3, 1)]
     [TestFixture(3, 3, 3)]
-    public class When_All_Tasks_Succeed : Given_A_SerialSequenceIsBuilt
+    public class When_All_Tasks_Succeed : Given_A_Serial_Sequence_Is_Built
     {
         private SequenceResultEnum _result;
         private IRunnable _mockRecoveryTask;

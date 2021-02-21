@@ -6,7 +6,7 @@ using UnitTest;
 
 namespace BLL.Common.Tests.Integration.BuildSerialSequence
 {
-    public class Given_A_SerialSequenceIsBuilt : GenericGivenWhenThenTests<ISequence>
+    public class Given_A_Serial_Sequence_Is_Built : GenericGivenWhenThenTests<ISequence>
     {
         protected IRunnable MockFirstTask;
         protected IRunnable MockSecondTask;
