@@ -27,8 +27,10 @@ namespace BLL.Common.Sequence
             {
                 Tasks.ForEach(task =>
                 {
-                    var result = task.Run();
-                    if (result != SequenceResultEnum.Fail) return;
+                    var result = RunOrRetryTask(task);
+                    if (result == SequenceResultEnum.Success) return;
+                    result = RecoverOrFailTask(task);
+                    if (result == SequenceResultEnum.Success) return;
                     task.HandleFail();
                     throw new InvalidOperationException();
                 });
@@ -39,6 +41,33 @@ namespace BLL.Common.Sequence
             }
 
             return SequenceResultEnum.Success;
+        }
+
+        private static SequenceResultEnum RunOrRetryTask(IRunnable task)
+        {
+            var result = SequenceResultEnum.Fail;
+
+            for (var i = 0; i < task.RunCount; i++)
+            {
+                var taskResult = task.Run();
+                if (taskResult != SequenceResultEnum.Success) continue;
+                result = SequenceResultEnum.Success;
+                break;
+            }
+
+            return result;
+        }
+
+        private static SequenceResultEnum RecoverOrFailTask(IRunnable task)
+        {
+            var result = SequenceResultEnum.Fail;
+
+            if (task.RecoveryOptions.IsRecoverable)
+            {
+                result = task.RecoveryOptions.RecoveryFunc();
+            }
+
+            return result;
         }
 
         public void HandleFail() => FailAction();
