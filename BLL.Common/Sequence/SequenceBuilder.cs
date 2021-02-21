@@ -26,7 +26,7 @@ namespace BLL.Common.Sequence
             _tasks = new List<IRunnable>();
         }
 
-        public ISequenceBuilder QueueTask(IRunnable task)
+        public ISequenceBuilder EnqueueTask(IRunnable task)
         {
             CodeContract.PreCondition<ArgumentException>(!_tasksSet);
 
