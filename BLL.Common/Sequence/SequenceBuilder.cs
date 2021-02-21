@@ -34,7 +34,7 @@ namespace BLL.Common.Sequence
             return this;
         }
 
-        public ISequenceBuilder EndQueue()
+        private ISequenceBuilder EndQueue()
         {
             CodeContract.PreCondition<ArgumentException>(!_tasksSet);
 
@@ -44,6 +44,7 @@ namespace BLL.Common.Sequence
 
         public ISequenceBuilder Serial()
         {
+            EndQueue();
             CodeContract.PreCondition<ArgumentException>(!_sequenceTypeSet);
 
             _sequenceType = ISequenceFactory.Serial;
@@ -79,6 +80,7 @@ namespace BLL.Common.Sequence
 
         public ISequenceBuilder Parrelell()
         {
+            EndQueue();
             CodeContract.PreCondition<ArgumentException>(!_sequenceTypeSet);
 
             _sequenceType = ISequenceFactory.Parelell;

@@ -33,13 +33,14 @@ namespace BLL.Common.Tests.Integration.BuildSerialSequence
                 .Queue(MockFirstTask)
                 .Queue(MockSecondTask)
                 .Queue(MockThirdTask)
-                .EndQueue()
                 .Serial()
-                .Fail(() =>
-                {
-                    //PRETEND TO LOG ERROR
-                })
+                .Fail(MockFail)
                 .Build();
+        }
+
+        private static void MockFail()
+        {
+            //PRETEND TO LOG ERROR
         }
     }
 }

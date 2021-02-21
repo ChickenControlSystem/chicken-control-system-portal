@@ -16,17 +16,12 @@ namespace BLL.Common.Contract
         ISequenceBuilder Queue(IRunnable task);
 
         /// <summary>
-        /// stops adding any more tasks
-        /// </summary>
-        public ISequenceBuilder EndQueue();
-
-        /// <summary>
-        /// makes the sequence a serial sequence
+        /// makes the sequence a serial sequence, ends queueing other tasks
         /// </summary>
         public ISequenceBuilder Serial();
 
         /// <summary>
-        /// makes the sequence a parallel sequence
+        /// makes the sequence a parallel sequence, ends queueing other tasks
         /// </summary>
         public ISequenceBuilder Parrelell();
 
