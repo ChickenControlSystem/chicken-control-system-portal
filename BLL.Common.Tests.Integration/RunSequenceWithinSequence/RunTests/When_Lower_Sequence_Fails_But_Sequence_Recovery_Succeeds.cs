@@ -1,10 +1,11 @@
 ﻿using BLL.Common.Sequence;
+using BLL.Common.TaskRecovery;
 using NSubstitute;
 using NUnit.Framework;
 
 namespace BLL.Common.Tests.Integration.RunSequenceWithinSequence.RunTests
 {
-    public class When_All_Tasks_Complete_Successfully : Given_Two_Sequences_Are_Built
+    public class When_Lower_Sequence_Fails_But_Sequence_Recovery_Succeeds : Given_Two_Sequences_Are_Built
     {
         private SequenceResultEnum _result;
 
@@ -12,8 +13,14 @@ namespace BLL.Common.Tests.Integration.RunSequenceWithinSequence.RunTests
         {
             MockLowerSequenceTask
                 .Run()
-                .Returns(SequenceResultEnum.Success);
+                .Returns(SequenceResultEnum.Fail);
             MockUpperSequenceSecondTask
+                .Run()
+                .Returns(SequenceResultEnum.Success);
+            MockLowerSequenceTask
+                .RecoveryOptions
+                .Returns(new RecoveryOptionsDto());
+            MockLowerSequenceRecoveryTask
                 .Run()
                 .Returns(SequenceResultEnum.Success);
 
@@ -21,10 +28,10 @@ namespace BLL.Common.Tests.Integration.RunSequenceWithinSequence.RunTests
         }
 
         [Test]
-        public void Then_Task_In_Lower_Sequence_Ran_Once()
+        public void Then_Task_In_Lower_Sequence_Ran_5_Times()
         {
             MockLowerSequenceTask
-                .Received(1)
+                .Received(5)
                 .Run();
         }
 
@@ -37,7 +44,7 @@ namespace BLL.Common.Tests.Integration.RunSequenceWithinSequence.RunTests
         }
 
         [Test]
-        public void Then_Sequence_Is_Successful()
+        public void Then_Sequence_Succeeds()
         {
             Assert.AreEqual(_result, SequenceResultEnum.Success);
         }

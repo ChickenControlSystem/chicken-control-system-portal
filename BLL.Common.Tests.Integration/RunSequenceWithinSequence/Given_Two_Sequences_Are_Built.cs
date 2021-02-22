@@ -38,6 +38,7 @@ namespace BLL.Common.Tests.Integration.RunSequenceWithinSequence
                 .Queue(MockLowerSequenceTask)
                 .Serial()
                 .Fail(MockFail)
+                .RunCount(5)
                 .Recovery(MockLowerSequenceRecoveryTask.Run)
                 .Build();
 
