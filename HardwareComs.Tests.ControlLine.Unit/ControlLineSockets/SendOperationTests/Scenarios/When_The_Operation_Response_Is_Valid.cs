@@ -40,12 +40,6 @@ namespace HardwareComs.Tests.ControlLine.Unit.ControlLineSockets.SendOperationTe
         }
 
         [Test]
-        public void Then_ArgumentException_Is_Not_Thrown()
-        {
-            Assert.DoesNotThrow(() => SUT.SendOperation(Operation));
-        }
-
-        [Test]
         public void Then_OperationResponse_Is_Returned()
         {
             Assert.AreEqual(_expectedResult.Returns, _result.Returns);
