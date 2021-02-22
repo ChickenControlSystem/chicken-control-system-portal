@@ -1,17 +1,17 @@
 ﻿using System.Net.Sockets;
 using ControlLine.Dto;
-using HardwareComs.Tests.ControlLine.Unit.ControlLineSockets.SendOperationTests.Scenarios.Shared.Socket;
+using HardwareComs.Tests.ControlLine.Unit.ControlLineSockets.SendOperationTests.Scenarios.Shared;
 using NSubstitute;
 using NUnit.Framework;
 
 namespace HardwareComs.Tests.ControlLine.Unit.ControlLineSockets.SendOperationTests.Scenarios
 {
     [TestFixture]
-    public class When_Connection_Cannot_Be_Opened : When_Socket_Error_Occurs
+    public class When_Connection_Cannot_Be_Opened : When_Preconditions_Are_Satisfied
     {
         private readonly SocketException _socketException = new SocketException();
 
-        protected override void When()
+        public override void When()
         {
             Operation = new OperationDto
             {
@@ -23,7 +23,7 @@ namespace HardwareComs.Tests.ControlLine.Unit.ControlLineSockets.SendOperationTe
                 .When(x => x.Connect())
                 .Do(x => throw _socketException);
 
-            SUT.SendOperation(Operation);
+            Assert.Throws<SocketException>(() => SUT.SendOperation(Operation));
         }
 
         [Test]

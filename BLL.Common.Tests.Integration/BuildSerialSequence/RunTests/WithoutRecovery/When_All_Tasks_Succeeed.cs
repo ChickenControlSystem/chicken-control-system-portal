@@ -1,9 +1,8 @@
-﻿using BLL.Common.Contract;
-using BLL.Common.Sequence;
+﻿using BLL.Common.Sequence;
 using NSubstitute;
 using NUnit.Framework;
 
-namespace BLL.Common.Tests.Unit.BuildSerialSequence.RunTests.WithoutRecovery
+namespace BLL.Common.Tests.Integration.BuildSerialSequence.RunTests.WithoutRecovery
 {
     [TestFixture(1, 1, 1)]
     [TestFixture(1, 1, 3)]
@@ -13,10 +12,9 @@ namespace BLL.Common.Tests.Unit.BuildSerialSequence.RunTests.WithoutRecovery
     [TestFixture(3, 1, 3)]
     [TestFixture(3, 3, 1)]
     [TestFixture(3, 3, 3)]
-    public class When_All_Tasks_Succeed : Given_A_SerialSequenceIsBuilt
+    public class When_All_Tasks_Succeed : Given_A_Serial_Sequence_Is_Built
     {
         private SequenceResultEnum _result;
-        private IRunnable _mockRecoveryTask;
 
         private readonly int _runCountSecond;
         private readonly int _runCountFirst;
@@ -29,7 +27,7 @@ namespace BLL.Common.Tests.Unit.BuildSerialSequence.RunTests.WithoutRecovery
             _runCountThird = runCountThird;
         }
 
-        protected override void When()
+        public override void When()
         {
             MockFirstTask
                 .RunCount

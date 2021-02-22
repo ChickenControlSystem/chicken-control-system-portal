@@ -26,7 +26,7 @@ namespace BLL.Common.Sequence
             _tasks = new List<IRunnable>();
         }
 
-        public ISequenceBuilder EnqueueTask(IRunnable task)
+        public ISequenceBuilder Queue(IRunnable task)
         {
             CodeContract.PreCondition<ArgumentException>(!_tasksSet);
 
@@ -34,7 +34,7 @@ namespace BLL.Common.Sequence
             return this;
         }
 
-        public ISequenceBuilder EndQueue()
+        private ISequenceBuilder EndQueue()
         {
             CodeContract.PreCondition<ArgumentException>(!_tasksSet);
 
@@ -42,8 +42,9 @@ namespace BLL.Common.Sequence
             return this;
         }
 
-        public ISequenceBuilder MakeSerial()
+        public ISequenceBuilder Serial()
         {
+            EndQueue();
             CodeContract.PreCondition<ArgumentException>(!_sequenceTypeSet);
 
             _sequenceType = ISequenceFactory.Serial;
@@ -51,7 +52,7 @@ namespace BLL.Common.Sequence
             return this;
         }
 
-        public ISequenceBuilder AddFailAction(Action failAction)
+        public ISequenceBuilder Fail(Action failAction)
         {
             CodeContract.PreCondition<ArgumentException>(!_sequenceFailActionSet);
 
@@ -60,7 +61,7 @@ namespace BLL.Common.Sequence
             return this;
         }
 
-        public ISequenceBuilder AddRecoveryFunc(Func<SequenceResultEnum> recoveryFunc)
+        public ISequenceBuilder Recovery(Func<SequenceResultEnum> recoveryFunc)
         {
             CodeContract.PreCondition<ArgumentException>(!_sequenceRecoverySet);
 
@@ -69,7 +70,7 @@ namespace BLL.Common.Sequence
             return this;
         }
 
-        public ISequenceBuilder SetRunCount(int runCount)
+        public ISequenceBuilder RunCount(int runCount)
         {
             CodeContract.PreCondition<ArgumentException>(_runCount == 1);
 
@@ -77,8 +78,9 @@ namespace BLL.Common.Sequence
             return this;
         }
 
-        public ISequenceBuilder MakeParrelell()
+        public ISequenceBuilder Parrelell()
         {
+            EndQueue();
             CodeContract.PreCondition<ArgumentException>(!_sequenceTypeSet);
 
             _sequenceType = ISequenceFactory.Parelell;

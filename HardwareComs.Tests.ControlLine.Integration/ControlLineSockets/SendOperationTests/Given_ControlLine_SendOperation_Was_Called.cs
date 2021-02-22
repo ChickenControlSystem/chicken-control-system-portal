@@ -8,7 +8,7 @@ namespace HardwareComs.Tests.ControlLine.Integration.ControlLineSockets.SendOper
 {
     public abstract class Given_ControlLine_SendOperation_Was_Called : GenericGivenWhenThenTests<ControlLineTcpSockets>
     {
-        protected override void Given()
+        public override void Given()
         {
             SUT = new ControlLineTcpSockets(
                 new TcpClient(

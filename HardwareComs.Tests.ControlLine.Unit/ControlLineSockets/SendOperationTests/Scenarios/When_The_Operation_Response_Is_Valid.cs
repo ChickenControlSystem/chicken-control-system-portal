@@ -25,7 +25,7 @@ namespace HardwareComs.Tests.ControlLine.Unit.ControlLineSockets.SendOperationTe
             };
         }
 
-        protected override void When()
+        public override void When()
         {
             Operation = new OperationDto
             {
@@ -37,12 +37,6 @@ namespace HardwareComs.Tests.ControlLine.Unit.ControlLineSockets.SendOperationTe
                 .Returns(_operationResponseParams);
 
             _result = SUT.SendOperation(Operation);
-        }
-
-        [Test]
-        public void Then_ArgumentException_Is_Not_Thrown()
-        {
-            Assert.DoesNotThrow(() => SUT.SendOperation(Operation));
         }
 
         [Test]

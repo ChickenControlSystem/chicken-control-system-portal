@@ -22,7 +22,7 @@ namespace HardwareComs.Tests.ControlLine.Unit.ControlLineSockets.SendOperationTe
             _operationResponseParams = operationResponseParams;
         }
 
-        protected override void When()
+        public override void When()
         {
             Operation = new OperationDto
             {
@@ -33,12 +33,6 @@ namespace HardwareComs.Tests.ControlLine.Unit.ControlLineSockets.SendOperationTe
                 .Recieve()
                 .Returns(_operationResponseParams);
 
-            SUT.SendOperation(Operation);
-        }
-
-        [Test]
-        public void Then_ArgumentException_Is_Thrown()
-        {
             Assert.Throws<ArgumentException>(() => SUT.SendOperation(Operation));
         }
     }

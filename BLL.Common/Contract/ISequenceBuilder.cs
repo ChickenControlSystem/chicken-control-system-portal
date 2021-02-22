@@ -13,36 +13,31 @@ namespace BLL.Common.Contract
         /// <summary>
         /// adds another task to the list
         /// </summary>
-        ISequenceBuilder EnqueueTask(IRunnable task);
+        ISequenceBuilder Queue(IRunnable task);
 
         /// <summary>
-        /// stops adding any more tasks
+        /// makes the sequence a serial sequence, ends queueing other tasks
         /// </summary>
-        public ISequenceBuilder EndQueue();
+        public ISequenceBuilder Serial();
 
         /// <summary>
-        /// makes the sequence a serial sequence
+        /// makes the sequence a parallel sequence, ends queueing other tasks
         /// </summary>
-        public ISequenceBuilder MakeSerial();
-
-        /// <summary>
-        /// makes the sequence a parallel sequence
-        /// </summary>
-        public ISequenceBuilder MakeParrelell();
+        public ISequenceBuilder Parrelell();
 
         /// <summary>
         /// adds an action to run when the IRunnable->HandleFail() method is called
         /// </summary>
-        public ISequenceBuilder AddFailAction(Action failAction);
+        public ISequenceBuilder Fail(Action failAction);
 
         /// <summary>
         /// adds a function that can be run if the normal function fails that will allow the sequence to continue
         /// </summary>
-        public ISequenceBuilder AddRecoveryFunc(Func<SequenceResultEnum> recoveryFunc);
+        public ISequenceBuilder Recovery(Func<SequenceResultEnum> recoveryFunc);
 
         /// <summary>
         /// sets how many times the run function will run for
         /// </summary>
-        public ISequenceBuilder SetRunCount(int runCount);
+        public ISequenceBuilder RunCount(int runCount);
     }
 }

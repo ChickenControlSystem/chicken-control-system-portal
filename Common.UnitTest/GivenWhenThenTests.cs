@@ -1,5 +1,4 @@
-﻿using System;
-using NUnit.Framework;
+﻿using NUnit.Framework;
 
 namespace UnitTest
 {
@@ -14,27 +13,20 @@ namespace UnitTest
         [SetUp]
         public void SetUpMethod()
         {
-            try
-            {
-                When();
-            }
-            catch (Exception)
-            {
-                // ignored
-            }
+            When();
         }
 
         /// <summary>
         ///     set up for test fixture
         /// </summary>
-        protected virtual void Given()
+        public virtual void Given()
         {
         }
 
         /// <summary>
         ///     set up for test method, SUT operation can be run (it will ignore exceptions)
         /// </summary>
-        protected virtual void When()
+        public virtual void When()
         {
         }
     }

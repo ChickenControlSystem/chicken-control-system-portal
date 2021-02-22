@@ -20,7 +20,7 @@ namespace BLL.HardwareModules.Door.Tests.Unit.Commands.CloseDoorCommandTests.Run
             _expectedResult = expectedResult;
         }
 
-        protected override void When()
+        public override void When()
         {
             MockErrorValidateOperationService
                 .GetSequenceResult(Arg.Any<OperationResultEnum>())
@@ -34,17 +34,6 @@ namespace BLL.HardwareModules.Door.Tests.Unit.Commands.CloseDoorCommandTests.Run
                 .Returns(_operationResult);
 
             _result = SUT.Run();
-        }
-
-        [Test]
-        public void Then_Validate_Operation_Method_Was_Called()
-        {
-            MockErrorValidateOperationService
-                .Received(1)
-                .GetSequenceResult(Arg.Any<OperationResultEnum>());
-            MockErrorValidateOperationService
-                .Received()
-                .GetSequenceResult(Arg.Is(_operationResult));
         }
 
         [Test]

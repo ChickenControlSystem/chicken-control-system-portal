@@ -8,7 +8,7 @@ namespace HAL.Operations.Tests.Integration.AnalogOperations
 {
     public abstract class Given_Operation_Was_Called : GenericGivenWhenThenTests<Operations.AnalogOperations>
     {
-        protected override void Given()
+        public override void Given()
         {
             var controlLine = new ControlLineSockets(
                 new TcpClient(

@@ -24,7 +24,7 @@ namespace HardwareComs.Tests.ControlLine.Unit.ControlLineSockets.SendOperationTe
             _operationParams = new[] {operationParam1, operationParam2};
         }
 
-        protected override void When()
+        public override void When()
         {
             _operation = new OperationDto {Params = _operationParams};
         }

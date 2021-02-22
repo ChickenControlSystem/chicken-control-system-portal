@@ -4,9 +4,9 @@ using NSubstitute;
 using Threading;
 using UnitTest;
 
-namespace BLL.Common.Tests.Unit.BuildSerialSequence
+namespace BLL.Common.Tests.Integration.BuildSerialSequence
 {
-    public class Given_A_SerialSequenceIsBuilt : GenericGivenWhenThenTests<ISequence>
+    public class Given_A_Serial_Sequence_Is_Built : GenericGivenWhenThenTests<ISequence>
     {
         protected IRunnable MockFirstTask;
         protected IRunnable MockSecondTask;
@@ -19,7 +19,7 @@ namespace BLL.Common.Tests.Unit.BuildSerialSequence
             MockThirdTask = Substitute.For<IRunnable>();
         }
 
-        protected override void Given()
+        public override void Given()
         {
             SetUpTasks();
 
@@ -30,17 +30,17 @@ namespace BLL.Common.Tests.Unit.BuildSerialSequence
             );
 
             SUT = sequenceBuilder
-                .EnqueueTask(MockFirstTask)
-                .EnqueueTask(MockSecondTask)
-                .EnqueueTask(MockThirdTask)
-                .EndQueue()
-                .MakeSerial()
-                .AddFailAction(() =>
-                {
-                    //PRETEND TO LOG ERROR
-                })
-                .AddRecoveryFunc(() => SequenceResultEnum.Success)
+                .Queue(MockFirstTask)
+                .Queue(MockSecondTask)
+                .Queue(MockThirdTask)
+                .Serial()
+                .Fail(MockFail)
                 .Build();
+        }
+
+        private static void MockFail()
+        {
+            //PRETEND TO LOG ERROR
         }
     }
 }

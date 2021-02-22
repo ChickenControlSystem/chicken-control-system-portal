@@ -4,13 +4,13 @@ using BLL.Common.TaskRecovery;
 using NSubstitute;
 using NUnit.Framework;
 
-namespace BLL.Common.Tests.Unit.BuildSerialSequence.RunTests.WithRecovery
+namespace BLL.Common.Tests.Integration.BuildSerialSequence.RunTests.WithRecovery
 {
     [TestFixture(1, 1)]
     [TestFixture(1, 3)]
     [TestFixture(3, 1)]
     [TestFixture(3, 3)]
-    public class When_Second_Task_Fails_And_Recovery_Action_Fails : Given_A_SerialSequenceIsBuilt
+    public class When_Second_Task_Fails_And_Recovery_Action_Fails : Given_A_Serial_Sequence_Is_Built
     {
         private readonly int _runCountSecond;
         private readonly int _runCountFirst;
@@ -26,7 +26,7 @@ namespace BLL.Common.Tests.Unit.BuildSerialSequence.RunTests.WithRecovery
             _runCountFirst = runCountFirst;
         }
 
-        protected override void When()
+        public override void When()
         {
             _mockRecoveryTask = Substitute.For<IRunnable>();
             _mockRecoveryTask
@@ -52,6 +52,14 @@ namespace BLL.Common.Tests.Unit.BuildSerialSequence.RunTests.WithRecovery
                 .Returns(SequenceResultEnum.Fail);
 
             _result = SUT.Run();
+        }
+
+        [Test]
+        public void Then_Recovery_Action_Is_Run_Once()
+        {
+            _mockRecoveryTask
+                .Received(1)
+                .Run();
         }
 
         [Test]

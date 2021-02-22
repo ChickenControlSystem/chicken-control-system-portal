@@ -23,7 +23,7 @@ namespace HAL.Operations.Tests.Unit.AnalogOperations.Scenarios
             _status = status;
         }
 
-        protected override void When()
+        public override void When()
         {
             var light = new LightAnolougeSensor();
 
@@ -55,31 +55,6 @@ namespace HAL.Operations.Tests.Unit.AnalogOperations.Scenarios
             MockControlLine
                 .Received(1)
                 .SendOperation(Arg.Any<OperationDto>());
-        }
-
-        [Test]
-        public void Then_Error_Is_Validated()
-        {
-            MockErrorService
-                .Received()
-                .Validate(_status);
-            MockErrorService
-                .Received(1)
-                .Validate(Arg.Any<byte>());
-        }
-
-        [Test]
-        public void Then_Steps_Were_Executed_In_Order()
-        {
-            Received.InOrder(
-                () =>
-                {
-                    MockControlLine
-                        .SendOperation(Arg.Any<OperationDto>());
-                    MockErrorService
-                        .Validate(Arg.Any<byte>());
-                }
-            );
         }
 
         [Test]
