@@ -7,7 +7,7 @@ namespace HardwareComs.Tests.ControlLine.Integration.ControlLineSockets.SendOper
     {
         private OperationResponseDto _result;
 
-        protected override void When()
+        public override void When()
         {
             _result = SUT.SendOperation(
                 new OperationDto

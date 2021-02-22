@@ -21,7 +21,7 @@ namespace HAL.Operations.Tests.Unit.AxisOperations.Scenarios
             _errorCode = errorCode;
         }
 
-        protected override void When()
+        public override void When()
         {
             var operationResponse = new OperationResponseDto {Status = _errorCode};
             MockControlLine

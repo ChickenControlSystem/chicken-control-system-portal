@@ -1,5 +1,4 @@
-﻿using BLL.Common.Contract;
-using BLL.Common.Sequence;
+﻿using BLL.Common.Sequence;
 using NSubstitute;
 using NUnit.Framework;
 
@@ -16,7 +15,6 @@ namespace BLL.Common.Tests.Integration.BuildSerialSequence.RunTests.WithoutRecov
     public class When_All_Tasks_Succeed : Given_A_Serial_Sequence_Is_Built
     {
         private SequenceResultEnum _result;
-        private IRunnable _mockRecoveryTask;
 
         private readonly int _runCountSecond;
         private readonly int _runCountFirst;
@@ -29,7 +27,7 @@ namespace BLL.Common.Tests.Integration.BuildSerialSequence.RunTests.WithoutRecov
             _runCountThird = runCountThird;
         }
 
-        protected override void When()
+        public override void When()
         {
             MockFirstTask
                 .RunCount

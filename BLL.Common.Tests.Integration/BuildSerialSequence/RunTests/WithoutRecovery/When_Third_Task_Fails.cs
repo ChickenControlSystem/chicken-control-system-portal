@@ -28,7 +28,7 @@ namespace BLL.Common.Tests.Integration.BuildSerialSequence.RunTests.WithoutRecov
             _runCountThird = runCountThird;
         }
 
-        protected override void When()
+        public override void When()
         {
             _recoveryOptions = new RecoveryOptionsDto();
 

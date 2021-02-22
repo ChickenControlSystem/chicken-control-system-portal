@@ -10,7 +10,7 @@ namespace HardwareComs.Tests.Common.FakeHardwareComs.SanityChecks.SanityChecks
         protected Socket ClientSocket;
         protected EndPoint EndPoint;
 
-        protected override void Given()
+        public override void Given()
         {
             ClientSocket = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);
             EndPoint = ConfigurationLoader.GetTestConfigurationLoader().GetControlLineSettings().GetEndPoint();

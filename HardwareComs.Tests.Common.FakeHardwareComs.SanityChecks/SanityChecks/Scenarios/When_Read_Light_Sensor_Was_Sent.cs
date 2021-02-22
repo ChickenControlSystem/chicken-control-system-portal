@@ -6,7 +6,7 @@ namespace HardwareComs.Tests.Common.FakeHardwareComs.SanityChecks.SanityChecks.S
     {
         private byte[] _result;
 
-        protected override void When()
+        public override void When()
         {
             _result = SendAndGetResponse(new byte[] {1, 1});
         }

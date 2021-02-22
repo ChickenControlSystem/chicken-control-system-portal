@@ -19,7 +19,7 @@ namespace BLL.Common.Tests.Integration.BuildSerialSequence
             MockThirdTask = Substitute.For<IRunnable>();
         }
 
-        protected override void Given()
+        public override void Given()
         {
             SetUpTasks();
 

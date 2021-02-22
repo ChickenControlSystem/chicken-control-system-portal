@@ -18,7 +18,7 @@ namespace BLL.Common.Tests.Integration.BuildSerialSequence.RunTests.WithoutRecov
             _runCount = runCount;
         }
 
-        protected override void When()
+        public override void When()
         {
             _recoveryOptions = new RecoveryOptionsDto();
             MockFirstTask

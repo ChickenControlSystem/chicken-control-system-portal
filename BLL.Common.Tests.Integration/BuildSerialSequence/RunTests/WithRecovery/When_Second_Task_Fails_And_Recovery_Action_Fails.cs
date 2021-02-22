@@ -26,7 +26,7 @@ namespace BLL.Common.Tests.Integration.BuildSerialSequence.RunTests.WithRecovery
             _runCountFirst = runCountFirst;
         }
 
-        protected override void When()
+        public override void When()
         {
             _mockRecoveryTask = Substitute.For<IRunnable>();
             _mockRecoveryTask
@@ -52,6 +52,14 @@ namespace BLL.Common.Tests.Integration.BuildSerialSequence.RunTests.WithRecovery
                 .Returns(SequenceResultEnum.Fail);
 
             _result = SUT.Run();
+        }
+
+        [Test]
+        public void Then_Recovery_Action_Is_Run_Once()
+        {
+            _mockRecoveryTask
+                .Received(1)
+                .Run();
         }
 
         [Test]

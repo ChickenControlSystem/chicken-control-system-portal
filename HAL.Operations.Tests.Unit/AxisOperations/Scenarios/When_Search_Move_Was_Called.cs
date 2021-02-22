@@ -28,7 +28,7 @@ namespace HAL.Operations.Tests.Unit.AxisOperations.Scenarios
             _direction = direction;
         }
 
-        protected override void When()
+        public override void When()
         {
             var operationResponse = new OperationResponseDto {Status = _errorCode};
             MockControlLine

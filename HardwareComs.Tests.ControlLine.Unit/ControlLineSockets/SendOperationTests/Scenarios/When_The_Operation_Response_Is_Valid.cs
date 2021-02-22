@@ -25,7 +25,7 @@ namespace HardwareComs.Tests.ControlLine.Unit.ControlLineSockets.SendOperationTe
             };
         }
 
-        protected override void When()
+        public override void When()
         {
             Operation = new OperationDto
             {

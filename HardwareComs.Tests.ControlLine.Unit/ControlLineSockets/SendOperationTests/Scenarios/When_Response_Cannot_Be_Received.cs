@@ -1,7 +1,7 @@
 ﻿using System.Linq;
 using System.Net.Sockets;
 using ControlLine.Dto;
-using HardwareComs.Tests.ControlLine.Unit.ControlLineSockets.SendOperationTests.Scenarios.Shared.Socket;
+using HardwareComs.Tests.ControlLine.Unit.ControlLineSockets.SendOperationTests.Scenarios.Shared;
 using NSubstitute;
 using NSubstitute.ExceptionExtensions;
 using NUnit.Framework;
@@ -9,12 +9,12 @@ using NUnit.Framework;
 namespace HardwareComs.Tests.ControlLine.Unit.ControlLineSockets.SendOperationTests.Scenarios
 {
     [TestFixture]
-    public class When_Response_Cannot_Be_Received : When_Socket_Error_Occurs
+    public class When_Response_Cannot_Be_Received : When_Preconditions_Are_Satisfied
     {
         private readonly SocketException _socketException = new SocketException(10048);
         private readonly byte[] _payload = {115, 121, 2, 255, 255};
 
-        protected override void When()
+        public override void When()
         {
             Operation = new OperationDto
             {
@@ -27,7 +27,7 @@ namespace HardwareComs.Tests.ControlLine.Unit.ControlLineSockets.SendOperationTe
                 .Recieve()
                 .Throws(_socketException);
 
-            SUT.SendOperation(Operation);
+            Assert.Throws<SocketException>(() => SUT.SendOperation(Operation));
         }
 
         //TODO: change to 1 method call

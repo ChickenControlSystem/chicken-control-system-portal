@@ -15,7 +15,7 @@ namespace BLL.HardwareModules.Door.Tests.Unit.Commands.CloseDoorCommandTests
         private IDoor _doorAxis;
         private IFloorSensor _floorSensor;
 
-        protected override void Given()
+        public override void Given()
         {
             MockAxisOperations = Substitute.For<IAxisOperations>();
             MockErrorValidateOperationService = Substitute.For<IValidateOperationService>();
