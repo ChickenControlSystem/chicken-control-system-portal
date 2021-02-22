@@ -37,17 +37,6 @@ namespace BLL.HardwareModules.Door.Tests.Unit.Commands.CloseDoorCommandTests.Run
         }
 
         [Test]
-        public void Then_Validate_Operation_Method_Was_Called()
-        {
-            MockErrorValidateOperationService
-                .Received(1)
-                .GetSequenceResult(Arg.Any<OperationResultEnum>());
-            MockErrorValidateOperationService
-                .Received()
-                .GetSequenceResult(Arg.Is(_operationResult));
-        }
-
-        [Test]
         public void Then_Search_Move_For_Door_To_Floor_Sensor_Occured()
         {
             MockAxisOperations
