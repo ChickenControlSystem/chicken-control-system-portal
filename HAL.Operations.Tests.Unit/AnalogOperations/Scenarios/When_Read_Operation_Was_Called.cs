@@ -58,31 +58,6 @@ namespace HAL.Operations.Tests.Unit.AnalogOperations.Scenarios
         }
 
         [Test]
-        public void Then_Error_Is_Validated()
-        {
-            MockErrorService
-                .Received()
-                .Validate(_status);
-            MockErrorService
-                .Received(1)
-                .Validate(Arg.Any<byte>());
-        }
-
-        [Test]
-        public void Then_Steps_Were_Executed_In_Order()
-        {
-            Received.InOrder(
-                () =>
-                {
-                    MockControlLine
-                        .SendOperation(Arg.Any<OperationDto>());
-                    MockErrorService
-                        .Validate(Arg.Any<byte>());
-                }
-            );
-        }
-
-        [Test]
         public void Then_Valid_Result_Is_Returned()
         {
             Assert.AreEqual(200, _result.Return);

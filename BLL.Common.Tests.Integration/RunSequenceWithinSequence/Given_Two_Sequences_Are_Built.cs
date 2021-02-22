@@ -17,8 +17,17 @@ namespace BLL.Common.Tests.Integration.RunSequenceWithinSequence
         private void SetUpTasks()
         {
             MockUpperSequenceSecondTask = Substitute.For<IRunnable>();
+            MockUpperSequenceSecondTask
+                .RunCount
+                .Returns(1);
             MockLowerSequenceRecoveryTask = Substitute.For<IRunnable>();
+            MockLowerSequenceRecoveryTask
+                .RunCount
+                .Returns(1);
             MockLowerSequenceTask = Substitute.For<IRunnable>();
+            MockLowerSequenceTask
+                .RunCount
+                .Returns(1);
         }
 
         public override void Given()

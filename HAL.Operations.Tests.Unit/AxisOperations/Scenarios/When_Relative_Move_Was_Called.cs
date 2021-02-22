@@ -35,17 +35,6 @@ namespace HAL.Operations.Tests.Unit.AxisOperations.Scenarios
         }
 
         [Test]
-        public void Then_Error_Validator_Was_Called()
-        {
-            MockErrorService
-                .Received()
-                .Validate(Arg.Is(_errorCode));
-            MockErrorService
-                .Received(1)
-                .Validate(Arg.Any<byte>());
-        }
-
-        [Test]
         public void Then_Operation_Was_Sent()
         {
             MockControlLine
@@ -59,18 +48,6 @@ namespace HAL.Operations.Tests.Unit.AxisOperations.Scenarios
             MockControlLine
                 .Received(1)
                 .SendOperation(Arg.Any<OperationDto>());
-        }
-
-        [Test]
-        public void Then_Steps_Were_Executed_In_Order()
-        {
-            Received.InOrder(
-                () =>
-                {
-                    MockControlLine.SendOperation(Arg.Any<OperationDto>());
-                    MockErrorService.Validate(Arg.Any<byte>());
-                }
-            );
         }
 
         [Test]
