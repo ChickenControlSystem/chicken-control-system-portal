@@ -23,7 +23,7 @@ namespace BLL.Common.Tests.Integration.BuildSerialSequence
         {
             SetUpTasks();
 
-            var sequenceBuilder = new SequenceBuilder(
+            var sequenceBuilder = new FluentSequenceBuilder(
                 new SequenceFactory(
                     Substitute.For<IThreadOperations>()
                 )

@@ -55,9 +55,9 @@ namespace BLL.Common.Tests.Integration.RunSequenceWithinSequence
             //PRETEND TO LOG ERROR
         }
 
-        private ISequenceBuilder GetSequenceBuilder()
+        private IFluentSequenceBuilder GetSequenceBuilder()
         {
-            return new SequenceBuilder(
+            return new FluentSequenceBuilder(
                 new SequenceFactory(
                     Substitute.For<IThreadOperations>()
                 )

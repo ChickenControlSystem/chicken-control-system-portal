@@ -2,7 +2,7 @@
 
 namespace BLL.HardwareModules.Light.Contract
 {
-    public interface ICheckForMorningCommand : ICommand
+    public interface ICheckForLightCommand : ICommand
     {
     }
 }
