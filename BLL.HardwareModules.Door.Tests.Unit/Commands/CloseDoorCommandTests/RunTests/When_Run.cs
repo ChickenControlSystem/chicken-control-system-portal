@@ -8,7 +8,7 @@ namespace BLL.HardwareModules.Door.Tests.Unit.Commands.CloseDoorCommandTests.Run
 {
     [TestFixture(OperationResultEnum.Failiure, SequenceResultEnum.Fail)]
     [TestFixture(OperationResultEnum.Succeess, SequenceResultEnum.Success)]
-    public class When_Run : Given_CloseDoorCommand_Was_Run
+    public class When_Run : Given_CloseDoorCommand
     {
         private readonly OperationResultEnum _operationResult;
         private readonly SequenceResultEnum _expectedResult;

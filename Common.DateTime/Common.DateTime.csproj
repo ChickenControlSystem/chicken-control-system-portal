@@ -5,8 +5,7 @@
     </PropertyGroup>
 
     <ItemGroup>
-        <ProjectReference Include="..\BLL.Common\BLL.Common.csproj"/>
-        <ProjectReference Include="..\Common.DateTime\Common.DateTime.csproj"/>
+        <ProjectReference Include="..\Common.CodeContracts\Common.CodeContracts.csproj"/>
     </ItemGroup>
 
 </Project>

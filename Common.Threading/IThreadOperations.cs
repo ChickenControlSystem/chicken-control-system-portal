@@ -21,5 +21,10 @@ namespace Threading
         ///     starts and runs a background thread
         /// </summary>
         void RunBackground(Action action);
+
+        /// <summary>
+        /// blocks main thread by certain delay specified
+        /// </summary>
+        void SyncronousDelay(double timeInMiliSeconds);
     }
 }

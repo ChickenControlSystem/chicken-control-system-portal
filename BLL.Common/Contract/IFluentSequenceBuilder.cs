@@ -3,41 +3,36 @@ using BLL.Common.Sequence;
 
 namespace BLL.Common.Contract
 {
-    public interface ISequenceBuilder
+    public interface IFluentSequenceBuilder : ISimpleSequenceBuilder
     {
-        /// <summary>
-        /// builds final sequence (called last)
-        /// </summary>
-        ISequence Build();
-
         /// <summary>
         /// adds another task to the list
         /// </summary>
-        ISequenceBuilder Queue(IRunnable task);
+        IFluentSequenceBuilder Queue(IRunnable task);
 
         /// <summary>
         /// makes the sequence a serial sequence, ends queueing other tasks
         /// </summary>
-        public ISequenceBuilder Serial();
+        public IFluentSequenceBuilder Serial();
 
         /// <summary>
         /// makes the sequence a parallel sequence, ends queueing other tasks
         /// </summary>
-        public ISequenceBuilder Parrelell();
+        public IFluentSequenceBuilder Parrelell();
 
         /// <summary>
         /// adds an action to run when the IRunnable->HandleFail() method is called
         /// </summary>
-        public ISequenceBuilder Fail(Action failAction);
+        public IFluentSequenceBuilder Fail(Action failAction);
 
         /// <summary>
         /// adds a function that can be run if the normal function fails that will allow the sequence to continue
         /// </summary>
-        public ISequenceBuilder Recovery(Func<SequenceResultEnum> recoveryFunc);
+        public IFluentSequenceBuilder Recovery(Func<SequenceResultEnum> recoveryFunc);
 
         /// <summary>
         /// sets how many times the run function will run for
         /// </summary>
-        public ISequenceBuilder RunCount(int runCount);
+        public IFluentSequenceBuilder RunCount(int runCount);
     }
 }

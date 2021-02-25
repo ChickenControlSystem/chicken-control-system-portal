@@ -8,7 +8,7 @@ using UnitTest;
 
 namespace BLL.HardwareModules.Door.Tests.Unit.Commands.CloseDoorCommandTests
 {
-    public class Given_CloseDoorCommand_Was_Run : GenericGivenWhenThenTests<CloseDoorCommand>
+    public class Given_CloseDoorCommand : GenericGivenWhenThenTests<CloseDoorCommand>
     {
         protected IAxisOperations MockAxisOperations;
         protected IValidateOperationService MockErrorValidateOperationService;

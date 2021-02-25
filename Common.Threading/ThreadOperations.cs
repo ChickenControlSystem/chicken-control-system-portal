@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Threading;
 using System.Threading.Tasks;
 using Threading.Exception;
 
@@ -39,6 +40,11 @@ namespace Threading
         public void RunBackground(Action action)
         {
             Task.Run(action);
+        }
+
+        public void SyncronousDelay(double timeInMiliSeconds)
+        {
+            Thread.Sleep((int) timeInMiliSeconds);
         }
     }
 }

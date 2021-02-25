@@ -5,7 +5,7 @@ using BLL.Common.TaskRecovery;
 
 namespace BLL.Common.Sequence
 {
-    public class SerialSequence : Sequence, ISequence, ISerialSeqeuenceBuilder
+    public class SerialSequence : Sequence, ISequence
     {
         public SerialSequence(
             List<IRunnable> tasks,

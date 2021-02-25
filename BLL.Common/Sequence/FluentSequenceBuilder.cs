@@ -6,7 +6,7 @@ using CodeContracts;
 
 namespace BLL.Common.Sequence
 {
-    public class SequenceBuilder : ISequenceBuilder
+    public class FluentSequenceBuilder : IFluentSequenceBuilder
     {
         private readonly ISequenceFactory _sequenceFactory;
         private int _sequenceType;
@@ -20,13 +20,13 @@ namespace BLL.Common.Sequence
         private bool _sequenceFailActionSet;
         private bool _tasksSet;
 
-        public SequenceBuilder(ISequenceFactory sequenceFactory)
+        public FluentSequenceBuilder(ISequenceFactory sequenceFactory)
         {
             _sequenceFactory = sequenceFactory;
             _tasks = new List<IRunnable>();
         }
 
-        public ISequenceBuilder Queue(IRunnable task)
+        public IFluentSequenceBuilder Queue(IRunnable task)
         {
             CodeContract.PreCondition<ArgumentException>(!_tasksSet);
 
@@ -34,7 +34,7 @@ namespace BLL.Common.Sequence
             return this;
         }
 
-        private ISequenceBuilder EndQueue()
+        private IFluentSequenceBuilder EndQueue()
         {
             CodeContract.PreCondition<ArgumentException>(!_tasksSet);
 
@@ -42,7 +42,7 @@ namespace BLL.Common.Sequence
             return this;
         }
 
-        public ISequenceBuilder Serial()
+        public IFluentSequenceBuilder Serial()
         {
             EndQueue();
             CodeContract.PreCondition<ArgumentException>(!_sequenceTypeSet);
@@ -52,7 +52,7 @@ namespace BLL.Common.Sequence
             return this;
         }
 
-        public ISequenceBuilder Fail(Action failAction)
+        public IFluentSequenceBuilder Fail(Action failAction)
         {
             CodeContract.PreCondition<ArgumentException>(!_sequenceFailActionSet);
 
@@ -61,7 +61,7 @@ namespace BLL.Common.Sequence
             return this;
         }
 
-        public ISequenceBuilder Recovery(Func<SequenceResultEnum> recoveryFunc)
+        public IFluentSequenceBuilder Recovery(Func<SequenceResultEnum> recoveryFunc)
         {
             CodeContract.PreCondition<ArgumentException>(!_sequenceRecoverySet);
 
@@ -70,7 +70,7 @@ namespace BLL.Common.Sequence
             return this;
         }
 
-        public ISequenceBuilder RunCount(int runCount)
+        public IFluentSequenceBuilder RunCount(int runCount)
         {
             CodeContract.PreCondition<ArgumentException>(_runCount == 1);
 
@@ -78,7 +78,7 @@ namespace BLL.Common.Sequence
             return this;
         }
 
-        public ISequenceBuilder Parrelell()
+        public IFluentSequenceBuilder Parrelell()
         {
             EndQueue();
             CodeContract.PreCondition<ArgumentException>(!_sequenceTypeSet);
