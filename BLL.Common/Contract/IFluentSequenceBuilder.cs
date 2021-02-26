@@ -11,6 +11,11 @@ namespace BLL.Common.Contract
         IFluentSequenceBuilder Queue(IRunnable task);
 
         /// <summary>
+        /// adds another task to the list if a condition is met
+        /// </summary>
+        public IFluentSequenceBuilder QueueConditional(IRunnable task, bool condition);
+
+        /// <summary>
         /// makes the sequence a serial sequence, ends queueing other tasks
         /// </summary>
         public IFluentSequenceBuilder Serial();

@@ -10,7 +10,7 @@ namespace HAL.Operations.Tests.Integration.AxisOperations
         public void Then_Move_Is_Move_Result()
         {
             Assert.AreEqual(OperationResultEnum.Succeess,
-                SUT.MoveAxisSearch(new DoorAxis(), new FloorDigitalSensor(), false));
+                SUT.MoveAxisSearch(new DoorAxis(), new CeilingDigitalSensor(), true));
         }
     }
 }

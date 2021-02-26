@@ -8,25 +8,25 @@ using UnitTest;
 
 namespace BLL.HardwareModules.Door.Tests.Unit.Commands.CloseDoorCommandTests
 {
-    public class Given_CloseDoorCommand : GenericGivenWhenThenTests<CloseDoorCommand>
+    public class Given_OpenDoorCommand : GenericGivenWhenThenTests<OpenDoorCommand>
     {
         protected IAxisOperations MockAxisOperations;
         protected IValidateOperationService MockErrorValidateOperationService;
         private IDoor _doorAxis;
-        private IFloorSensor _floorSensor;
+        private ICeilingSensor _ceilingSensor;
 
         public override void Given()
         {
             MockAxisOperations = Substitute.For<IAxisOperations>();
             MockErrorValidateOperationService = Substitute.For<IValidateOperationService>();
             _doorAxis = new DoorAxis();
-            _floorSensor = new FloorDigitalSensor();
+            _ceilingSensor = new CeilingDigitalSensor();
 
-            SUT = new CloseDoorCommand(
+            SUT = new OpenDoorCommand(
                 MockAxisOperations,
                 MockErrorValidateOperationService,
                 _doorAxis,
-                _floorSensor
+                _ceilingSensor
             );
         }
     }

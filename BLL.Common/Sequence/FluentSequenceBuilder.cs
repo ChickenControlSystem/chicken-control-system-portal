@@ -34,6 +34,13 @@ namespace BLL.Common.Sequence
             return this;
         }
 
+        public IFluentSequenceBuilder QueueConditional(IRunnable task, bool condition)
+        {
+            if (condition)
+                Queue(task);
+            return this;
+        }
+
         private IFluentSequenceBuilder EndQueue()
         {
             CodeContract.PreCondition<ArgumentException>(!_tasksSet);

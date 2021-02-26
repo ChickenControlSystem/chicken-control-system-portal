@@ -7,23 +7,23 @@ using HAL.Operations.Contract;
 
 namespace BLL.HardwareModules.Door.Commands
 {
-    public class CloseDoorCommand : IDoorCommand
+    public class OpenDoorCommand : IOpenDoorCommand
     {
         private readonly IAxisOperations _axisOperations;
         private readonly IValidateOperationService _validateOperationService;
         private readonly IDoor _door;
-        private readonly IFloorSensor _floor;
+        private readonly ICeilingSensor _ceiling;
 
         public int RunCount { get; }
         public RecoveryOptionsDto RecoveryOptions { get; }
 
-        public CloseDoorCommand(IAxisOperations axisOperations, IValidateOperationService validateOperationService,
-            IDoor door, IFloorSensor floor)
+        public OpenDoorCommand(IAxisOperations axisOperations, IValidateOperationService validateOperationService,
+            IDoor door, ICeilingSensor ceiling)
         {
             _axisOperations = axisOperations;
             _validateOperationService = validateOperationService;
             _door = door;
-            _floor = floor;
+            _ceiling = ceiling;
 
             RunCount = 3;
             RecoveryOptions = new RecoveryOptionsDto();
@@ -34,8 +34,8 @@ namespace BLL.HardwareModules.Door.Commands
             var result = _axisOperations
                 .MoveAxisSearch(
                     _door,
-                    _floor,
-                    false
+                    _ceiling,
+                    true
                 );
             return _validateOperationService.GetSequenceResult(result);
         }

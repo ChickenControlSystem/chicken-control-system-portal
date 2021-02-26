@@ -38,7 +38,7 @@ namespace HAL.Operations.Tests.Unit.AxisOperations.Scenarios
                 .Validate(Arg.Any<byte>())
                 .Returns(_moveResult);
 
-            _result = SUT.MoveAxisSearch(new DoorAxis(), new FloorDigitalSensor(), _direction);
+            _result = SUT.MoveAxisSearch(new DoorAxis(), new CeilingDigitalSensor(), _direction);
         }
 
         [Test]

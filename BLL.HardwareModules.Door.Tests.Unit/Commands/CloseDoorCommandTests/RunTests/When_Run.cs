@@ -8,7 +8,7 @@ namespace BLL.HardwareModules.Door.Tests.Unit.Commands.CloseDoorCommandTests.Run
 {
     [TestFixture(OperationResultEnum.Failiure, SequenceResultEnum.Fail)]
     [TestFixture(OperationResultEnum.Succeess, SequenceResultEnum.Success)]
-    public class When_Run : Given_CloseDoorCommand
+    public class When_Run : Given_OpenDoorCommand
     {
         private readonly OperationResultEnum _operationResult;
         private readonly SequenceResultEnum _expectedResult;
@@ -43,7 +43,7 @@ namespace BLL.HardwareModules.Door.Tests.Unit.Commands.CloseDoorCommandTests.Run
                 .Received(1)
                 .MoveAxisSearch(
                     Arg.Any<IDoor>(),
-                    Arg.Any<IFloorSensor>(),
+                    Arg.Any<ICeilingSensor>(),
                     Arg.Any<bool>()
                 );
             MockAxisOperations
@@ -54,12 +54,12 @@ namespace BLL.HardwareModules.Door.Tests.Unit.Commands.CloseDoorCommandTests.Run
                             device.Id == 2 &&
                             device.Name == "Door Axis"
                     ),
-                    Arg.Is<IFloorSensor>(
+                    Arg.Is<ICeilingSensor>(
                         device =>
                             device.Id == 3 &&
                             device.Name == "Floor Sensor"
                     ),
-                    Arg.Is(false)
+                    Arg.Is(true)
                 );
         }
 

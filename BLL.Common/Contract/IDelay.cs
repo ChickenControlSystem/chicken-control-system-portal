@@ -4,10 +4,14 @@ namespace BLL.Common.Contract
 {
     public interface IDelay : IRunnable
     {
-        public double Period { get; set; }
-
+        /// <summary>
+        /// waits for delay specified in parameter
+        /// </summary>
         public void WaitUntil(double milliseconds);
 
+        /// <summary>
+        /// waits until given time
+        /// </summary>
         public void WaitUntil(TimeSpan time);
     }
 }

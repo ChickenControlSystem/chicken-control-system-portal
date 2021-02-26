@@ -2,16 +2,12 @@
 
     <PropertyGroup>
         <TargetFramework>netcoreapp3.1</TargetFramework>
-        <RootNamespace>UnitTest</RootNamespace>
     </PropertyGroup>
 
     <ItemGroup>
-        <PackageReference Include="NSubstitute" Version="4.2.2"/>
-        <PackageReference Include="nunit" Version="3.13.1"/>
-    </ItemGroup>
-
-    <ItemGroup>
         <ProjectReference Include="..\BLL.Common\BLL.Common.csproj"/>
+        <ProjectReference Include="..\BLL.HardwareModules.Door\BLL.HardwareModules.Door.csproj"/>
+        <ProjectReference Include="..\BLL.HardwareModules.Light\BLL.HardwareModules.Light.csproj"/>
     </ItemGroup>
 
 </Project>

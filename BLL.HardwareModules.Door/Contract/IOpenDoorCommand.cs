@@ -2,7 +2,7 @@
 
 namespace BLL.HardwareModules.Door.Contract
 {
-    public interface IDoorCommand : ICommand
+    public interface IOpenDoorCommand : ICommand
     {
     }
 }

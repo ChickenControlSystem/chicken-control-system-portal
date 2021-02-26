@@ -2,21 +2,24 @@
 using BLL.Common.Contract;
 using BLL.Common.Sequence;
 using BLL.Common.TaskRecovery;
+using Common.DateTime;
 using Threading;
 
 namespace BLL.Common.GenericTasks
 {
     public class Delay : IDelay
     {
+        private readonly ITimeService _timeService;
         private readonly IThreadOperations _threadOperations;
         public int RunCount { get; }
         public RecoveryOptionsDto RecoveryOptions { get; }
 
-        public double Period { get; set; }
+        private double Period { get; set; }
 
-        public Delay(IThreadOperations threadOperations)
+        public Delay(IThreadOperations threadOperations, ITimeService timeService)
         {
             _threadOperations = threadOperations;
+            _timeService = timeService;
             RunCount = 1;
             RecoveryOptions = new RecoveryOptionsDto();
         }
