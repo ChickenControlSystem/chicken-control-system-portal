@@ -1,8 +1,8 @@
 ﻿using Crosscutting.Sequencing.Contract;
 using Crosscutting.Sequencing.Sequence;
-using NSubstitute;
 using Crosscutting.Threading;
 using Crosscutting.UnitTest;
+using NSubstitute;
 
 namespace Crosscutting.Sequencing.Tests.Integration.BuildSerialSequence
 {
