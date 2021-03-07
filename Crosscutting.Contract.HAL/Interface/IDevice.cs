@@ -1,4 +1,4 @@
-﻿namespace HAL.Models.Contract
+﻿namespace Crosscutting.Contract.HAL.Interface
 {
     public interface IDevice
     {

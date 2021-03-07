@@ -1,7 +1,5 @@
-﻿using Crosscutting.Contract.HAL.ControlLine;
-using HAL.Models.Contract;
-using HAL.Operations.Contract;
-using HAL.Operations.Dto;
+﻿using Crosscutting.Contract.HAL.Dto;
+using Crosscutting.Contract.HAL.Interface;
 
 namespace HAL.Operations
 {

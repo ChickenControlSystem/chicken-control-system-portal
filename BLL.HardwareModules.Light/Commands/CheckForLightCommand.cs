@@ -1,10 +1,9 @@
 ﻿using BLL.HardwareModules.Light.Contract;
+using Crosscutting.Contract.HAL.Interface;
 using Crosscutting.Sequencing.Contract;
 using Crosscutting.Sequencing.Sequence;
 using Crosscutting.Sequencing.TaskRecovery;
 using Crosscutting.Threading;
-using HAL.Models.Contract;
-using HAL.Operations.Contract;
 
 namespace BLL.HardwareModules.Light.Commands
 {

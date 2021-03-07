@@ -4,4 +4,8 @@
         <TargetFramework>netcoreapp3.1</TargetFramework>
     </PropertyGroup>
 
+    <ItemGroup>
+        <ProjectReference Include="..\Crosscutting.Contract.HAL\Crosscutting.Contract.HAL.csproj"/>
+    </ItemGroup>
+
 </Project>

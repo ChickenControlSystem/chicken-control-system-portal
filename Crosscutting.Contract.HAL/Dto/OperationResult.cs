@@ -1,6 +1,6 @@
-﻿using HAL.Operations.Enum;
+﻿using Crosscutting.Contract.HAL.Enum;
 
-namespace HAL.Operations.Dto
+namespace Crosscutting.Contract.HAL.Dto
 {
     public class OperationResult
     {

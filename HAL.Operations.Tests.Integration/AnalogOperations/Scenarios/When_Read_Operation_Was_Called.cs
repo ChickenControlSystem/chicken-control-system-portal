@@ -1,5 +1,5 @@
-﻿using HAL.Models.Device;
-using HAL.Operations.Enum;
+﻿using Crosscutting.Contract.HAL.Enum;
+using HAL.Models.Device;
 using NUnit.Framework;
 
 namespace HAL.Operations.Tests.Integration.AnalogOperations

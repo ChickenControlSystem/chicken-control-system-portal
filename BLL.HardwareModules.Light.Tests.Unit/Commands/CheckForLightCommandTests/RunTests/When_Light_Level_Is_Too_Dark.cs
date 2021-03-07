@@ -1,7 +1,7 @@
-﻿using Crosscutting.Sequencing.Sequence;
-using HAL.Models.Contract;
-using HAL.Operations.Dto;
-using HAL.Operations.Enum;
+﻿using Crosscutting.Contract.HAL.Dto;
+using Crosscutting.Contract.HAL.Enum;
+using Crosscutting.Contract.HAL.Interface;
+using Crosscutting.Sequencing.Sequence;
 using NSubstitute;
 using NUnit.Framework;
 

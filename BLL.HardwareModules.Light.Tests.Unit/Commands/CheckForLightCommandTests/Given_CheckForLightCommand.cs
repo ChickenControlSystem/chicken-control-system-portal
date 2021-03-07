@@ -1,10 +1,9 @@
 ﻿using BLL.HardwareModules.Light.Commands;
+using Crosscutting.Contract.HAL.Interface;
 using Crosscutting.DateTime;
 using Crosscutting.Sequencing.Contract;
 using Crosscutting.Threading;
 using Crosscutting.UnitTest;
-using HAL.Models.Contract;
-using HAL.Operations.Contract;
 using NSubstitute;
 
 namespace BLL.HardwareModules.Light.Tests.Unit.Commands.CheckForLightCommandTests

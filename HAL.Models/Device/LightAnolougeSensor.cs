@@ -1,4 +1,4 @@
-﻿using HAL.Models.Contract;
+﻿using Crosscutting.Contract.HAL.Interface;
 
 namespace HAL.Models.Device
 {
