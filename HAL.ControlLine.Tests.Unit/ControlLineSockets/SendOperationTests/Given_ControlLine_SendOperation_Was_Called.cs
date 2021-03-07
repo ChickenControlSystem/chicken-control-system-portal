@@ -1,6 +1,6 @@
-﻿using Crosscutting.Sockets.Client;
+﻿using Crosscutting.Contract.HAL.ControlLine;
+using Crosscutting.Sockets.Client;
 using Crosscutting.UnitTest;
-using HAL.ControlLine.Dto;
 using NSubstitute;
 
 namespace HAL.ControlLine.Tests.Unit.ControlLineSockets.SendOperationTests

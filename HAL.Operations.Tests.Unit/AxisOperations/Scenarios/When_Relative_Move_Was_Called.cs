@@ -1,5 +1,5 @@
 ﻿using System.Linq;
-using HAL.ControlLine.Dto;
+using Crosscutting.Contract.HAL.ControlLine;
 using HAL.Models.Device;
 using HAL.Operations.Enum;
 using NSubstitute;

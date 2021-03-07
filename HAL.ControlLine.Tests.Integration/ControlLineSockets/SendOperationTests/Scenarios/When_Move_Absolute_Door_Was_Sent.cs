@@ -1,4 +1,4 @@
-﻿using HAL.ControlLine.Dto;
+﻿using Crosscutting.Contract.HAL.ControlLine;
 using NUnit.Framework;
 
 namespace HAL.ControlLine.Tests.Integration.ControlLineSockets.SendOperationTests.Scenarios

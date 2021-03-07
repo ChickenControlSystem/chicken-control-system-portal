@@ -1,5 +1,4 @@
-﻿using HAL.ControlLine.Contract;
-using HAL.ControlLine.Dto;
+﻿using Crosscutting.Contract.HAL.ControlLine;
 using HAL.Models.Contract;
 using HAL.Operations.Contract;
 using HAL.Operations.Dto;

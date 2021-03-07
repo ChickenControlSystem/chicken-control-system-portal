@@ -1,4 +1,4 @@
-﻿namespace HAL.ControlLine.Dto
+﻿namespace Crosscutting.Contract.HAL.ControlLine
 {
     public class OperationDto
     {

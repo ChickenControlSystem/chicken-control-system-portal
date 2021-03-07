@@ -1,4 +1,4 @@
-﻿using HAL.ControlLine.Dto;
+﻿using Crosscutting.Contract.HAL.ControlLine;
 using HAL.ControlLine.Tests.Unit.ControlLineSockets.SendOperationTests.Scenarios.Shared.Socket;
 using NSubstitute;
 using NUnit.Framework;

@@ -1,5 +1,5 @@
-﻿using Crosscutting.UnitTest;
-using HAL.ControlLine.Contract;
+﻿using Crosscutting.Contract.HAL.ControlLine;
+using Crosscutting.UnitTest;
 using HAL.Operations.Contract;
 using NSubstitute;
 

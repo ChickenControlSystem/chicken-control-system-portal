@@ -3,9 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Net.Sockets;
 using Crosscutting.CodeContracts;
+using Crosscutting.Contract.HAL.ControlLine;
 using Crosscutting.Sockets.Client;
-using HAL.ControlLine.Contract;
-using HAL.ControlLine.Dto;
 
 namespace HAL.ControlLine.Sockets
 {

@@ -1,6 +1,6 @@
 ﻿using System.Linq;
 using System.Net.Sockets;
-using HAL.ControlLine.Dto;
+using Crosscutting.Contract.HAL.ControlLine;
 using HAL.ControlLine.Tests.Unit.ControlLineSockets.SendOperationTests.Scenarios.Shared;
 using NSubstitute;
 using NUnit.Framework;
