@@ -9,6 +9,7 @@ namespace UnitTest
         where T : ISimpleSequenceBuilder
     {
         protected FluentSequenceBuilder FluentSequenceBuilder;
+        protected SequenceResultEnum Result;
 
         public override void Given()
         {
@@ -17,7 +18,7 @@ namespace UnitTest
 
         public override void When()
         {
-            SUT
+            Result = SUT
                 .Build()
                 .Run();
         }

@@ -30,21 +30,21 @@ namespace BLL.Common.Tests.Integration.BuildSerialSequence.RunTests.WithoutRecov
         public override void When()
         {
             MockFirstTask
-                .RunCount
+                .GetRunCount()
                 .Returns(_runCountFirst);
             MockFirstTask
                 .Run()
                 .Returns(SequenceResultEnum.Success);
 
             MockSecondTask
-                .RunCount
+                .GetRunCount()
                 .Returns(_runCountSecond);
             MockSecondTask
                 .Run()
                 .Returns(SequenceResultEnum.Success);
 
             MockThirdTask
-                .RunCount
+                .GetRunCount()
                 .Returns(_runCountThird);
             MockThirdTask
                 .Run()

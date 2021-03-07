@@ -25,7 +25,7 @@ namespace BLL.Common.Tests.Integration.BuildSerialSequence.RunTests.WithoutRecov
                 .RecoveryOptions
                 .Returns(_recoveryOptions);
             MockFirstTask
-                .RunCount
+                .GetRunCount()
                 .Returns(_runCount);
             MockFirstTask
                 .Run()

@@ -9,7 +9,7 @@ namespace Common.DateTime
             return System.DateTime.Now.TimeOfDay.TotalMilliseconds;
         }
 
-        public double MilisecondsInHour(TimeSpan hour)
+        public double MilisecondsInTimeSpan(TimeSpan hour)
         {
             return hour.TotalMilliseconds;
         }

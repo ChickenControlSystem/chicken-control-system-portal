@@ -44,21 +44,21 @@ namespace BLL.Common.Tests.Integration.BuildSerialSequence.RunTests.WithRecovery
                 .RecoveryOptions
                 .Returns(_recoveryOptions);
             MockFirstTask
-                .RunCount
+                .GetRunCount()
                 .Returns(_runCountFirst);
             MockFirstTask
                 .Run()
                 .Returns(SequenceResultEnum.Fail);
 
             MockSecondTask
-                .RunCount
+                .GetRunCount()
                 .Returns(_runCountSecond);
             MockSecondTask
                 .Run()
                 .Returns(SequenceResultEnum.Success);
 
             MockThirdTask
-                .RunCount
+                .GetRunCount()
                 .Returns(_runCountThird);
             MockThirdTask
                 .Run()

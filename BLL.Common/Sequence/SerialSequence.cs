@@ -43,7 +43,7 @@ namespace BLL.Common.Sequence
         {
             var result = SequenceResultEnum.Fail;
 
-            for (var i = 0; i < task.RunCount; i++)
+            for (var i = 0; i < task.GetRunCount(); i++)
             {
                 var taskResult = task.Run();
                 if (taskResult != SequenceResultEnum.Success) continue;

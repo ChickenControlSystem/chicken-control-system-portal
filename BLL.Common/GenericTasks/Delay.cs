@@ -11,7 +11,8 @@ namespace BLL.Common.GenericTasks
     {
         private readonly ITimeService _timeService;
         private readonly IThreadOperations _threadOperations;
-        public int RunCount { get; }
+        private int _runCount;
+
         public RecoveryOptionsDto RecoveryOptions { get; }
 
         private double Period { get; set; }
@@ -20,7 +21,7 @@ namespace BLL.Common.GenericTasks
         {
             _threadOperations = threadOperations;
             _timeService = timeService;
-            RunCount = 1;
+            _runCount = 1;
             RecoveryOptions = new RecoveryOptionsDto();
         }
 
@@ -43,6 +44,11 @@ namespace BLL.Common.GenericTasks
         public void WaitUntil(TimeSpan time)
         {
             WaitUntil(time.Milliseconds);
+        }
+
+        public int GetRunCount()
+        {
+            return _runCount;
         }
     }
 }

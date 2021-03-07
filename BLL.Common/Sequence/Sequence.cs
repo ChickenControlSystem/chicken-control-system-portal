@@ -10,7 +10,12 @@ namespace BLL.Common.Sequence
         protected readonly List<IRunnable> Tasks;
         public RecoveryOptionsDto RecoveryOptions { get; }
         protected readonly Action FailAction;
-        public int RunCount { get; }
+        protected int RunCount;
+
+        public int GetRunCount()
+        {
+            return RunCount;
+        }
 
         protected Sequence(List<IRunnable> tasks, RecoveryOptionsDto recoveryOptions, Action failAction, int runCount)
         {

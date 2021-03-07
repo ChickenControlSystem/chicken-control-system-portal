@@ -14,6 +14,6 @@ namespace Common.DateTime
         /// <summary>
         /// gets seconds after midnight for given hour (0-24)
         /// </summary>
-        public double MilisecondsInHour(TimeSpan hour);
+        public double MilisecondsInTimeSpan(TimeSpan hour);
     }
 }

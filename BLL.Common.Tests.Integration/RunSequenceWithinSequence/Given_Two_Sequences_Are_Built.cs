@@ -18,15 +18,15 @@ namespace BLL.Common.Tests.Integration.RunSequenceWithinSequence
         {
             MockUpperSequenceSecondTask = Substitute.For<IRunnable>();
             MockUpperSequenceSecondTask
-                .RunCount
+                .GetRunCount()
                 .Returns(1);
             MockLowerSequenceRecoveryTask = Substitute.For<IRunnable>();
             MockLowerSequenceRecoveryTask
-                .RunCount
+                .GetRunCount()
                 .Returns(1);
             MockLowerSequenceTask = Substitute.For<IRunnable>();
             MockLowerSequenceTask
-                .RunCount
+                .GetRunCount()
                 .Returns(1);
         }
 

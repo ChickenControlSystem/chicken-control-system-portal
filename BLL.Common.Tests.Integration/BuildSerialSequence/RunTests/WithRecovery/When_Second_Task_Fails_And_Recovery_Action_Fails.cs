@@ -35,7 +35,7 @@ namespace BLL.Common.Tests.Integration.BuildSerialSequence.RunTests.WithRecovery
             _recoveryOptions = new RecoveryOptionsDto(true, _mockRecoveryTask.Run);
 
             MockFirstTask
-                .RunCount
+                .GetRunCount()
                 .Returns(_runCountFirst);
             MockFirstTask
                 .Run()
@@ -45,7 +45,7 @@ namespace BLL.Common.Tests.Integration.BuildSerialSequence.RunTests.WithRecovery
                 .RecoveryOptions
                 .Returns(_recoveryOptions);
             MockSecondTask
-                .RunCount
+                .GetRunCount()
                 .Returns(_runCountSecond);
             MockSecondTask
                 .Run()

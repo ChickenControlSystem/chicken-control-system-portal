@@ -8,7 +8,7 @@ namespace BLL.Common.Contract
         /// <summary>
         /// number of times the run method is ran until it passes
         /// </summary>
-        public int RunCount { get; }
+        public int GetRunCount();
 
         public RecoveryOptionsDto RecoveryOptions { get; }
 

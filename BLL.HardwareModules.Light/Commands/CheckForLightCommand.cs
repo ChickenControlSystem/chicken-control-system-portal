@@ -14,8 +14,9 @@ namespace BLL.HardwareModules.Light.Commands
         private readonly IValidateOperationService _validateOperationService;
         private readonly ILightSensor _lightSensor;
         private readonly IThreadOperations _threadOperations;
+        private int _runCount;
 
-        public int RunCount { get; }
+
         public RecoveryOptionsDto RecoveryOptions { get; }
 
         public CheckForLightCommand(IValidateOperationService validateOperationService,
@@ -26,7 +27,6 @@ namespace BLL.HardwareModules.Light.Commands
             _lightSensor = lightSensor;
             _threadOperations = threadOperations;
 
-            RunCount = 12;
             RecoveryOptions = new RecoveryOptionsDto(true, Recover);
         }
 
@@ -56,6 +56,16 @@ namespace BLL.HardwareModules.Light.Commands
             //TODO: report error to UI
             //TODO: log error
             return SequenceResultEnum.Success;
+        }
+
+        public void SetRunCountBeforeMorning(int runCount)
+        {
+            _runCount = runCount;
+        }
+
+        public int GetRunCount()
+        {
+            return _runCount;
         }
     }
 }

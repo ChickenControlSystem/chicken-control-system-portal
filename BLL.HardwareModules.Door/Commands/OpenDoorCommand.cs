@@ -14,7 +14,11 @@ namespace BLL.HardwareModules.Door.Commands
         private readonly IDoor _door;
         private readonly ICeilingSensor _ceiling;
 
-        public int RunCount { get; }
+        public int GetRunCount()
+        {
+            return 3;
+        }
+
         public RecoveryOptionsDto RecoveryOptions { get; }
 
         public OpenDoorCommand(IAxisOperations axisOperations, IValidateOperationService validateOperationService,
@@ -25,7 +29,6 @@ namespace BLL.HardwareModules.Door.Commands
             _door = door;
             _ceiling = ceiling;
 
-            RunCount = 3;
             RecoveryOptions = new RecoveryOptionsDto();
         }
 
