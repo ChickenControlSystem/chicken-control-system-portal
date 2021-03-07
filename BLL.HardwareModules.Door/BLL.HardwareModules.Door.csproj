@@ -5,7 +5,7 @@
     </PropertyGroup>
 
     <ItemGroup>
-        <ProjectReference Include="..\BLL.Common\BLL.Common.csproj"/>
+        <ProjectReference Include="..\Crosscutting.Sequencing\Crosscutting.Sequencing.csproj"/>
         <ProjectReference Include="..\HAL.Operations\HAL.Operations.csproj"/>
     </ItemGroup>
 

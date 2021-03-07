@@ -1,4 +1,4 @@
-﻿using BLL.Common.Contract;
+﻿using Crosscutting.Sequencing.Contract;
 
 namespace BLL.HardwareModules.Light.Contract
 {

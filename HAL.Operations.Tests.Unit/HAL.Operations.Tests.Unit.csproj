@@ -14,7 +14,7 @@
     </ItemGroup>
 
     <ItemGroup>
-        <ProjectReference Include="..\Common.UnitTest\Common.UnitTest.csproj"/>
+        <ProjectReference Include="..\Crosscutting.UnitTest\Crosscutting.UnitTest.csproj"/>
         <ProjectReference Include="..\HAL.Operations\HAL.Operations.csproj"/>
     </ItemGroup>
 

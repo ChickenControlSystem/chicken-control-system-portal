@@ -1,8 +1,8 @@
-﻿using ControlLine.Sockets;
-using ControlSystem.Tests.Enviroment.ControlSystem.Configuration;
-using Sockets.Client;
-using Threading;
-using UnitTest;
+﻿using Crosscutting.Configuration;
+using Crosscutting.Sockets.Client;
+using Crosscutting.Threading;
+using Crosscutting.UnitTest;
+using HAL.ControlLine.Sockets;
 
 namespace HAL.Operations.Tests.Integration.AnalogOperations
 {

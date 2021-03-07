@@ -1,5 +1,5 @@
-﻿using ControlLine.Contract;
-using ControlLine.Dto;
+﻿using HAL.ControlLine.Contract;
+using HAL.ControlLine.Dto;
 using HAL.Models.Contract;
 using HAL.Operations.Contract;
 using HAL.Operations.Dto;

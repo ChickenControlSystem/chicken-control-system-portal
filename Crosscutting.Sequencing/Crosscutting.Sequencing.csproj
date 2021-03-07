@@ -1,0 +1,12 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFramework>netcoreapp3.1</TargetFramework>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <ProjectReference Include="..\Crosscutting.DateTime\Crosscutting.DateTime.csproj"/>
+        <ProjectReference Include="..\HAL.Operations\HAL.Operations.csproj"/>
+    </ItemGroup>
+
+</Project>

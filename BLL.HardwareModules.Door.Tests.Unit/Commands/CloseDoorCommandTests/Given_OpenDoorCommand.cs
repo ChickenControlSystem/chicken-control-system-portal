@@ -1,10 +1,10 @@
-﻿using BLL.Common.Contract;
-using BLL.HardwareModules.Door.Commands;
+﻿using BLL.HardwareModules.Door.Commands;
+using Crosscutting.Sequencing.Contract;
+using Crosscutting.UnitTest;
 using HAL.Models.Contract;
 using HAL.Models.Device;
 using HAL.Operations.Contract;
 using NSubstitute;
-using UnitTest;
 
 namespace BLL.HardwareModules.Door.Tests.Unit.Commands.CloseDoorCommandTests
 {

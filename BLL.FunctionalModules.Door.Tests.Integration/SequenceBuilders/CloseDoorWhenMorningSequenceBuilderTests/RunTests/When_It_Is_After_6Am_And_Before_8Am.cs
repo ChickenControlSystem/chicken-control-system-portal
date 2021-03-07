@@ -1,4 +1,4 @@
-﻿using BLL.Common.Sequence;
+﻿using Crosscutting.Sequencing.Sequence;
 using NSubstitute;
 using NUnit.Framework;
 

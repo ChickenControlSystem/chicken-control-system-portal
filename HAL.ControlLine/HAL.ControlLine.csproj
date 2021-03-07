@@ -1,0 +1,13 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFramework>netcoreapp3.1</TargetFramework>
+        <RootNamespace>ControlLine</RootNamespace>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <ProjectReference Include="..\Crosscutting.CodeContracts\Crosscutting.CodeContracts.csproj"/>
+        <ProjectReference Include="..\Crosscutting.Sockets\Crosscutting.Sockets.csproj"/>
+    </ItemGroup>
+
+</Project>

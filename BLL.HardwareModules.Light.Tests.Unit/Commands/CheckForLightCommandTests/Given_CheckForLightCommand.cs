@@ -1,11 +1,11 @@
-﻿using BLL.Common.Contract;
-using BLL.HardwareModules.Light.Commands;
-using Common.DateTime;
+﻿using BLL.HardwareModules.Light.Commands;
+using Crosscutting.DateTime;
+using Crosscutting.Sequencing.Contract;
+using Crosscutting.Threading;
+using Crosscutting.UnitTest;
 using HAL.Models.Contract;
 using HAL.Operations.Contract;
 using NSubstitute;
-using Threading;
-using UnitTest;
 
 namespace BLL.HardwareModules.Light.Tests.Unit.Commands.CheckForLightCommandTests
 {

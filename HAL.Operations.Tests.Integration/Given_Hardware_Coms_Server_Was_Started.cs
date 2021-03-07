@@ -1,6 +1,6 @@
-﻿using HardwareComs.Tests.Common.FakeHardwareComs;
-using Threading;
-using UnitTest;
+﻿using Crosscutting.Threading;
+using Crosscutting.UnitTest;
+using HAL.Fakes.FakeHardwareComs;
 
 namespace HAL.Operations.Tests.Integration
 {

@@ -15,7 +15,7 @@
 
     <ItemGroup>
         <ProjectReference Include="..\BLL.FunctionalModules.Door\BLL.FunctionalModules.Door.csproj"/>
-        <ProjectReference Include="..\Common.UnitTest\Common.UnitTest.csproj"/>
+        <ProjectReference Include="..\Crosscutting.UnitTest\Crosscutting.UnitTest.csproj"/>
     </ItemGroup>
 
 </Project>

@@ -1,5 +1,5 @@
 ﻿using System;
-using CodeContracts;
+using Crosscutting.CodeContracts;
 using HAL.Operations.Contract;
 using HAL.Operations.Enum;
 

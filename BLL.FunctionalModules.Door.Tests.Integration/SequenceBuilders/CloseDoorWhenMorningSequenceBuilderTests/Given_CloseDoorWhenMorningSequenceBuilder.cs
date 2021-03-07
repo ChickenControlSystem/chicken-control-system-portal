@@ -1,13 +1,13 @@
 ﻿using System;
-using BLL.Common.Contract;
-using BLL.Common.Sequence;
-using BLL.Common.TaskRecovery;
 using BLL.FunctionalModules.Door.SequenceBuilders;
 using BLL.HardwareModules.Door.Contract;
 using BLL.HardwareModules.Light.Contract;
-using Common.DateTime;
+using Crosscutting.DateTime;
+using Crosscutting.Sequencing.Contract;
+using Crosscutting.Sequencing.Sequence;
+using Crosscutting.Sequencing.TaskRecovery;
+using Crosscutting.UnitTest;
 using NSubstitute;
-using UnitTest;
 
 namespace BLL.FunctionalModules.Door.Tests.Integration.SequenceBuilders.CloseDoorWhenMorningSequenceBuilderTests
 {

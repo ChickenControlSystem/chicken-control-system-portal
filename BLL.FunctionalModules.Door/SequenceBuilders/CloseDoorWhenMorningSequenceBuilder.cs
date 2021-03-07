@@ -1,9 +1,9 @@
 ﻿using System;
-using BLL.Common.Contract;
 using BLL.FunctionalModules.Door.Contract;
 using BLL.HardwareModules.Door.Contract;
 using BLL.HardwareModules.Light.Contract;
-using Common.DateTime;
+using Crosscutting.DateTime;
+using Crosscutting.Sequencing.Contract;
 
 namespace BLL.FunctionalModules.Door.SequenceBuilders
 {

@@ -1,7 +1,7 @@
-﻿using ControlLine.Contract;
+﻿using Crosscutting.UnitTest;
+using HAL.ControlLine.Contract;
 using HAL.Operations.Contract;
 using NSubstitute;
-using UnitTest;
 
 namespace HAL.Operations.Tests.Unit.AnalogOperations
 {
