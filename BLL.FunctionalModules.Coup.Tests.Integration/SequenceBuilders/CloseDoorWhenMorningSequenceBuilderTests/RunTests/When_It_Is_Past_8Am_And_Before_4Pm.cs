@@ -2,21 +2,20 @@
 using NSubstitute;
 using NUnit.Framework;
 
-namespace BLL.FunctionalModules.Door.Tests.Integration.SequenceBuilders.CloseDoorWhenMorningSequenceBuilderTests.
+namespace BLL.FunctionalModules.Coup.Tests.Integration.SequenceBuilders.CloseDoorWhenMorningSequenceBuilderTests.
     RunTests
 {
-    [TestFixture(21600001d, 12)]
-    [TestFixture(25200000d, 6)]
-    [TestFixture(28799999d, 1)]
-    public class When_It_Is_After_6Am_And_Before_8Am : Given_CloseDoorWhenMorningSequenceBuilder
+    [TestFixture(28800001d)]
+    [TestFixture(43200000d)]
+    [TestFixture(50400000d)]
+    [TestFixture(57599999d)]
+    public class When_It_Is_Past_8Am_And_Before_4Pm : Given_CloseDoorWhenMorningSequenceBuilder
     {
         private readonly double _timeInMilli;
-        private readonly int _runCount;
 
-        public When_It_Is_After_6Am_And_Before_8Am(double timeInMilli, int runCount)
+        public When_It_Is_Past_8Am_And_Before_4Pm(double timeInMilli)
         {
             _timeInMilli = timeInMilli;
-            _runCount = runCount;
         }
 
         public override void When()
@@ -35,22 +34,6 @@ namespace BLL.FunctionalModules.Door.Tests.Integration.SequenceBuilders.CloseDoo
         }
 
         [Test]
-        public void Then_Delay_Was_Not_Run()
-        {
-            MockDelay
-                .DidNotReceive()
-                .Run();
-        }
-
-        [Test]
-        public void Then_Check_For_Light_Command_Was_Run_Once()
-        {
-            MockCheckForLightCommand
-                .Received(1)
-                .Run();
-        }
-
-        [Test]
         public void Then_Open_Door_Command_Was_Run_Once()
         {
             MockOpenDoorCommand
@@ -59,11 +42,19 @@ namespace BLL.FunctionalModules.Door.Tests.Integration.SequenceBuilders.CloseDoo
         }
 
         [Test]
-        public void Then_Check_For_Light_Command_Run_Count_Was_Valid()
+        public void Then_Delay_Was_Not_Run()
+        {
+            MockDelay
+                .DidNotReceive()
+                .Run();
+        }
+
+        [Test]
+        public void Then_Check_For_Light_Command_Was_Not_Run()
         {
             MockCheckForLightCommand
-                .Received()
-                .SetRunCountBeforeMorning(_runCount);
+                .DidNotReceive()
+                .Run();
         }
 
         [Test]

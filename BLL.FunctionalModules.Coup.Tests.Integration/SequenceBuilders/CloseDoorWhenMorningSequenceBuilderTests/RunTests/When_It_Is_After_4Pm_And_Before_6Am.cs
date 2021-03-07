@@ -2,7 +2,7 @@
 using NSubstitute;
 using NUnit.Framework;
 
-namespace BLL.FunctionalModules.Door.Tests.Integration.SequenceBuilders.CloseDoorWhenMorningSequenceBuilderTests.
+namespace BLL.FunctionalModules.Coup.Tests.Integration.SequenceBuilders.CloseDoorWhenMorningSequenceBuilderTests.
     RunTests
 {
     [TestFixture(57600001d, 50399999d)]

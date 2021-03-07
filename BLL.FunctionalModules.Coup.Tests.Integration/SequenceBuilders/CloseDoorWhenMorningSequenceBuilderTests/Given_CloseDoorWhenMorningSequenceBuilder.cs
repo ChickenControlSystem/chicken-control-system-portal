@@ -1,5 +1,5 @@
 ﻿using System;
-using BLL.FunctionalModules.Door.SequenceBuilders;
+using BLL.FunctionalModules.Coup.SequenceBuilders;
 using BLL.HardwareModules.Door.Contract;
 using BLL.HardwareModules.Light.Contract;
 using Crosscutting.DateTime;
@@ -9,7 +9,7 @@ using Crosscutting.Sequencing.TaskRecovery;
 using Crosscutting.UnitTest;
 using NSubstitute;
 
-namespace BLL.FunctionalModules.Door.Tests.Integration.SequenceBuilders.CloseDoorWhenMorningSequenceBuilderTests
+namespace BLL.FunctionalModules.Coup.Tests.Integration.SequenceBuilders.CloseDoorWhenMorningSequenceBuilderTests
 {
     public class
         Given_CloseDoorWhenMorningSequenceBuilder : GivenWhenThenSequenceBuilderTests<

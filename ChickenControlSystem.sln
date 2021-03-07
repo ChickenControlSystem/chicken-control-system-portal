@@ -59,9 +59,9 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Crosscutting.Sequencing.Tes
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Crosscutting.DateTime", "Crosscutting.DateTime\Crosscutting.DateTime.csproj", "{8AB51967-84D5-4EA1-BD68-F18F1F5BDA48}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BLL.FunctionalModules.Door", "BLL.FunctionalModules.Door\BLL.FunctionalModules.Door.csproj", "{B23FC4C0-162B-4EB7-9F7A-CC8631D85F95}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BLL.FunctionalModules.Coup", "BLL.FunctionalModules.Coup\BLL.FunctionalModules.Coup.csproj", "{B23FC4C0-162B-4EB7-9F7A-CC8631D85F95}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BLL.FunctionalModules.Door.Tests.Integration", "BLL.FunctionalModules.Door.Tests.Integration\BLL.FunctionalModules.Door.Tests.Integration.csproj", "{688ACFAA-E88D-43F4-88AA-6A065B82F5BB}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BLL.FunctionalModules.Coup.Tests.Integration", "BLL.FunctionalModules.Coup.Tests.Integration\BLL.FunctionalModules.Coup.Tests.Integration.csproj", "{688ACFAA-E88D-43F4-88AA-6A065B82F5BB}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{D95A678D-E8F3-4A14-906A-77E09FB752BD}"
 EndProject
