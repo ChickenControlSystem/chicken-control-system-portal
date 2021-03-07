@@ -1,7 +1,7 @@
 ﻿using System;
 using Crosscutting.CodeContracts;
-using Crosscutting.Contract.HAL.Enum;
-using Crosscutting.Contract.HAL.Interface;
+using Crosscutting.Services.Contract.HAL.Enum;
+using Crosscutting.Services.Contract.HAL.Interface;
 
 namespace HAL.Operations
 {

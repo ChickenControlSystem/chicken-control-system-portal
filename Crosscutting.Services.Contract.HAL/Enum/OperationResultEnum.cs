@@ -1,4 +1,4 @@
-﻿namespace Crosscutting.Contract.HAL.Enum
+﻿namespace Crosscutting.Services.Contract.HAL.Enum
 {
     public enum OperationResultEnum
     {

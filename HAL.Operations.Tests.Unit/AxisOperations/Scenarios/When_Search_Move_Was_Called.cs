@@ -1,6 +1,6 @@
 ﻿using System.Linq;
-using Crosscutting.Contract.HAL.Dto;
-using Crosscutting.Contract.HAL.Enum;
+using Crosscutting.Services.Contract.HAL.Dto;
+using Crosscutting.Services.Contract.HAL.Enum;
 using HAL.Models.Device;
 using NSubstitute;
 using NUnit.Framework;

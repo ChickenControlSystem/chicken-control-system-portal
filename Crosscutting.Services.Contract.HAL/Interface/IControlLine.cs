@@ -1,6 +1,6 @@
-﻿using Crosscutting.Contract.HAL.Dto;
+﻿using Crosscutting.Services.Contract.HAL.Dto;
 
-namespace Crosscutting.Contract.HAL.Interface
+namespace Crosscutting.Services.Contract.HAL.Interface
 {
     /// <summary>
     ///     performs the actions to send data over the control line

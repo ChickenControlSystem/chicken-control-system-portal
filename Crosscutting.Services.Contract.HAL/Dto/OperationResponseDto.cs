@@ -1,4 +1,4 @@
-﻿namespace Crosscutting.Contract.HAL.Dto
+﻿namespace Crosscutting.Services.Contract.HAL.Dto
 {
     public class OperationResponseDto
     {

@@ -1,4 +1,4 @@
-﻿using Crosscutting.Contract.HAL.Enum;
+﻿using Crosscutting.Services.Contract.HAL.Enum;
 using HAL.Models.Device;
 using NUnit.Framework;
 

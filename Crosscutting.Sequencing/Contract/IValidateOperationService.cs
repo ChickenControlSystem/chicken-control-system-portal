@@ -1,6 +1,6 @@
 ﻿using System;
-using Crosscutting.Contract.HAL.Enum;
 using Crosscutting.Sequencing.Sequence;
+using Crosscutting.Services.Contract.HAL.Enum;
 
 namespace Crosscutting.Sequencing.Contract
 {

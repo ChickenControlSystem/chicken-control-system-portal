@@ -1,4 +1,4 @@
-﻿namespace Crosscutting.Contract.HAL.Interface
+﻿namespace Crosscutting.Services.Contract.HAL.Interface
 {
     public interface ILightSensor : IDevice
     {

@@ -1,6 +1,6 @@
-﻿using Crosscutting.Contract.HAL.Dto;
+﻿using Crosscutting.Services.Contract.HAL.Dto;
 
-namespace Crosscutting.Contract.HAL.Interface
+namespace Crosscutting.Services.Contract.HAL.Interface
 {
     /// <summary>
     /// takes care of the operations to do with analog inputs, outputs

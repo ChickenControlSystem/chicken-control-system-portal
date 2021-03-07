@@ -1,6 +1,6 @@
-﻿using Crosscutting.Contract.HAL.Enum;
+﻿using Crosscutting.Services.Contract.HAL.Enum;
 
-namespace Crosscutting.Contract.HAL.Interface
+namespace Crosscutting.Services.Contract.HAL.Interface
 {
     /// <summary>
     ///     handles control line errors

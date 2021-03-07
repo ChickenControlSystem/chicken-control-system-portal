@@ -7,7 +7,7 @@
 
     <ItemGroup>
         <ProjectReference Include="..\Crosscutting.CodeContracts\Crosscutting.CodeContracts.csproj"/>
-        <ProjectReference Include="..\Crosscutting.Contract.HAL\Crosscutting.Contract.HAL.csproj"/>
+        <ProjectReference Include="..\Crosscutting.Services.Contract.HAL\Crosscutting.Services.Contract.HAL.csproj"/>
         <ProjectReference Include="..\Crosscutting.Sockets\Crosscutting.Sockets.csproj"/>
     </ItemGroup>
 

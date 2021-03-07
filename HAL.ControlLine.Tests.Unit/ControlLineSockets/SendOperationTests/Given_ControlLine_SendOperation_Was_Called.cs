@@ -1,4 +1,4 @@
-﻿using Crosscutting.Contract.HAL.Dto;
+﻿using Crosscutting.Services.Contract.HAL.Dto;
 using Crosscutting.Sockets.Client;
 using Crosscutting.UnitTest;
 using NSubstitute;

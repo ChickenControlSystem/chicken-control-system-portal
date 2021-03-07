@@ -1,6 +1,6 @@
-﻿using Crosscutting.Contract.HAL.Dto;
-using Crosscutting.Contract.HAL.Enum;
-using Crosscutting.Contract.HAL.Interface;
+﻿using Crosscutting.Services.Contract.HAL.Dto;
+using Crosscutting.Services.Contract.HAL.Enum;
+using Crosscutting.Services.Contract.HAL.Interface;
 
 namespace HAL.Operations
 {
