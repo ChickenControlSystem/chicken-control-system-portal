@@ -1,4 +1,4 @@
-﻿namespace Crosscutting.Sockets
+﻿namespace Crosscutting.Services.Contract.Crosscutting.Interface.Utilities
 {
     public interface ICloseableSocket
     {

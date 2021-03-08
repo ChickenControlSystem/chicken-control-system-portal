@@ -1,4 +1,4 @@
-﻿namespace Crosscutting.Sockets.Client
+﻿namespace Crosscutting.Services.Contract.Crosscutting.Interface.Utilities
 {
     /// <summary>
     ///     a module that receives and sends to a raw ip socket server
