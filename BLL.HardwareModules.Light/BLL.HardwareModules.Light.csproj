@@ -7,6 +7,7 @@
     <ItemGroup>
         <ProjectReference Include="..\Crosscutting.DateTime\Crosscutting.DateTime.csproj"/>
         <ProjectReference Include="..\Crosscutting.Sequencing\Crosscutting.Sequencing.csproj"/>
+        <ProjectReference Include="..\Crosscutting.Services.Contract.BLL\Crosscutting.Services.Contract.BLL.csproj"/>
     </ItemGroup>
 
 </Project>

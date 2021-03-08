@@ -1,7 +1,7 @@
-﻿using BLL.HardwareModules.Door.Contract;
-using Crosscutting.Sequencing.Contract;
+﻿using Crosscutting.Sequencing.Contract;
 using Crosscutting.Sequencing.Sequence;
 using Crosscutting.Sequencing.TaskRecovery;
+using Crosscutting.Services.Contract.BLL.Interface;
 using Crosscutting.Services.Contract.HAL.Interface;
 
 namespace BLL.HardwareModules.Door.Commands

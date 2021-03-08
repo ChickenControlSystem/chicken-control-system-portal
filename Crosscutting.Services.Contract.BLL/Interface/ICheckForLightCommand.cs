@@ -1,6 +1,6 @@
 ﻿using Crosscutting.Sequencing.Contract;
 
-namespace BLL.HardwareModules.Light.Contract
+namespace Crosscutting.Services.Contract.BLL.Interface
 {
     public interface ICheckForLightCommand : ICommand
     {

@@ -1,6 +1,6 @@
 ﻿using Crosscutting.Sequencing.Contract;
 
-namespace BLL.FunctionalModules.CoupEntrance.Contract
+namespace Crosscutting.Services.Contract.BLL.Interface
 {
     public interface ICloseDoorWhenMorningSequenceBuilder : ISimpleSequenceBuilder
     {

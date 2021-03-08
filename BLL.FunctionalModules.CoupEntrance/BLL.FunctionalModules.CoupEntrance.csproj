@@ -8,6 +8,7 @@
         <ProjectReference Include="..\BLL.HardwareModules.Door\BLL.HardwareModules.Door.csproj"/>
         <ProjectReference Include="..\BLL.HardwareModules.Light\BLL.HardwareModules.Light.csproj"/>
         <ProjectReference Include="..\Crosscutting.Sequencing\Crosscutting.Sequencing.csproj"/>
+        <ProjectReference Include="..\Crosscutting.Services.Contract.BLL\Crosscutting.Services.Contract.BLL.csproj"/>
     </ItemGroup>
 
 </Project>

@@ -1,9 +1,7 @@
 ﻿using System;
-using BLL.FunctionalModules.CoupEntrance.Contract;
-using BLL.HardwareModules.Door.Contract;
-using BLL.HardwareModules.Light.Contract;
 using Crosscutting.DateTime;
 using Crosscutting.Sequencing.Contract;
+using Crosscutting.Services.Contract.BLL.Interface;
 
 namespace BLL.FunctionalModules.CoupEntrance.SequenceBuilders
 {
