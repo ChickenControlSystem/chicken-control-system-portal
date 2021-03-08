@@ -2,7 +2,7 @@
 
     <PropertyGroup>
         <TargetFramework>netcoreapp3.1</TargetFramework>
-        <RootNamespace>UnitTest</RootNamespace>
+        <RootNamespace>Crosscutting.UnitTest</RootNamespace>
     </PropertyGroup>
 
     <ItemGroup>

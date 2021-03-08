@@ -2,7 +2,7 @@
 
     <PropertyGroup>
         <TargetFramework>netcoreapp3.1</TargetFramework>
-        <RootNamespace>Threading</RootNamespace>
+        <RootNamespace>Crosscutting.Threading</RootNamespace>
     </PropertyGroup>
 
 </Project>

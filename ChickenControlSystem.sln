@@ -11,9 +11,9 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Bootstrapping", "Bootstrapp
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bootstrapping.Main", "Bootstrapping.Main\Bootstrapping.Main.csproj", "{AC2F7F62-D5C8-4BEE-BDD9-6C51E44C5682}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HAL.ControlLine.Tests.Unit", "HAL.ControlLine.Tests.Unit\HAL.ControlLine.Tests.Unit.csproj", "{71E53473-59D5-429B-92FD-50862AB3D2A5}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tests.Unit.HAL.ControlLine", "Tests.Unit.HAL.ControlLine\Tests.Unit.HAL.ControlLine.csproj", "{71E53473-59D5-429B-92FD-50862AB3D2A5}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Crosscutting.Enviroment", "Crosscutting.Enviroment\Crosscutting.Enviroment.csproj", "{691570C1-D483-400F-B549-BE320A9C0F2C}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Crosscutting.ApplicationConfiguration.Enviroment", "Crosscutting.ApplicationConfiguration.Enviroment\Crosscutting.ApplicationConfiguration.Enviroment.csproj", "{691570C1-D483-400F-B549-BE320A9C0F2C}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Crosscutting", "Crosscutting", "{484F1C17-5C01-4208-B01A-F5A4EDDA88E5}"
 EndProject
@@ -21,23 +21,23 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Crosscutting.CodeContracts"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Crosscutting.UnitTest", "Crosscutting.UnitTest\Crosscutting.UnitTest.csproj", "{25AA9CD7-E622-47C9-88A0-3659C28176BD}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HAL.Fakes.FakeHardwareComs", "HAL.Fakes.FakeHardwareComs\HAL.Fakes.FakeHardwareComs.csproj", "{B5D9D39F-9186-4EA2-A49E-38E791D33D9B}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tests.Fakes.HAL.FakeHardwareComs", "Tests.Fakes.HAL.FakeHardwareComs\Tests.Fakes.HAL.FakeHardwareComs.csproj", "{B5D9D39F-9186-4EA2-A49E-38E791D33D9B}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Crosscutting.Sockets", "Crosscutting.Sockets\Crosscutting.Sockets.csproj", "{4CB7DB23-C092-4815-B930-105C08E7B14B}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Crosscutting.Threading", "Crosscutting.Threading\Crosscutting.Threading.csproj", "{D78C0111-1A32-45BD-8D51-5CFC5FE8254A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HAL.FakeHardwareComs.Tests.Integration", "HAL.FakeHardwareComs.Tests.Integration\HAL.FakeHardwareComs.Tests.Integration.csproj", "{0374CA17-8B89-447B-9095-D065808AEC75}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tests.Integration.HAL.FakeHardwareComs", "Tests.Integration.HAL.FakeHardwareComs\Tests.Integration.HAL.FakeHardwareComs.csproj", "{0374CA17-8B89-447B-9095-D065808AEC75}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HAL.ControlLine.Tests.Integration", "HAL.ControlLine.Tests.Integration\HAL.ControlLine.Tests.Integration.csproj", "{DCB36858-CD6F-457D-9AC2-E6A4171EAD2E}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tests.Integration.HAL.ControlLine", "Tests.Integration.HAL.ControlLine\Tests.Integration.HAL.ControlLine.csproj", "{DCB36858-CD6F-457D-9AC2-E6A4171EAD2E}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HAL.Operations", "HAL.Operations\HAL.Operations.csproj", "{7A5EA8A9-7468-4655-B022-DEDCDCBEEEE4}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HAL.Operations.Tests.Unit", "HAL.Operations.Tests.Unit\HAL.Operations.Tests.Unit.csproj", "{23AAA937-F2DF-4E2D-9A74-EFF6065C7757}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tests.Unit.HAL.Operations", "Tests.Unit.HAL.Operations\Tests.Unit.HAL.Operations.csproj", "{23AAA937-F2DF-4E2D-9A74-EFF6065C7757}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HAL.Models", "HAL.Models\HAL.Models.csproj", "{F9B4C4B3-4BFA-42D5-A9E3-4B16BD120C01}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HAL.Operations.Tests.Integration", "HAL.Operations.Tests.Integration\HAL.Operations.Tests.Integration.csproj", "{4F2E81D4-59DB-4E41-BA42-3AE9FC2F5C4C}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tests.Integration.HAL.Operations", "Tests.Integration.HAL.Operations\Tests.Integration.HAL.Operations.csproj", "{4F2E81D4-59DB-4E41-BA42-3AE9FC2F5C4C}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "BusinessLogicLayer", "BusinessLogicLayer", "{5E937C74-6FC6-4F91-84B8-A086FB3A106C}"
 EndProject
@@ -49,19 +49,19 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BLL.HardwareModules.Door", 
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Crosscutting.Sequencing", "Crosscutting.Sequencing\Crosscutting.Sequencing.csproj", "{2F88047E-4268-43EF-A448-EA7123B1FB76}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BLL.HardwareModules.Door.Tests.Unit", "BLL.HardwareModules.Door.Tests.Unit\BLL.HardwareModules.Door.Tests.Unit.csproj", "{D35BEAA7-322D-4FEE-95B4-48F71828DA21}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tests.Unit.BLL.HardwareModules.Door", "Tests.Unit.BLL.HardwareModules.Door\Tests.Unit.BLL.HardwareModules.Door.csproj", "{D35BEAA7-322D-4FEE-95B4-48F71828DA21}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BLL.HardwareModules.Light.Tests.Unit", "BLL.HardwareModules.Light.Tests.Unit\BLL.HardwareModules.Light.Tests.Unit.csproj", "{9E53F5CE-B53D-4FDA-AF47-79F834D7FD61}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tests.Unit.BLL.HardwareModules.Light", "Tests.Unit.BLL.HardwareModules.Light\Tests.Unit.BLL.HardwareModules.Light.csproj", "{9E53F5CE-B53D-4FDA-AF47-79F834D7FD61}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BLL.HardwareModules.Light", "BLL.HardwareModules.Light\BLL.HardwareModules.Light.csproj", "{B3DB32DD-A20A-49B0-8DAE-156078F73915}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Crosscutting.Sequencing.Tests.Integration", "Crosscutting.Sequencing.Tests.Integration\Crosscutting.Sequencing.Tests.Integration.csproj", "{E604EA36-76D5-48B3-85B2-B63DF55F6B28}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tests.Integration.Crosscutting.Sequencing", "Tests.Integration.Crosscutting.Sequencing\Tests.Integration.Crosscutting.Sequencing.csproj", "{E604EA36-76D5-48B3-85B2-B63DF55F6B28}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Crosscutting.DateTime", "Crosscutting.DateTime\Crosscutting.DateTime.csproj", "{8AB51967-84D5-4EA1-BD68-F18F1F5BDA48}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BLL.FunctionalModules.Coup", "BLL.FunctionalModules.Coup\BLL.FunctionalModules.Coup.csproj", "{B23FC4C0-162B-4EB7-9F7A-CC8631D85F95}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BLL.FunctionalModules.Coup.Tests.Integration", "BLL.FunctionalModules.Coup.Tests.Integration\BLL.FunctionalModules.Coup.Tests.Integration.csproj", "{688ACFAA-E88D-43F4-88AA-6A065B82F5BB}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tests.Integration.BLL.FunctionalModules.Coup", "Tests.Integration.BLL.FunctionalModules.Coup\Tests.Integration.BLL.FunctionalModules.Coup.csproj", "{688ACFAA-E88D-43F4-88AA-6A065B82F5BB}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{D95A678D-E8F3-4A14-906A-77E09FB752BD}"
 EndProject
@@ -76,6 +76,8 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Crosscutting.Services.Contract.HAL", "Crosscutting.Services.Contract.HAL\Crosscutting.Services.Contract.HAL.csproj", "{B09EBF0A-A19C-45EA-8634-7A11DC186103}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Crosscutting.ApplicationConfiguration", "Crosscutting.ApplicationConfiguration", "{E259D1FC-25C4-41D7-8B3E-CE201010E6B2}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests.Fakes", "Tests.Fakes", "{D7B214CD-4039-4934-A5FA-DBBFE9301311}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -201,7 +203,6 @@ Global
 		{701E5E59-9CE4-45C0-88D2-0C6BF84CAC56} = {D95A678D-E8F3-4A14-906A-77E09FB752BD}
 		{71E53473-59D5-429B-92FD-50862AB3D2A5} = {892CD86F-5477-4AFC-A069-301ACCABF8CF}
 		{DCB36858-CD6F-457D-9AC2-E6A4171EAD2E} = {701E5E59-9CE4-45C0-88D2-0C6BF84CAC56}
-		{B5D9D39F-9186-4EA2-A49E-38E791D33D9B} = {701E5E59-9CE4-45C0-88D2-0C6BF84CAC56}
 		{0374CA17-8B89-447B-9095-D065808AEC75} = {701E5E59-9CE4-45C0-88D2-0C6BF84CAC56}
 		{23AAA937-F2DF-4E2D-9A74-EFF6065C7757} = {892CD86F-5477-4AFC-A069-301ACCABF8CF}
 		{4F2E81D4-59DB-4E41-BA42-3AE9FC2F5C4C} = {701E5E59-9CE4-45C0-88D2-0C6BF84CAC56}
@@ -220,6 +221,8 @@ Global
 		{B09EBF0A-A19C-45EA-8634-7A11DC186103} = {95BBD335-41A8-48BC-909E-82EBE0A01EF0}
 		{E259D1FC-25C4-41D7-8B3E-CE201010E6B2} = {484F1C17-5C01-4208-B01A-F5A4EDDA88E5}
 		{691570C1-D483-400F-B549-BE320A9C0F2C} = {E259D1FC-25C4-41D7-8B3E-CE201010E6B2}
+		{D7B214CD-4039-4934-A5FA-DBBFE9301311} = {D95A678D-E8F3-4A14-906A-77E09FB752BD}
+		{B5D9D39F-9186-4EA2-A49E-38E791D33D9B} = {D7B214CD-4039-4934-A5FA-DBBFE9301311}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {EC6C8F85-99C9-4B88-ADD1-00937B62E4F2}
