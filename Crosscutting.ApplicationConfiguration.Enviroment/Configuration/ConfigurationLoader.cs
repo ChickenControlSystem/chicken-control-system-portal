@@ -6,7 +6,7 @@ namespace Crosscutting.ApplicationConfiguration.Enviroment.Configuration
     {
         private readonly string _file;
 
-        public ConfigurationLoader(string file)
+        private ConfigurationLoader(string file)
         {
             _file = file;
         }
