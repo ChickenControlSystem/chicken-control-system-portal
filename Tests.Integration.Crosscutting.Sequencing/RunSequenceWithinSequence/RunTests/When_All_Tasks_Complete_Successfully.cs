@@ -1,4 +1,4 @@
-﻿using Crosscutting.Sequencing.Sequence;
+﻿using Crosscutting.Services.Contract.Crosscutting.Enum.Sequencing;
 using NSubstitute;
 using NUnit.Framework;
 

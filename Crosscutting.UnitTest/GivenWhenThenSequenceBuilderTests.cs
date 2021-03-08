@@ -1,5 +1,6 @@
-﻿using Crosscutting.Sequencing.Contract;
-using Crosscutting.Sequencing.Sequence;
+﻿using Crosscutting.Sequencing.Sequence;
+using Crosscutting.Services.Contract.Crosscutting.Enum.Sequencing;
+using Crosscutting.Services.Contract.Crosscutting.Interface.Sequencing;
 using Crosscutting.Threading;
 using NSubstitute;
 

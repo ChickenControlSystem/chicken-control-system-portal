@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
-using Crosscutting.Sequencing.Contract;
-using Crosscutting.Sequencing.TaskRecovery;
+using Crosscutting.Services.Contract.Crosscutting.Dto.Sequencing;
+using Crosscutting.Services.Contract.Crosscutting.Interface.Sequencing;
 
 namespace Crosscutting.Sequencing.Sequence
 {

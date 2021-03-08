@@ -1,6 +1,6 @@
 ﻿using BLL.HardwareModules.Light.Commands;
-using Crosscutting.DateTime;
-using Crosscutting.Sequencing.Contract;
+using Crosscutting.Services.Contract.Crosscutting.Interface.Sequencing;
+using Crosscutting.Services.Contract.Crosscutting.Interface.Utilities;
 using Crosscutting.Services.Contract.HAL.Interface;
 using Crosscutting.Threading;
 using Crosscutting.UnitTest;

@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Crosscutting.DateTime
+namespace Crosscutting.Services.Contract.Crosscutting.Interface.Utilities
 {
     public interface ITimeService
     {

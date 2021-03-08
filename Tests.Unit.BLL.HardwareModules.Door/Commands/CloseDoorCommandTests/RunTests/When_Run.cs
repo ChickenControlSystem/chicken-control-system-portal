@@ -1,4 +1,4 @@
-﻿using Crosscutting.Sequencing.Sequence;
+﻿using Crosscutting.Services.Contract.Crosscutting.Enum.Sequencing;
 using Crosscutting.Services.Contract.HAL.Enum;
 using Crosscutting.Services.Contract.HAL.Interface;
 using NSubstitute;

@@ -1,7 +1,7 @@
 ﻿using System;
-using Crosscutting.Sequencing.Sequence;
+using Crosscutting.Services.Contract.Crosscutting.Enum.Sequencing;
 
-namespace Crosscutting.Sequencing.Contract
+namespace Crosscutting.Services.Contract.Crosscutting.Interface.Sequencing
 {
     public interface IFluentSequenceBuilder : ISimpleSequenceBuilder
     {

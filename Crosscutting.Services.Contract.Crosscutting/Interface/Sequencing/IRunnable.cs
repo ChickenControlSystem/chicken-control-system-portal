@@ -1,7 +1,7 @@
-﻿using Crosscutting.Sequencing.Sequence;
-using Crosscutting.Sequencing.TaskRecovery;
+﻿using Crosscutting.Services.Contract.Crosscutting.Dto.Sequencing;
+using Crosscutting.Services.Contract.Crosscutting.Enum.Sequencing;
 
-namespace Crosscutting.Sequencing.Contract
+namespace Crosscutting.Services.Contract.Crosscutting.Interface.Sequencing
 {
     public interface IRunnable
     {

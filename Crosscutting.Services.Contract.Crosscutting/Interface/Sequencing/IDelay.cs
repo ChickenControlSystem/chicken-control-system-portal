@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Crosscutting.Sequencing.Contract
+namespace Crosscutting.Services.Contract.Crosscutting.Interface.Sequencing
 {
     public interface IDelay : IRunnable
     {

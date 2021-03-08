@@ -5,7 +5,8 @@
     </PropertyGroup>
 
     <ItemGroup>
-      <ProjectReference Include="..\Crosscutting.CodeContracts\Crosscutting.CodeContracts.csproj"/>
+        <ProjectReference Include="..\Crosscutting.CodeContracts\Crosscutting.CodeContracts.csproj"/>
+        <ProjectReference Include="..\Crosscutting.Services.Contract.Crosscutting\Crosscutting.Services.Contract.Crosscutting.csproj"/>
     </ItemGroup>
 
 </Project>

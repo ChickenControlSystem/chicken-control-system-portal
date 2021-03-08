@@ -1,8 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
-using Crosscutting.Sequencing.TaskRecovery;
+using Crosscutting.Services.Contract.Crosscutting.Dto.Sequencing;
 
-namespace Crosscutting.Sequencing.Contract
+namespace Crosscutting.Services.Contract.Crosscutting.Interface.Sequencing
 {
     public interface ISequenceFactory
     {

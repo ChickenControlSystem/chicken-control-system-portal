@@ -1,4 +1,4 @@
-﻿namespace Crosscutting.Sequencing.Sequence
+﻿namespace Crosscutting.Services.Contract.Crosscutting.Enum.Sequencing
 {
     public enum SequenceResultEnum
     {

@@ -1,7 +1,7 @@
 ﻿using System;
-using Crosscutting.Sequencing.Sequence;
+using Crosscutting.Services.Contract.Crosscutting.Enum.Sequencing;
 
-namespace Crosscutting.Sequencing.TaskRecovery
+namespace Crosscutting.Services.Contract.Crosscutting.Dto.Sequencing
 {
     public class RecoveryOptionsDto
     {

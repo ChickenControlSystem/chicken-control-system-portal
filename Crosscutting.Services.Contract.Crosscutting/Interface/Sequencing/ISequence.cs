@@ -1,4 +1,4 @@
-﻿namespace Crosscutting.Sequencing.Contract
+﻿namespace Crosscutting.Services.Contract.Crosscutting.Interface.Sequencing
 {
     /// <summary>
     /// contains a collection of tasks

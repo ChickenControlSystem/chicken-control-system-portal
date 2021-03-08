@@ -1,8 +1,8 @@
 ﻿using System;
-using Crosscutting.DateTime;
-using Crosscutting.Sequencing.Contract;
-using Crosscutting.Sequencing.Sequence;
-using Crosscutting.Sequencing.TaskRecovery;
+using Crosscutting.Services.Contract.Crosscutting.Dto.Sequencing;
+using Crosscutting.Services.Contract.Crosscutting.Enum.Sequencing;
+using Crosscutting.Services.Contract.Crosscutting.Interface.Sequencing;
+using Crosscutting.Services.Contract.Crosscutting.Interface.Utilities;
 using Crosscutting.Threading;
 
 namespace Crosscutting.Sequencing.GenericTasks
