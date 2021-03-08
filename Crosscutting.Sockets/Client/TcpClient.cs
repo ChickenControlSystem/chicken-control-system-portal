@@ -2,7 +2,6 @@
 using System.Net;
 using System.Net.Sockets;
 using Crosscutting.Services.Contract.Crosscutting.Interface.Utilities;
-using Crosscutting.Threading;
 
 namespace Crosscutting.Sockets.Client
 {

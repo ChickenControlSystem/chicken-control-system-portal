@@ -1,7 +1,8 @@
 ﻿using System;
 using System.Threading;
 using System.Threading.Tasks;
-using Crosscutting.Threading.Exception;
+using Crosscutting.Services.Contract.Crosscutting.Exception;
+using Crosscutting.Services.Contract.Crosscutting.Interface.Utilities;
 
 namespace Crosscutting.Threading
 {

@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Crosscutting.Threading
+namespace Crosscutting.Services.Contract.Crosscutting.Interface.Utilities
 {
     /// <summary>
     ///     handles threading operations for functions

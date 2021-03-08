@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using Crosscutting.Services.Contract.Crosscutting.Dto.Sequencing;
 using Crosscutting.Services.Contract.Crosscutting.Enum.Sequencing;
 using Crosscutting.Services.Contract.Crosscutting.Interface.Sequencing;
-using Crosscutting.Threading;
+using Crosscutting.Services.Contract.Crosscutting.Interface.Utilities;
 
 namespace Crosscutting.Sequencing.Sequence
 {

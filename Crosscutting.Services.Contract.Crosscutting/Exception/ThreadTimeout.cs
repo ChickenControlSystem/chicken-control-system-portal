@@ -1,4 +1,4 @@
-﻿namespace Crosscutting.Threading.Exception
+﻿namespace Crosscutting.Services.Contract.Crosscutting.Exception
 {
     /// <summary>
     ///     when a blocked thread has overrun its timeout period
