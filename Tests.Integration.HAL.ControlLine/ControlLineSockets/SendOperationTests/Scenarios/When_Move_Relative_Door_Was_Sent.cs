@@ -7,7 +7,7 @@ namespace Tests.Integration.HAL.ControlLine.ControlLineSockets.SendOperationTest
     {
         private OperationResponseDto _result;
 
-        public override void When()
+        protected override void When()
         {
             _result = SUT.SendOperation(
                 new OperationDto

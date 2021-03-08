@@ -12,7 +12,7 @@ namespace Crosscutting.Sequencing.Sequence
 
         public SequenceResultEnum Run()
         {
-            throw new System.NotImplementedException();
+            throw new NotImplementedException();
         }
 
         public void HandleFail() => FailAction();

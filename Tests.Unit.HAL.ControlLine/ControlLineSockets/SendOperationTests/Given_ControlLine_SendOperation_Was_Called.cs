@@ -12,7 +12,7 @@ namespace Tests.Unit.HAL.ControlLine.ControlLineSockets.SendOperationTests
         protected ISocketClient MockSocketClient;
         protected OperationDto Operation;
 
-        public override void Given()
+        protected override void Given()
         {
             MockSocketClient = Substitute.For<ISocketClient>();
 

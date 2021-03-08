@@ -23,7 +23,7 @@ namespace Tests.Integration.BLL.FunctionalModules.Coup.SequenceBuilders.CloseDoo
             _calculatedDelay = calculatedDelay;
         }
 
-        public override void When()
+        protected override void When()
         {
             MockTimeService
                 .MilisecondsNow()

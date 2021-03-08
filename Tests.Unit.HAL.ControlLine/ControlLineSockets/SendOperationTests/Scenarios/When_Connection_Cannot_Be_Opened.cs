@@ -11,7 +11,7 @@ namespace Tests.Unit.HAL.ControlLine.ControlLineSockets.SendOperationTests.Scena
     {
         private readonly SocketException _socketException = new SocketException();
 
-        public override void When()
+        protected override void When()
         {
             Operation = new OperationDto
             {

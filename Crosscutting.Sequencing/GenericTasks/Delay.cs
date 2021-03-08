@@ -11,7 +11,7 @@ namespace Crosscutting.Sequencing.GenericTasks
     {
         private readonly ITimeService _timeService;
         private readonly IThreadOperations _threadOperations;
-        private int _runCount;
+        private readonly int _runCount;
 
         public RecoveryOptionsDto RecoveryOptions { get; }
 

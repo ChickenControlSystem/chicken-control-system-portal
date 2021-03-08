@@ -19,14 +19,14 @@ namespace Crosscutting.UnitTest
         /// <summary>
         ///     set up for test fixture
         /// </summary>
-        public virtual void Given()
+        protected virtual void Given()
         {
         }
 
         /// <summary>
         ///     set up for test method, SUT operation can be run (it will ignore exceptions)
         /// </summary>
-        public virtual void When()
+        protected virtual void When()
         {
         }
     }

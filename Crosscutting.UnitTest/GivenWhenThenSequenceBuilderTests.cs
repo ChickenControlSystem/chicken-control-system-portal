@@ -11,12 +11,12 @@ namespace Crosscutting.UnitTest
         protected FluentSequenceBuilder FluentSequenceBuilder;
         protected SequenceResultEnum Result;
 
-        public override void Given()
+        protected override void Given()
         {
             FluentSequenceBuilder = new FluentSequenceBuilder(new SequenceFactory(Substitute.For<IThreadOperations>()));
         }
 
-        public override void When()
+        protected override void When()
         {
             Result = SUT
                 .Build()

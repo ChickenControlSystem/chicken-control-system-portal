@@ -9,7 +9,7 @@ namespace Tests.Integration.HAL.Operations.AxisOperations
 {
     public abstract class Given_Operation_Was_Called : GenericGivenWhenThenTests<global::HAL.Operations.AxisOperations>
     {
-        public override void Given()
+        protected override void Given()
         {
             var controlLine = new ControlLineSockets(
                 new TcpClient(

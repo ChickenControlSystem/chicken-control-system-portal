@@ -9,7 +9,7 @@ namespace Tests.Integration.Crosscutting.Sequencing.RunSequenceWithinSequence.Ru
     {
         private SequenceResultEnum _result;
 
-        public override void When()
+        protected override void When()
         {
             MockLowerSequenceTask
                 .Run()

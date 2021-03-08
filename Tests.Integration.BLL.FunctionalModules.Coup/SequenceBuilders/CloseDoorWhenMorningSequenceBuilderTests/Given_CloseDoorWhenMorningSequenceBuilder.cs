@@ -49,7 +49,7 @@ namespace Tests.Integration.BLL.FunctionalModules.Coup.SequenceBuilders.CloseDoo
         }
 
         //TODO: add to Common.Testing => partial mocks
-        public override void Given()
+        protected override void Given()
         {
             base.Given();
 

@@ -16,7 +16,7 @@ namespace Tests.Unit.BLL.HardwareModules.Light.Commands.CheckForLightCommandTest
         protected ITimeService MockTimeService;
         protected IThreadOperations MockThreadingOperations;
 
-        public override void Given()
+        protected override void Given()
         {
             MockValidateOperationService = Substitute.For<IValidateOperationService>();
             MockAnalogOperations = Substitute.For<IAnalogOperations>();

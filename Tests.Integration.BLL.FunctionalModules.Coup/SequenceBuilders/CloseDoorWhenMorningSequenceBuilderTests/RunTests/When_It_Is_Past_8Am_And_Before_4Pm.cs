@@ -18,7 +18,7 @@ namespace Tests.Integration.BLL.FunctionalModules.Coup.SequenceBuilders.CloseDoo
             _timeInMilli = timeInMilli;
         }
 
-        public override void When()
+        protected override void When()
         {
             MockTimeService
                 .MilisecondsNow()

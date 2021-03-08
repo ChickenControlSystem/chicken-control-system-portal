@@ -24,26 +24,13 @@ namespace Crosscutting.Sequencing.Sequence
             int runCount
         )
         {
-            switch (type)
+            return type switch
             {
-                case ISequenceFactory.Serial:
-                    return new SerialSequence(
-                        tasks,
-                        recoveryOptions,
-                        failAction,
-                        runCount
-                    );
-                case ISequenceFactory.Parelell:
-                    return new ParrellelSequence(
-                        tasks,
-                        recoveryOptions,
-                        failAction,
-                        runCount,
-                        _threadOperations
-                    );
-                default:
-                    throw new ArgumentOutOfRangeException();
-            }
+                ISequenceFactory.Serial => new SerialSequence(tasks, recoveryOptions, failAction, runCount),
+                ISequenceFactory.Parelell => new ParrellelSequence(tasks, recoveryOptions, failAction, runCount,
+                    _threadOperations),
+                _ => throw new ArgumentOutOfRangeException()
+            };
         }
     }
 }

@@ -24,7 +24,7 @@ namespace Tests.Unit.HAL.ControlLine.ControlLineSockets.SendOperationTests.Scena
             _operationParams = new[] {operationParam1, operationParam2};
         }
 
-        public override void When()
+        protected override void When()
         {
             _operation = new OperationDto {Params = _operationParams};
         }

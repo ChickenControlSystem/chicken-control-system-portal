@@ -11,7 +11,7 @@ namespace Tests.Unit.BLL.HardwareModules.Light.Commands.CheckForLightCommandTest
     {
         private SequenceResultEnum _result;
 
-        public override void When()
+        protected override void When()
         {
             MockAnalogOperations
                 .Read(Arg.Any<IDevice>())

@@ -10,7 +10,7 @@ namespace Tests.Unit.HAL.Operations.AnalogOperations
         protected IControlLine MockControlLine;
         protected IErrorService MockErrorService;
 
-        public override void Given()
+        protected override void Given()
         {
             MockControlLine = Substitute.For<IControlLine>();
             MockErrorService = Substitute.For<IErrorService>();

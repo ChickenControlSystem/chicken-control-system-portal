@@ -25,7 +25,7 @@ namespace Tests.Unit.HAL.ControlLine.ControlLineSockets.SendOperationTests.Scena
             };
         }
 
-        public override void When()
+        protected override void When()
         {
             Operation = new OperationDto
             {

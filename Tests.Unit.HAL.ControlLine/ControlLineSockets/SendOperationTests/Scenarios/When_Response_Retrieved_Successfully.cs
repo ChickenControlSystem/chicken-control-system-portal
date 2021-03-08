@@ -10,7 +10,7 @@ namespace Tests.Unit.HAL.ControlLine.ControlLineSockets.SendOperationTests.Scena
         private OperationResponseDto _operationResponse;
         private OperationResponseDto _result;
 
-        public override void When()
+        protected override void When()
         {
             Payload = new byte[] {115, 121, 2, 255, 255};
             Operation = new OperationDto

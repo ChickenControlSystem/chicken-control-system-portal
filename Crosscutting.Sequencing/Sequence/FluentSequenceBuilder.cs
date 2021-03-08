@@ -41,12 +41,11 @@ namespace Crosscutting.Sequencing.Sequence
             return this;
         }
 
-        private IFluentSequenceBuilder EndQueue()
+        private void EndQueue()
         {
             CodeContract.PreCondition<ArgumentException>(!_tasksSet);
 
             _tasksSet = true;
-            return this;
         }
 
         public IFluentSequenceBuilder Serial()

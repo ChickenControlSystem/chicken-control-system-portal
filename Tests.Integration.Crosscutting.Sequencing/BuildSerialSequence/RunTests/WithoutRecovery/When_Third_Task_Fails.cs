@@ -28,7 +28,7 @@ namespace Tests.Integration.Crosscutting.Sequencing.BuildSerialSequence.RunTests
             _runCountThird = runCountThird;
         }
 
-        public override void When()
+        protected override void When()
         {
             _recoveryOptions = new RecoveryOptionsDto();
 

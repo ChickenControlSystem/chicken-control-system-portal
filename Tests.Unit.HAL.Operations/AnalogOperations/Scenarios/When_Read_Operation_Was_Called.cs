@@ -22,7 +22,7 @@ namespace Tests.Unit.HAL.Operations.AnalogOperations.Scenarios
             _status = status;
         }
 
-        public override void When()
+        protected override void When()
         {
             var light = new LightAnolougeSensor();
 

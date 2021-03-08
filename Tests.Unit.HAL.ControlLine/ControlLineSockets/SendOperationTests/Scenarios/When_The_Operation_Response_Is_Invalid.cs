@@ -22,7 +22,7 @@ namespace Tests.Unit.HAL.ControlLine.ControlLineSockets.SendOperationTests.Scena
             _operationResponseParams = operationResponseParams;
         }
 
-        public override void When()
+        protected override void When()
         {
             Operation = new OperationDto
             {

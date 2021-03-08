@@ -30,7 +30,7 @@ namespace Tests.Integration.Crosscutting.Sequencing.RunSequenceWithinSequence
                 .Returns(1);
         }
 
-        public override void Given()
+        protected override void Given()
         {
             SetUpTasks();
 

@@ -9,7 +9,7 @@ namespace Tests.Integration.HAL.ControlLine.ControlLineSockets.SendOperationTest
         Given_ControlLine_SendOperation_Was_Called : GenericGivenWhenThenTests<
             global::HAL.ControlLine.Sockets.ControlLineSockets>
     {
-        public override void Given()
+        protected override void Given()
         {
             SUT = new global::HAL.ControlLine.Sockets.ControlLineSockets(
                 new TcpClient(

@@ -13,7 +13,7 @@ namespace Tests.Unit.HAL.ControlLine.ControlLineSockets.SendOperationTests.Scena
         private readonly SocketException _socketException = new SocketException();
         private readonly byte[] _payload = {115, 121, 2, 255, 255};
 
-        public override void When()
+        protected override void When()
         {
             Operation = new OperationDto
             {

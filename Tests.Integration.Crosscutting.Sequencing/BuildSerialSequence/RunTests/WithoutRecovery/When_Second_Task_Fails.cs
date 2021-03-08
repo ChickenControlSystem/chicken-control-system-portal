@@ -22,7 +22,7 @@ namespace Tests.Integration.Crosscutting.Sequencing.BuildSerialSequence.RunTests
             _runCountFirst = runCountFirst;
         }
 
-        public override void When()
+        protected override void When()
         {
             _recoveryOptions = new RecoveryOptionsDto();
 

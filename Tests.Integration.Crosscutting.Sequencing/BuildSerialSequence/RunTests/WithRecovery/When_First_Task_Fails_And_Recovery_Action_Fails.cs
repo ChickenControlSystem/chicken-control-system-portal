@@ -22,7 +22,7 @@ namespace Tests.Integration.Crosscutting.Sequencing.BuildSerialSequence.RunTests
             _runCount = runCount;
         }
 
-        public override void When()
+        protected override void When()
         {
             _mockRecoveryTask = Substitute.For<IRunnable>();
             _mockRecoveryTask

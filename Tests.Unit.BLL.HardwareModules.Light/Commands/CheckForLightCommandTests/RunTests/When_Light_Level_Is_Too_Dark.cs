@@ -21,7 +21,7 @@ namespace Tests.Unit.BLL.HardwareModules.Light.Commands.CheckForLightCommandTest
             _lightLuxLevel = lightLuxLevel;
         }
 
-        public override void When()
+        protected override void When()
         {
             MockAnalogOperations
                 .Read(Arg.Any<IDevice>())

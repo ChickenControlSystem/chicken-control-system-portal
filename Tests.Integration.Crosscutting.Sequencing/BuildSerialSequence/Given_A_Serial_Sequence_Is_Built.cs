@@ -19,7 +19,7 @@ namespace Tests.Integration.Crosscutting.Sequencing.BuildSerialSequence
             MockThirdTask = Substitute.For<IRunnable>();
         }
 
-        public override void Given()
+        protected override void Given()
         {
             SetUpTasks();
 

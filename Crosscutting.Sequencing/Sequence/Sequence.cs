@@ -10,11 +10,11 @@ namespace Crosscutting.Sequencing.Sequence
         protected readonly List<IRunnable> Tasks;
         public RecoveryOptionsDto RecoveryOptions { get; }
         protected readonly Action FailAction;
-        protected int RunCount;
+        private readonly int _runCount;
 
         public int GetRunCount()
         {
-            return RunCount;
+            return _runCount;
         }
 
         protected Sequence(List<IRunnable> tasks, RecoveryOptionsDto recoveryOptions, Action failAction, int runCount)
@@ -22,7 +22,7 @@ namespace Crosscutting.Sequencing.Sequence
             Tasks = tasks;
             RecoveryOptions = recoveryOptions;
             FailAction = failAction;
-            RunCount = runCount;
+            _runCount = runCount;
         }
     }
 }

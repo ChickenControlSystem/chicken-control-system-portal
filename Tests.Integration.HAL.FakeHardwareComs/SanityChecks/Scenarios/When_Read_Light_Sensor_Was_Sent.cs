@@ -6,7 +6,7 @@ namespace Tests.Integration.HAL.FakeHardwareComs.SanityChecks.Scenarios
     {
         private byte[] _result;
 
-        public override void When()
+        protected override void When()
         {
             _result = SendAndGetResponse(new byte[] {1, 1});
         }

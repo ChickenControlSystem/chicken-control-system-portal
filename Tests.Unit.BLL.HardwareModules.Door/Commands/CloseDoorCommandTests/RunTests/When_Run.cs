@@ -20,7 +20,7 @@ namespace Tests.Unit.BLL.HardwareModules.Door.Commands.CloseDoorCommandTests.Run
             _expectedResult = expectedResult;
         }
 
-        public override void When()
+        protected override void When()
         {
             MockErrorValidateOperationService
                 .GetSequenceResult(Arg.Any<OperationResultEnum>())
