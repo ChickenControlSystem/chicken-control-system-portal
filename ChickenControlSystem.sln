@@ -59,7 +59,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tests.Integration.Crosscutt
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Crosscutting.DateTime", "Crosscutting.DateTime\Crosscutting.DateTime.csproj", "{8AB51967-84D5-4EA1-BD68-F18F1F5BDA48}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BLL.FunctionalModules.Coup", "BLL.FunctionalModules.Coup\BLL.FunctionalModules.Coup.csproj", "{B23FC4C0-162B-4EB7-9F7A-CC8631D85F95}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BLL.FunctionalModules.CoupEntrance", "BLL.FunctionalModules.CoupEntrance\BLL.FunctionalModules.CoupEntrance.csproj", "{B23FC4C0-162B-4EB7-9F7A-CC8631D85F95}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tests.Integration.BLL.FunctionalModules.Coup", "Tests.Integration.BLL.FunctionalModules.Coup\Tests.Integration.BLL.FunctionalModules.Coup.csproj", "{688ACFAA-E88D-43F4-88AA-6A065B82F5BB}"
 EndProject

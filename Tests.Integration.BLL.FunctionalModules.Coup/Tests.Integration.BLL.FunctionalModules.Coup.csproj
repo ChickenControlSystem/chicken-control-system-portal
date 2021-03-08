@@ -14,7 +14,7 @@
     </ItemGroup>
 
     <ItemGroup>
-        <ProjectReference Include="..\BLL.FunctionalModules.Coup\BLL.FunctionalModules.Coup.csproj"/>
+        <ProjectReference Include="..\BLL.FunctionalModules.CoupEntrance\BLL.FunctionalModules.CoupEntrance.csproj"/>
         <ProjectReference Include="..\Crosscutting.UnitTest\Crosscutting.UnitTest.csproj"/>
     </ItemGroup>
 

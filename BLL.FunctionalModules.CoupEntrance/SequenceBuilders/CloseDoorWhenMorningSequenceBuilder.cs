@@ -1,11 +1,11 @@
 ﻿using System;
-using BLL.FunctionalModules.Coup.Contract;
+using BLL.FunctionalModules.CoupEntrance.Contract;
 using BLL.HardwareModules.Door.Contract;
 using BLL.HardwareModules.Light.Contract;
 using Crosscutting.DateTime;
 using Crosscutting.Sequencing.Contract;
 
-namespace BLL.FunctionalModules.Coup.SequenceBuilders
+namespace BLL.FunctionalModules.CoupEntrance.SequenceBuilders
 {
     //TODO: refactor time stuff out
     public class CloseDoorWhenMorningSequenceBuilder : ICloseDoorWhenMorningSequenceBuilder

@@ -1,5 +1,5 @@
 ﻿using System;
-using BLL.FunctionalModules.Coup.SequenceBuilders;
+using BLL.FunctionalModules.CoupEntrance.SequenceBuilders;
 using BLL.HardwareModules.Door.Contract;
 using BLL.HardwareModules.Light.Contract;
 using Crosscutting.DateTime;
