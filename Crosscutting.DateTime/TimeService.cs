@@ -1,5 +1,5 @@
 ﻿using System;
-using Crosscutting.Services.Contract.Crosscutting.Interface.Utilities;
+using Bootstrapping.Services.Contract.Crosscutting.Interface.Utilities;
 
 namespace Crosscutting.DateTime
 {

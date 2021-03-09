@@ -1,6 +1,6 @@
 ﻿using System.Linq;
 using System.Net.Sockets;
-using Crosscutting.Services.Contract.HAL.Dto;
+using Bootstrapping.Services.Contract.HAL.Dto;
 using NSubstitute;
 using NSubstitute.ExceptionExtensions;
 using NUnit.Framework;

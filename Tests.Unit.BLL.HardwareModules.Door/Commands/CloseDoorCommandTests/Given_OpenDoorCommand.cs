@@ -1,6 +1,6 @@
 ﻿using BLL.HardwareModules.Door.Commands;
-using Crosscutting.Services.Contract.Crosscutting.Interface.Sequencing;
-using Crosscutting.Services.Contract.HAL.Interface;
+using Bootstrapping.Services.Contract.Crosscutting.Interface.Sequencing;
+using Bootstrapping.Services.Contract.HAL.Interface;
 using Crosscutting.UnitTest;
 using HAL.Models.Device;
 using NSubstitute;

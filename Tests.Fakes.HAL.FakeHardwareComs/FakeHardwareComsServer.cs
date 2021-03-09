@@ -3,8 +3,8 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net.Sockets;
+using Bootstrapping.Services.Contract.Crosscutting.Interface.Utilities;
 using Crosscutting.ApplicationConfiguration.Enviroment.Configuration;
-using Crosscutting.Services.Contract.Crosscutting.Interface.Utilities;
 
 namespace Tests.Fakes.HAL.FakeHardwareComs
 {

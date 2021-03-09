@@ -1,5 +1,5 @@
-﻿using Crosscutting.Services.Contract.HAL.Dto;
-using Crosscutting.Services.Contract.HAL.Interface;
+﻿using Bootstrapping.Services.Contract.HAL.Dto;
+using Bootstrapping.Services.Contract.HAL.Interface;
 
 namespace HAL.Operations
 {

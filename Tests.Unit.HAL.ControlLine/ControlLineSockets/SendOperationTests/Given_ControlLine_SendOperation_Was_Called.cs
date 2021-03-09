@@ -1,5 +1,5 @@
-﻿using Crosscutting.Services.Contract.Crosscutting.Interface.Utilities;
-using Crosscutting.Services.Contract.HAL.Dto;
+﻿using Bootstrapping.Services.Contract.Crosscutting.Interface.Utilities;
+using Bootstrapping.Services.Contract.HAL.Dto;
 using Crosscutting.UnitTest;
 using NSubstitute;
 

@@ -2,10 +2,10 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Net.Sockets;
+using Bootstrapping.Services.Contract.Crosscutting.Interface.Utilities;
+using Bootstrapping.Services.Contract.HAL.Dto;
+using Bootstrapping.Services.Contract.HAL.Interface;
 using Crosscutting.CodeContracts;
-using Crosscutting.Services.Contract.Crosscutting.Interface.Utilities;
-using Crosscutting.Services.Contract.HAL.Dto;
-using Crosscutting.Services.Contract.HAL.Interface;
 
 namespace HAL.ControlLine.Sockets
 {

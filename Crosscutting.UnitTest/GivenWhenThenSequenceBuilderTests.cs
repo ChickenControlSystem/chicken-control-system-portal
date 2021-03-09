@@ -1,7 +1,7 @@
-﻿using Crosscutting.Sequencing.Sequence;
-using Crosscutting.Services.Contract.Crosscutting.Enum.Sequencing;
-using Crosscutting.Services.Contract.Crosscutting.Interface.Sequencing;
-using Crosscutting.Services.Contract.Crosscutting.Interface.Utilities;
+﻿using Bootstrapping.Services.Contract.Crosscutting.Enum.Sequencing;
+using Bootstrapping.Services.Contract.Crosscutting.Interface.Sequencing;
+using Bootstrapping.Services.Contract.Crosscutting.Interface.Utilities;
+using Crosscutting.Sequencing.Sequence;
 using NSubstitute;
 
 namespace Crosscutting.UnitTest

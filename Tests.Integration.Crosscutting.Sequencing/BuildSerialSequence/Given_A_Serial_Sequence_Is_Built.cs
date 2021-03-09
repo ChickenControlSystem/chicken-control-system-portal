@@ -1,6 +1,6 @@
-﻿using Crosscutting.Sequencing.Sequence;
-using Crosscutting.Services.Contract.Crosscutting.Interface.Sequencing;
-using Crosscutting.Services.Contract.Crosscutting.Interface.Utilities;
+﻿using Bootstrapping.Services.Contract.Crosscutting.Interface.Sequencing;
+using Bootstrapping.Services.Contract.Crosscutting.Interface.Utilities;
+using Crosscutting.Sequencing.Sequence;
 using Crosscutting.UnitTest;
 using NSubstitute;
 

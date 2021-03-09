@@ -1,7 +1,7 @@
 ﻿using System;
-using Crosscutting.Services.Contract.Crosscutting.Enum.Sequencing;
-using Crosscutting.Services.Contract.Crosscutting.Interface.Sequencing;
-using Crosscutting.Services.Contract.HAL.Enum;
+using Bootstrapping.Services.Contract.Crosscutting.Enum.Sequencing;
+using Bootstrapping.Services.Contract.Crosscutting.Interface.Sequencing;
+using Bootstrapping.Services.Contract.HAL.Enum;
 
 namespace Crosscutting.Sequencing.Command
 {

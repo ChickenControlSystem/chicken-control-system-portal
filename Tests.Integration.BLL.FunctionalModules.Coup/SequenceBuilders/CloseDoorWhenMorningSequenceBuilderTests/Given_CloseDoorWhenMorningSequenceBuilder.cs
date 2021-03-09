@@ -1,11 +1,11 @@
 ﻿using System;
 using BLL.FunctionalModules.CoupEntrance.SequenceBuilders;
+using Bootstrapping.Services.Contract.BLL.Interface;
+using Bootstrapping.Services.Contract.Crosscutting.Dto.Sequencing;
+using Bootstrapping.Services.Contract.Crosscutting.Enum.Sequencing;
+using Bootstrapping.Services.Contract.Crosscutting.Interface.Sequencing;
+using Bootstrapping.Services.Contract.Crosscutting.Interface.Utilities;
 using Crosscutting.DateTime;
-using Crosscutting.Services.Contract.BLL.Interface;
-using Crosscutting.Services.Contract.Crosscutting.Dto.Sequencing;
-using Crosscutting.Services.Contract.Crosscutting.Enum.Sequencing;
-using Crosscutting.Services.Contract.Crosscutting.Interface.Sequencing;
-using Crosscutting.Services.Contract.Crosscutting.Interface.Utilities;
 using Crosscutting.UnitTest;
 using NSubstitute;
 

@@ -1,7 +1,7 @@
-﻿using Crosscutting.Services.Contract.Crosscutting.Enum.Sequencing;
-using Crosscutting.Services.Contract.HAL.Dto;
-using Crosscutting.Services.Contract.HAL.Enum;
-using Crosscutting.Services.Contract.HAL.Interface;
+﻿using Bootstrapping.Services.Contract.Crosscutting.Enum.Sequencing;
+using Bootstrapping.Services.Contract.HAL.Dto;
+using Bootstrapping.Services.Contract.HAL.Enum;
+using Bootstrapping.Services.Contract.HAL.Interface;
 using NSubstitute;
 using NUnit.Framework;
 

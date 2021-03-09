@@ -5,8 +5,8 @@
     </PropertyGroup>
 
     <ItemGroup>
+        <ProjectReference Include="..\Bootstrapping.Services.Contract.BLL\Bootstrapping.Services.Contract.BLL.csproj"/>
         <ProjectReference Include="..\Crosscutting.Sequencing\Crosscutting.Sequencing.csproj"/>
-        <ProjectReference Include="..\Crosscutting.Services.Contract.BLL\Crosscutting.Services.Contract.BLL.csproj"/>
         <ProjectReference Include="..\HAL.Operations\HAL.Operations.csproj"/>
     </ItemGroup>
 

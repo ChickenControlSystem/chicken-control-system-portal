@@ -1,5 +1,5 @@
 ﻿using System;
-using Crosscutting.Services.Contract.HAL.Dto;
+using Bootstrapping.Services.Contract.HAL.Dto;
 using NSubstitute;
 using NUnit.Framework;
 using Tests.Unit.HAL.ControlLine.ControlLineSockets.SendOperationTests.Scenarios.Shared.Socket;

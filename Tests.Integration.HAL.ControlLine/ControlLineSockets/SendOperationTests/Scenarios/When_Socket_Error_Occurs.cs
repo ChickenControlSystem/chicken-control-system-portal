@@ -1,5 +1,5 @@
 ﻿using System.Net.Sockets;
-using Crosscutting.Services.Contract.HAL.Dto;
+using Bootstrapping.Services.Contract.HAL.Dto;
 using NUnit.Framework;
 
 namespace Tests.Integration.HAL.ControlLine.ControlLineSockets.SendOperationTests.Scenarios

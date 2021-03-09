@@ -1,7 +1,7 @@
 ﻿using BLL.HardwareModules.Light.Commands;
-using Crosscutting.Services.Contract.Crosscutting.Interface.Sequencing;
-using Crosscutting.Services.Contract.Crosscutting.Interface.Utilities;
-using Crosscutting.Services.Contract.HAL.Interface;
+using Bootstrapping.Services.Contract.Crosscutting.Interface.Sequencing;
+using Bootstrapping.Services.Contract.Crosscutting.Interface.Utilities;
+using Bootstrapping.Services.Contract.HAL.Interface;
 using Crosscutting.UnitTest;
 using NSubstitute;
 
