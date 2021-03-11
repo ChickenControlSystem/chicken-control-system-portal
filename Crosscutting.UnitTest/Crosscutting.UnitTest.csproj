@@ -1,0 +1,17 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFramework>netcoreapp3.1</TargetFramework>
+        <RootNamespace>Crosscutting.UnitTest</RootNamespace>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <PackageReference Include="NSubstitute" Version="4.2.2"/>
+        <PackageReference Include="nunit" Version="3.13.1"/>
+    </ItemGroup>
+
+    <ItemGroup>
+        <ProjectReference Include="..\Crosscutting.Sequencing\Crosscutting.Sequencing.csproj"/>
+    </ItemGroup>
+
+</Project>

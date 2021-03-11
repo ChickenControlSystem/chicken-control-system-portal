@@ -1,8 +1,5 @@
-﻿using ControlLine.Contract;
-using ControlLine.Dto;
-using HAL.Models.Contract;
-using HAL.Operations.Contract;
-using HAL.Operations.Dto;
+﻿using Bootstrapping.Services.Contract.HAL.Dto;
+using Bootstrapping.Services.Contract.HAL.Interface;
 
 namespace HAL.Operations
 {

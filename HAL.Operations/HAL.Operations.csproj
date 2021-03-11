@@ -5,8 +5,8 @@
     </PropertyGroup>
 
     <ItemGroup>
+        <ProjectReference Include="..\HAL.ControlLine\HAL.ControlLine.csproj"/>
         <ProjectReference Include="..\HAL.Models\HAL.Models.csproj"/>
-        <ProjectReference Include="..\HardwareComs.ControlLine\HardwareComs.ControlLine.csproj"/>
     </ItemGroup>
 
 </Project>

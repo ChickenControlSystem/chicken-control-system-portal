@@ -5,8 +5,9 @@
     </PropertyGroup>
 
     <ItemGroup>
-        <ProjectReference Include="..\BLL.Common\BLL.Common.csproj"/>
-        <ProjectReference Include="..\Common.DateTime\Common.DateTime.csproj"/>
+        <ProjectReference Include="..\Bootstrapping.Services.Contract.BLL\Bootstrapping.Services.Contract.BLL.csproj"/>
+        <ProjectReference Include="..\Crosscutting.DateTime\Crosscutting.DateTime.csproj"/>
+        <ProjectReference Include="..\Crosscutting.Sequencing\Crosscutting.Sequencing.csproj"/>
     </ItemGroup>
 
 </Project>

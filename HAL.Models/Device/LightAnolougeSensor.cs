@@ -1,4 +1,4 @@
-﻿using HAL.Models.Contract;
+﻿using Bootstrapping.Services.Contract.HAL.Interface;
 
 namespace HAL.Models.Device
 {

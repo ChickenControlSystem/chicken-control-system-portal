@@ -1,0 +1,14 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFramework>netcoreapp3.1</TargetFramework>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <ProjectReference Include="..\Crosscutting.ApplicationConfiguration.Enviroment\Crosscutting.ApplicationConfiguration.Enviroment.csproj"/>
+        <ProjectReference Include="..\Crosscutting.CodeContracts\Crosscutting.CodeContracts.csproj"/>
+        <ProjectReference Include="..\Crosscutting.Threading\Crosscutting.Threading.csproj"/>
+        <ProjectReference Include="..\Crosscutting.UnitTest\Crosscutting.UnitTest.csproj"/>
+    </ItemGroup>
+
+</Project>

@@ -1,7 +1,7 @@
 ﻿using System;
-using CodeContracts;
-using HAL.Operations.Contract;
-using HAL.Operations.Enum;
+using Bootstrapping.Services.Contract.HAL.Enum;
+using Bootstrapping.Services.Contract.HAL.Interface;
+using Crosscutting.CodeContracts;
 
 namespace HAL.Operations
 {

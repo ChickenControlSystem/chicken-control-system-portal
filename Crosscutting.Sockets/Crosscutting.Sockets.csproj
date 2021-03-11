@@ -1,0 +1,13 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFramework>netcoreapp3.1</TargetFramework>
+        <RootNamespace>Crosscutting.Sockets</RootNamespace>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <ProjectReference Include="..\Bootstrapping.Services.Contract.Crosscutting\Bootstrapping.Services.Contract.Crosscutting.csproj"/>
+        <ProjectReference Include="..\Crosscutting.Threading\Crosscutting.Threading.csproj"/>
+    </ItemGroup>
+
+</Project>

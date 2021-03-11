@@ -1,10 +1,9 @@
-﻿using BLL.Common.Contract;
-using BLL.Common.Sequence;
-using BLL.Common.TaskRecovery;
-using BLL.HardwareModules.Light.Contract;
-using HAL.Models.Contract;
-using HAL.Operations.Contract;
-using Threading;
+﻿using Bootstrapping.Services.Contract.BLL.Interface;
+using Bootstrapping.Services.Contract.Crosscutting.Dto.Sequencing;
+using Bootstrapping.Services.Contract.Crosscutting.Enum.Sequencing;
+using Bootstrapping.Services.Contract.Crosscutting.Interface.Sequencing;
+using Bootstrapping.Services.Contract.Crosscutting.Interface.Utilities;
+using Bootstrapping.Services.Contract.HAL.Interface;
 
 namespace BLL.HardwareModules.Light.Commands
 {
@@ -14,8 +13,9 @@ namespace BLL.HardwareModules.Light.Commands
         private readonly IValidateOperationService _validateOperationService;
         private readonly ILightSensor _lightSensor;
         private readonly IThreadOperations _threadOperations;
+        private int _runCount;
 
-        public int RunCount { get; }
+
         public RecoveryOptionsDto RecoveryOptions { get; }
 
         public CheckForLightCommand(IValidateOperationService validateOperationService,
@@ -26,7 +26,6 @@ namespace BLL.HardwareModules.Light.Commands
             _lightSensor = lightSensor;
             _threadOperations = threadOperations;
 
-            RunCount = 12;
             RecoveryOptions = new RecoveryOptionsDto(true, Recover);
         }
 
@@ -56,6 +55,16 @@ namespace BLL.HardwareModules.Light.Commands
             //TODO: report error to UI
             //TODO: log error
             return SequenceResultEnum.Success;
+        }
+
+        public void SetRunCountBeforeMorning(int runCount)
+        {
+            _runCount = runCount;
+        }
+
+        public int GetRunCount()
+        {
+            return _runCount;
         }
     }
 }
