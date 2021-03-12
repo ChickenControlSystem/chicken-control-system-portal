@@ -18,9 +18,9 @@ namespace Tests.Integration.HAL.FakeHardwareComs.SanityChecks.Scenarios
         }
 
         [Test]
-        public void Then_Device_Offline_Is_Returned()
+        public void Then_Success_Is_Returned()
         {
-            Assert.AreEqual(4, _result[0]);
+            Assert.AreEqual(1, _result[0]);
         }
     }
 }

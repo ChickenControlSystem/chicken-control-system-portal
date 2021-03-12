@@ -10,10 +10,8 @@ namespace Tests.Integration.HAL.Operations
         {
             Service = new FakeHardwareComsServer(
                 new ThreadOperations(),
-                new RequestResponseFlagsDto
-                {
-                    AbsoluteMoveDoorFail = true
-                }
+                FakeHardwareComsHelper
+                    .GetDefaultMockRequestResponseCollection()
             );
         }
     }
