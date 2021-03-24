@@ -9,7 +9,7 @@ namespace Tests.Integration.HAL.Operations.AxisOperations.Scenarios
         [Test]
         public void Then_Move_Is_Move_Result()
         {
-            Assert.AreEqual(OperationResultEnum.Failiure, SUT.MoveAxisAbsolute(new DoorAxis(), 120));
+            Assert.AreEqual(OperationResultEnum.Succeess, SUT.MoveAxisAbsolute(new DoorAxis(), 120));
         }
     }
 }

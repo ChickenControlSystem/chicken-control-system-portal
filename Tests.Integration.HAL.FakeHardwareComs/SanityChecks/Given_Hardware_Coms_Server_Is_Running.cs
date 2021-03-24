@@ -10,12 +10,8 @@ namespace Tests.Integration.HAL.FakeHardwareComs.SanityChecks
         {
             Service = new FakeHardwareComsServer(
                 new ThreadOperations(),
-                new RequestResponseFlagsDto
-                {
-                    AbsoluteMoveDoorFail = true,
-                    ReadLightFail = false,
-                    RelativeMoveDoorFail = false
-                }
+                FakeHardwareComsHelper
+                    .GetDefaultMockRequestResponseCollection()
             );
         }
     }

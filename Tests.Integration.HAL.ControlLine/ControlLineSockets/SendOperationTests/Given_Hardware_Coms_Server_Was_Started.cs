@@ -10,7 +10,8 @@ namespace Tests.Integration.HAL.ControlLine.ControlLineSockets.SendOperationTest
         {
             Service = new FakeHardwareComsServer(
                 new ThreadOperations(),
-                new RequestResponseFlagsDto()
+                FakeHardwareComsHelper
+                    .GetDefaultMockRequestResponseCollection()
             );
         }
     }
