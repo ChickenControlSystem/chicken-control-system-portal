@@ -2,11 +2,10 @@
 using System.Collections.Generic;
 using System.Linq;
 using NSubstitute;
-using Tests.Fakes.HAL.FakeHardwareComs.RequestResponses;
 
-namespace Tests.Fakes.HAL.FakeHardwareComs
+namespace Tests.Fakes.HAL.FakeHardwareComs.RequestResponses
 {
-    public class FluentNSubsituteRequestResponseBuilder
+    public class FluentNSubsituteRequestResponseCollectionBuilder
     {
         private IRequestResponseCollection _requestResponseCollection;
         private readonly NSubsituteRequestResponseCollectionFactory _nSubsituteRequestResponseCollectionFactory;
@@ -14,7 +13,7 @@ namespace Tests.Fakes.HAL.FakeHardwareComs
         private readonly List<Tuple<byte[], byte[], byte[]>> _doubleRequestResponses;
         private readonly List<Tuple<byte[], byte[], byte[], byte[]>> _trippleRequestResponses;
 
-        public FluentNSubsituteRequestResponseBuilder(
+        public FluentNSubsituteRequestResponseCollectionBuilder(
             NSubsituteRequestResponseCollectionFactory nSubsituteRequestResponseCollectionFactory)
         {
             _nSubsituteRequestResponseCollectionFactory = nSubsituteRequestResponseCollectionFactory;
@@ -23,7 +22,7 @@ namespace Tests.Fakes.HAL.FakeHardwareComs
             _trippleRequestResponses = new List<Tuple<byte[], byte[], byte[], byte[]>>();
         }
 
-        public FluentNSubsituteRequestResponseBuilder AddUpRequestResponse(
+        public FluentNSubsituteRequestResponseCollectionBuilder AddUpRequestResponse(
             byte[] request,
             byte[] response
         )
@@ -32,7 +31,7 @@ namespace Tests.Fakes.HAL.FakeHardwareComs
             return this;
         }
 
-        public FluentNSubsituteRequestResponseBuilder AddUpRequestResponse(
+        public FluentNSubsituteRequestResponseCollectionBuilder AddUpRequestResponse(
             byte[] request,
             byte[] response1,
             byte[] response2
@@ -42,7 +41,7 @@ namespace Tests.Fakes.HAL.FakeHardwareComs
             return this;
         }
 
-        public FluentNSubsituteRequestResponseBuilder AddUpRequestResponse(
+        public FluentNSubsituteRequestResponseCollectionBuilder AddUpRequestResponse(
             byte[] request,
             byte[] response1,
             byte[] response2,
@@ -54,7 +53,7 @@ namespace Tests.Fakes.HAL.FakeHardwareComs
             return this;
         }
 
-        private FluentNSubsituteRequestResponseBuilder SetUpRequestResponse(
+        private FluentNSubsituteRequestResponseCollectionBuilder SetUpRequestResponse(
             byte[] request,
             byte[] response
         )
@@ -67,7 +66,7 @@ namespace Tests.Fakes.HAL.FakeHardwareComs
             return this;
         }
 
-        private FluentNSubsituteRequestResponseBuilder SetUpRequestResponse(
+        private FluentNSubsituteRequestResponseCollectionBuilder SetUpRequestResponse(
             byte[] request,
             byte[] response1,
             byte[] response2
@@ -84,7 +83,7 @@ namespace Tests.Fakes.HAL.FakeHardwareComs
             return this;
         }
 
-        private FluentNSubsituteRequestResponseBuilder SetUpRequestResponse(
+        private FluentNSubsituteRequestResponseCollectionBuilder SetUpRequestResponse(
             byte[] request,
             byte[] response1,
             byte[] response2,

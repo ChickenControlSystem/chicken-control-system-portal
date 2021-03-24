@@ -1,7 +1,6 @@
 ﻿using NSubstitute;
-using Tests.Fakes.HAL.FakeHardwareComs.RequestResponses;
 
-namespace Tests.Fakes.HAL.FakeHardwareComs
+namespace Tests.Fakes.HAL.FakeHardwareComs.RequestResponses
 {
     public class NSubsituteRequestResponseCollectionFactory
     {

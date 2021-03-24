@@ -1,20 +1,19 @@
-﻿using Tests.Fakes.HAL.FakeHardwareComs.RequestResponses;
-
-namespace Tests.Fakes.HAL.FakeHardwareComs
+﻿namespace Tests.Fakes.HAL.FakeHardwareComs.RequestResponses
 {
     public class DefaultMockRequestResponseBuilder
     {
-        private readonly FluentNSubsituteRequestResponseBuilder _fluentNSubsituteRequestResponseBuilder;
+        private readonly FluentNSubsituteRequestResponseCollectionBuilder
+            _fluentNSubsituteRequestResponseCollectionBuilder;
 
         public DefaultMockRequestResponseBuilder(
-            FluentNSubsituteRequestResponseBuilder fluentNSubsituteRequestResponseBuilder)
+            FluentNSubsituteRequestResponseCollectionBuilder fluentNSubsituteRequestResponseCollectionBuilder)
         {
-            _fluentNSubsituteRequestResponseBuilder = fluentNSubsituteRequestResponseBuilder;
+            _fluentNSubsituteRequestResponseCollectionBuilder = fluentNSubsituteRequestResponseCollectionBuilder;
         }
 
         public IRequestResponseCollection Build()
         {
-            return _fluentNSubsituteRequestResponseBuilder
+            return _fluentNSubsituteRequestResponseCollectionBuilder
                 .AddUpRequestResponse(
                     //move door absolute
                     new byte[] {2, 2, 1, 120, 0, 0, 0, 0},

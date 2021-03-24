@@ -7,7 +7,7 @@ namespace Tests.Fakes.HAL.FakeHardwareComs
         public static IRequestResponseCollection GetDefaultMockRequestResponseCollection()
         {
             var defaultMockBuilder = new DefaultMockRequestResponseBuilder(
-                new FluentNSubsituteRequestResponseBuilder(
+                new FluentNSubsituteRequestResponseCollectionBuilder(
                     new NSubsituteRequestResponseCollectionFactory()
                 )
             );
