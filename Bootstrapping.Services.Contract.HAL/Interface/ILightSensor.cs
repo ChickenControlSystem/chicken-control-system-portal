@@ -1,6 +1,6 @@
 ﻿namespace Bootstrapping.Services.Contract.HAL.Interface
 {
-    public interface ILightSensor : IDevice
+    public interface ILightSensor : IAnologSensor
     {
     }
 }
