@@ -1,7 +1,7 @@
 ﻿#nullable enable
 using System;
 using System.Net.Sockets;
-using Bootstrapping.Services.Contract.Crosscutting.Interface.Utilities;
+using Bootstrapping.Services.Contract.Crosscutting.Utils;
 using Crosscutting.ApplicationConfiguration.Enviroment.Configuration;
 using Tests.Fakes.HAL.FakeHardwareComs.RequestResponses;
 

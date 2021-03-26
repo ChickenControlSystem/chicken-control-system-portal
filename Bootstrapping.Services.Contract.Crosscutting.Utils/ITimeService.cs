@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Bootstrapping.Services.Contract.Crosscutting.Interface.Utilities
+namespace Bootstrapping.Services.Contract.Crosscutting.Utils
 {
     public interface ITimeService
     {

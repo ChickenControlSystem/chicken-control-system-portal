@@ -1,4 +1,4 @@
-﻿using Bootstrapping.Services.Contract.Crosscutting.Interface.Utilities;
+﻿using Bootstrapping.Services.Contract.Crosscutting.Utils;
 using NUnit.Framework;
 
 namespace Crosscutting.UnitTest

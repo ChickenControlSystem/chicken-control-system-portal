@@ -1,6 +1,8 @@
-﻿namespace Bootstrapping.Services.Contract.HAL.Interface
+﻿using Bootstrapping.Services.Contract.Crosscutting.Utils;
+
+namespace Bootstrapping.Services.Contract.HAL.Interface
 {
-    public interface ILightSensor : IAnologSensor
+    public interface ILightSensor : IDataMemory<double>, IDevice
     {
     }
 }

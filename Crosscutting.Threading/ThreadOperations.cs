@@ -2,7 +2,7 @@
 using System.Threading;
 using System.Threading.Tasks;
 using Bootstrapping.Services.Contract.Crosscutting.Exception;
-using Bootstrapping.Services.Contract.Crosscutting.Interface.Utilities;
+using Bootstrapping.Services.Contract.Crosscutting.Utils;
 
 namespace Crosscutting.Threading
 {

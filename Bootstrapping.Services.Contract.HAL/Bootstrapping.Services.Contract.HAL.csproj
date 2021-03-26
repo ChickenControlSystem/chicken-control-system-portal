@@ -4,4 +4,8 @@
         <TargetFramework>netcoreapp3.1</TargetFramework>
     </PropertyGroup>
 
+    <ItemGroup>
+        <ProjectReference Include="..\Bootstrapping.Services.Contract.Crosscutting.Utils\Bootstrapping.Services.Contract.Crosscutting.Utils.csproj"/>
+    </ItemGroup>
+
 </Project>

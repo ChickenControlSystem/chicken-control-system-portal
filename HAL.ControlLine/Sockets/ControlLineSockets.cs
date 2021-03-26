@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Net.Sockets;
-using Bootstrapping.Services.Contract.Crosscutting.Interface.Utilities;
+using Bootstrapping.Services.Contract.Crosscutting.Utils;
 using Bootstrapping.Services.Contract.HAL.Dto;
 using Bootstrapping.Services.Contract.HAL.Interface;
 using Crosscutting.CodeContracts;

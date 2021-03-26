@@ -1,4 +1,4 @@
-﻿namespace Bootstrapping.Services.Contract.Crosscutting.Interface.Utilities
+﻿namespace Bootstrapping.Services.Contract.Crosscutting.Utils
 {
     /// <summary>
     ///     a module that receives and sends to a raw ip socket server

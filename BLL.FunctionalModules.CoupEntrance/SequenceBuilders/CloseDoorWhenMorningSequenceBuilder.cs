@@ -1,7 +1,7 @@
 ﻿using System;
 using Bootstrapping.Services.Contract.BLL.Interface;
 using Bootstrapping.Services.Contract.Crosscutting.Interface.Sequencing;
-using Bootstrapping.Services.Contract.Crosscutting.Interface.Utilities;
+using Bootstrapping.Services.Contract.Crosscutting.Utils;
 
 namespace BLL.FunctionalModules.CoupEntrance.SequenceBuilders
 {

@@ -2,7 +2,7 @@
 using Bootstrapping.Services.Contract.Crosscutting.Dto.Sequencing;
 using Bootstrapping.Services.Contract.Crosscutting.Enum.Sequencing;
 using Bootstrapping.Services.Contract.Crosscutting.Interface.Sequencing;
-using Bootstrapping.Services.Contract.Crosscutting.Interface.Utilities;
+using Bootstrapping.Services.Contract.Crosscutting.Utils;
 
 namespace Crosscutting.Sequencing.GenericTasks
 {

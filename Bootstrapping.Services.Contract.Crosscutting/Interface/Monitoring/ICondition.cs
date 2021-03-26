@@ -1,11 +1,14 @@
 ﻿using System;
+using Bootstrapping.Services.Contract.Crosscutting.Utils;
 
 namespace Bootstrapping.Services.Contract.Crosscutting.Interface.Monitoring
 {
-    public interface ICondition
+    public interface ICondition : IDataMemory<bool>
     {
-        public bool IsValid { get; set; }
+        public bool IsValid { get; }
 
-        public event Action ConditionIsValidEvent;
+        public event Action ConditionValid;
+
+        bool Evaluate();
     }
 }

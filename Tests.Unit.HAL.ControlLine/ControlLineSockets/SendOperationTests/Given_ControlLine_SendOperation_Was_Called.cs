@@ -1,4 +1,4 @@
-﻿using Bootstrapping.Services.Contract.Crosscutting.Interface.Utilities;
+﻿using Bootstrapping.Services.Contract.Crosscutting.Utils;
 using Bootstrapping.Services.Contract.HAL.Dto;
 using Crosscutting.UnitTest;
 using NSubstitute;
